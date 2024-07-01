@@ -2,6 +2,8 @@ import React from "react";
 import "./Sidebar.css";
 import PersonIcon from "@mui/icons-material/Person";
 import DisabledByDefaultIcon from "@mui/icons-material/DisabledByDefault";
+import { Link } from "react-router-dom";
+
 function Sidebar() {
   return (
     <>
@@ -22,21 +24,21 @@ function Sidebar() {
         </div>
         <nav>
           <ul>
-            <li>
-              <a>Home</a>
-            </li>
-            <li>
-              <a>Statistics</a>
-            </li>
-            <li>
-              <a>Messagess</a>
-            </li>
-            <li>
-              <a>Arcticles</a>
-            </li>
-            <li>
-              <a>My List</a>
-            </li>
+            <Link to="/home">
+              <li>Home</li>
+            </Link>
+            <Link to="/statistics">
+              <li>Statistics</li>
+            </Link>
+            <Link to="/messagess">
+              <li>Messagess</li>
+            </Link>
+            <Link to="/articles">
+              <li>Articles</li>
+            </Link>
+            <Link to="/mylist">
+              <li>My List</li>
+            </Link>
           </ul>
         </nav>
         <div className="sign-out-container">

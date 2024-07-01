@@ -11,3 +11,6 @@ html{
 li{
   list-style: none;
 }
+.flex{
+  display: flex;
+}
