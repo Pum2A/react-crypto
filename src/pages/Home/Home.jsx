@@ -77,6 +77,23 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="grid-second-container">
+        <div
+          className="block"
+          style={{ height: "300px", border: "1px solid green" }}>
+          <div className="items-container">
+            <div className="item-container">
+              <div className="item">
+                <div></div>
+              </div>
+              <div className="item-desc">
+                <p>BITCOIN</p>
+                <p style={{ color: "#E9C46A" }}>2.54$</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
