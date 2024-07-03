@@ -5,8 +5,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <Sidebar className="flex"></Sidebar>
-      <MainContent />
+      <div className="flex">
+        <Sidebar></Sidebar>
+        <MainContent />
+      </div>
     </Router>
   );
 }
