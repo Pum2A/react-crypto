@@ -6,7 +6,7 @@ const Home = () => {
     <>
       <h1>HOME</h1>
       <div className="grid-container">
-        <div className="block" style={{ border: "1px solid #E9C46A" }}>
+        <div className="block" style={{ border: "13px solid #E9C46A" }}>
           <h2>TRENDING NOW</h2>
           <div className="items-container">
             <div className="item-container">
@@ -56,7 +56,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="block" style={{ border: "1px solid #FF2E63" }}>
+        <div className="block" style={{ border: "13px solid #FF2E63" }}>
           <h2>BIGGEST LOSTS</h2>
           <div className="item">
             <div></div>
@@ -66,7 +66,7 @@ const Home = () => {
             <p style={{ color: "#FF2E63" }}>2.54$</p>
           </div>
         </div>
-        <div className="block" style={{ border: "1px solid #36BA98" }}>
+        <div className="block" style={{ border: "13px solid #36BA98" }}>
           <h2>BIGGEST WINS</h2>
           <div className="item">
             <div></div>
@@ -80,7 +80,7 @@ const Home = () => {
       <div className="grid-second-container">
         <div
           className="block"
-          style={{ height: "300px", border: "1px solid green" }}>
+          style={{ height: "300px", border: "13px solid green" }}>
           <div className="items-container">
             <div className="item-container">
               <div className="item">
@@ -88,7 +88,7 @@ const Home = () => {
               </div>
               <div className="item-desc">
                 <p>BITCOIN</p>
-                <p style={{ color: "#E9C46A" }}>2.54$</p>
+                <p style={{ color: "green" }}>2.54$</p>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Sidebar.css";
-import { Link } from "react-router-dom";
 import DisabledByDefaultIcon from "@mui/icons-material/DisabledByDefault";
 import HomeIcon from "@mui/icons-material/Home";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
@@ -10,9 +10,14 @@ import ListIcon from "@mui/icons-material/List";
 
 function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const location = useLocation();
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
   };
 
   return (
@@ -27,31 +32,31 @@ function Sidebar() {
       <nav className={`${isCollapsed ? "collapsed" : ""}`}>
         <ul>
           <Link to="/home">
-            <li>
+            <li className={isActive("/home") ? "active" : ""}>
               <HomeIcon />
               <span>Home</span>
             </li>
           </Link>
           <Link to="/statistics">
-            <li>
+            <li className={isActive("/statistics") ? "active" : ""}>
               <QueryStatsIcon />
               <span>Statistics</span>
             </li>
           </Link>
           <Link to="/messages">
-            <li>
+            <li className={isActive("/messages") ? "active" : ""}>
               <MessageIcon />
               <span>Messages</span>
             </li>
           </Link>
           <Link to="/articles">
-            <li>
+            <li className={isActive("/articles") ? "active" : ""}>
               <ArticleIcon />
               <span>Articles</span>
             </li>
           </Link>
           <Link to="/mylist">
-            <li>
+            <li className={isActive("/mylist") ? "active" : ""}>
               <ListIcon />
               <span>My List</span>
             </li>
