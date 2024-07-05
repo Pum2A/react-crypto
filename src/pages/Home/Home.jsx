@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./Home.css";
+import Crypto from "../../components/Crypto/Crypto";
 
-const Home = ({ data }) => {
+const Home = () => {
+  const { cryptoData, loading, error } = useContext(CryptoContext);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!cryptoData) {
+    // Dodaj warunek sprawdzający, czy cryptoData istnieje
+    return <div>No data available</div>;
+  }
+
+  const limitedCryptoData = cryptoData.slice(0, 6);
+  const moreLimitedCryptoData = cryptoData.slice(0, 12);
+
   return (
     <>
       <h1>HOME</h1>
@@ -9,38 +29,40 @@ const Home = ({ data }) => {
         <div className="block" style={{ border: "13px solid #E9C46A" }}>
           <h2>TRENDING NOW</h2>
           <div className="items-container">
-            {data &&
-              data.map((item, index) => (
-                <div className="item-container" key={index}>
-                  <div className="item">
-                    <div></div>
-                  </div>
-                  <div className="item-desc">
-                    <p>{item.name}</p>
-                    <p style={{ color: "#E9C46A" }}>{item.price}$</p>
-                  </div>
-                </div>
-              ))}
+            {limitedCryptoData.map((crypto) => (
+              <Crypto
+                key={crypto.id}
+                id={crypto.id}
+                name={crypto.name}
+                price_usd={crypto.price_usd}
+              />
+            ))}
           </div>
         </div>
         <div className="block" style={{ border: "13px solid #FF2E63" }}>
           <h2>BIGGEST LOSTS</h2>
-          <div className="item">
-            <div></div>
-          </div>
-          <div className="item-desc">
-            <p>BITCOIN</p>
-            <p style={{ color: "#FF2E63" }}>2.54$</p>
+          <div className="items-container">
+            {limitedCryptoData.map((crypto) => (
+              <Crypto
+                key={crypto.id}
+                id={crypto.id}
+                name={crypto.name}
+                price_usd={crypto.price_usd}
+              />
+            ))}
           </div>
         </div>
         <div className="block" style={{ border: "13px solid #36BA98" }}>
           <h2>BIGGEST WINS</h2>
-          <div className="item">
-            <div></div>
-          </div>
-          <div className="item-desc">
-            <p>BITCOIN</p>
-            <p style={{ color: "#36BA98" }}>2.54$</p>
+          <div className="items-container">
+            {limitedCryptoData.map((crypto) => (
+              <Crypto
+                key={crypto.id}
+                id={crypto.id}
+                name={crypto.name}
+                price_usd={crypto.price_usd}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -50,12 +72,15 @@ const Home = ({ data }) => {
           style={{ height: "300px", border: "13px solid green" }}>
           <div className="items-container">
             <div className="item-container">
-              <div className="item">
-                <div></div>
-              </div>
-              <div className="item-desc">
-                <p>BITCOIN</p>
-                <p style={{ color: "green" }}>2.54$</p>
+              <div className="items-container">
+                {moreLimitedCryptoData.map((crypto) => (
+                  <Crypto
+                    key={crypto.id}
+                    id={crypto.id}
+                    name={crypto.name}
+                    price_usd={crypto.price_usd}
+                  />
+                ))}
               </div>
             </div>
           </div>

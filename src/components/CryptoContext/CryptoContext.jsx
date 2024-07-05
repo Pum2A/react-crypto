@@ -1,10 +1,12 @@
+// CryptoContext.js
+
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 const CryptoContext = createContext();
 
 const CryptoProvider = ({ children }) => {
-  const [cryptoData, setCryptoData] = useState([]);
+  const [cryptoData, setCryptoData] = useState([]); // Ustawienie początkowe na pustą tablicę
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -14,7 +16,7 @@ const CryptoProvider = ({ children }) => {
         const response = await axios.get(
           "https://api.coinlore.net/api/tickers/"
         );
-        setCryptoData(response.data);
+        setCryptoData(response.data.data);
         setError(null);
       } catch (err) {
         setError(err.message);

@@ -5,38 +5,13 @@ import Articles from "../../pages/Articles/Articles";
 import Messages from "../../pages/Messages/Messages";
 import MyList from "../../pages/MyList/MyList";
 import Statistics from "../../pages/Statistics/Statistics";
-import axios from "axios";
+import { CryptoProvider } from "../CryptoContext/CryptoContext";
 
 const MainContent = () => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.coinlore.net/api/tickers/"
-        );
-        setData(response.data);
-        setError(null);
-      } catch (err) {
-        setError(err.message);
-        setData(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
     <div className="container" style={{ padding: "40px", flex: 1 }}>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <CryptoProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -45,8 +20,8 @@ const MainContent = () => {
             <Route path="/mylist" element={<MyList />} />
             <Route path="/statistics" element={<Statistics />} />
           </Routes>
-        </Suspense>
-      )}
+        </CryptoProvider>
+      </Suspense>
     </div>
   );
 };
