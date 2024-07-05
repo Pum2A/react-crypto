@@ -1,28 +1,52 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../../pages/Home/Home";
 import Articles from "../../pages/Articles/Articles";
 import Messages from "../../pages/Messages/Messages";
 import MyList from "../../pages/MyList/MyList";
 import Statistics from "../../pages/Statistics/Statistics";
-
-const fetchApi = () => {
-  const API_URL = "https://api.coinlore.net/api/tickers/";
-};
+import axios from "axios";
 
 const MainContent = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.coinlore.net/api/tickers/"
+        );
+        setData(response.data);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        setData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="container" style={{ padding: "40px", flex: 1 }}>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/articles" element={<Articles />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/mylist" element={<MyList />} />
-          <Route path="/statistics" element={<Statistics />} />
-        </Routes>
-      </Suspense>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/articles" element={<Articles />} />
+            <Route path="/messages" element={<Messages />} />
+            <Route path="/mylist" element={<MyList />} />
+            <Route path="/statistics" element={<Statistics />} />
+          </Routes>
+        </Suspense>
+      )}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 
-const Home = () => {
+const Home = ({ data }) => {
   return (
     <>
       <h1>HOME</h1>
@@ -9,51 +9,18 @@ const Home = () => {
         <div className="block" style={{ border: "13px solid #E9C46A" }}>
           <h2>TRENDING NOW</h2>
           <div className="items-container">
-            <div className="item-container">
-              <div className="item">
-                <div></div>
-              </div>
-              <div className="item-desc">
-                <p>BITCOIN</p>
-                <p style={{ color: "#E9C46A" }}>2.54$</p>
-              </div>
-            </div>
-            <div className="item-container">
-              <div className="item">
-                <div></div>
-              </div>
-              <div className="item-desc">
-                <p>BITCOIN</p>
-                <p style={{ color: "#E9C46A" }}>2.54$</p>
-              </div>
-            </div>
-            <div className="item-container">
-              <div className="item">
-                <div></div>
-              </div>
-              <div className="item-desc">
-                <p>BITCOIN</p>
-                <p style={{ color: "#E9C46A" }}>2.54$</p>
-              </div>
-            </div>
-            <div className="item-container">
-              <div className="item">
-                <div></div>
-              </div>
-              <div className="item-desc">
-                <p>BITCOIN</p>
-                <p style={{ color: "#E9C46A" }}>2.54$</p>
-              </div>
-            </div>
-            <div className="item-container">
-              <div className="item">
-                <div></div>
-              </div>
-              <div className="item-desc">
-                <p>BITCOIN</p>
-                <p style={{ color: "#E9C46A" }}>2.54$</p>
-              </div>
-            </div>
+            {data &&
+              data.map((item, index) => (
+                <div className="item-container" key={index}>
+                  <div className="item">
+                    <div></div>
+                  </div>
+                  <div className="item-desc">
+                    <p>{item.name}</p>
+                    <p style={{ color: "#E9C46A" }}>{item.price}$</p>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
         <div className="block" style={{ border: "13px solid #FF2E63" }}>
