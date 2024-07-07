@@ -48,7 +48,7 @@ const Home = () => {
     <>
       <h1>HOME</h1>
       <div className="grid-container">
-        <div className="block" style={{ border: "13px solid #E9C46A" }}>
+        <div className="block border-top-gainers">
           <h2>TRENDING NOW</h2>
           <div className="items-container">
             {topGainers.map((crypto) => (
@@ -62,7 +62,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="block" style={{ border: "13px solid #FF2E63" }}>
+        <div className="block border-top-losers">
           <h2>BIGGEST LOSSES</h2>
           <div className="items-container">
             {topLosers.map((crypto) => (
@@ -76,7 +76,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="block" style={{ border: "13px solid #36BA98" }}>
+        <div className="block border-top-wins">
           <h2>BIGGEST WINS</h2>
           <div className="items-container">
             {topWins.map((crypto) => (
@@ -92,11 +92,9 @@ const Home = () => {
         </div>
       </div>
       <div className="grid-second-container">
-        <div
-          className="block"
-          style={{ height: "300px", border: "13px solid green" }}>
+        <div className="block border-gradient">
           <h2>RANDOM CRYPTOS</h2>
-          <div className="items-container">
+          <div className="items-container-random">
             {randomCryptos.map((crypto) => (
               <Crypto
                 key={crypto.id}

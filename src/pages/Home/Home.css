@@ -1,32 +1,34 @@
-*{
+/* Home.css */
+* {
     color: #fff;
-    
 }
-h1{
+
+h1 {
     font-size: 4rem;
     margin: 1rem 0rem;
 }
 
-.grid-container{
+.grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     grid-template-rows: 500px auto;
     gap: 1rem;
     margin: 1rem 0rem;
-    
 }
-.block{
+
+.block {
     border-radius: 1rem;
     background-color: #141414;
-    padding: 0 2rem; 
-    
+    padding: 0 2rem;
 }
-h2{
+
+h2 {
     text-align: center;
     font-size: 2.5rem;
     margin: 1rem 0rem;
 }
-.item{
+
+.item {
     height: 100px;
     width: 100px;
     background-color: #0F0F0F;
@@ -35,23 +37,53 @@ h2{
     align-items: center;
     margin: 0rem 0rem .5rem 0rem;
 }
-.item div{
+
+.item div {
     height: 70px;
-    width:70px;
+    width: 70px;
     background-color: #1E1E1E;
     border-radius: 50%;
 }
-
 
 .item-desc p {
     font-size: 1.3rem;
     font-weight: 800;
 }
 
-
-.items-container{
-    display: flex;
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     width: 100%;
-    flex-wrap: wrap;
     gap: 1rem;
+    padding: 1rem 1rem;
+
 }
+.items-container-random {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        width: 100%;
+    gap: 1rem;
+    padding: 1rem 1rem;
+}
+
+.border-gradient {
+    border: 1px solid transparent;
+    border-image:linear-gradient(to right, #00b4db, #0083b0)1;
+}
+
+.border-top-gainers {
+    border:1px solid transparent;
+    border-image:linear-gradient(to right, #8e2de2, #4a00e0) 1;
+}
+
+
+.border-top-losers {
+    border: 1px solid transparent;
+    border-image:linear-gradient(to right, #ff416c, #ff4b2b) 1;}
+
+.border-top-wins {
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #11998e, #38ef7d) 1;
+
+
+};
