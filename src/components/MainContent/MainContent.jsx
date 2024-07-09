@@ -9,7 +9,7 @@ import { CryptoProvider } from "../CryptoContext/CryptoContext";
 
 const MainContent = () => {
   return (
-    <div className="container" style={{ padding: "40px", flex: 1 }}>
+    <div className="container" style={{ padding: "0rem 1rem", flex: 1 }}>
       <Suspense fallback={<div>Loading...</div>}>
         <CryptoProvider>
           <Routes>

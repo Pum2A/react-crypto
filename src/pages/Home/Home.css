@@ -11,7 +11,7 @@ h1 {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    grid-template-rows: 500px auto;
+    grid-template-rows: 550px auto;
     gap: 1rem;
     margin: 1rem 0rem;
 }
@@ -49,6 +49,7 @@ h2 {
     font-size: 1.3rem;
     font-weight: 800;
 }
+
 
 .items-container {
     display: grid;
