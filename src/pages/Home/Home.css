@@ -46,14 +46,14 @@ h2 {
 }
 
 .item-desc p {
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; */
     font-weight: 800;
 }
 
 
 .items-container {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
     width: 100%;
     gap: 1rem;
     padding: 1rem 1rem;
@@ -61,9 +61,9 @@ h2 {
 }
 .items-container-random {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         width: 100%;
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem 1rem;
 }
 
