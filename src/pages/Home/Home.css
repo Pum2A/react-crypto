@@ -16,11 +16,40 @@ h1 {
     margin: 1rem 0rem;
 }
 
+@media only screen and (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 0.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .block {
+        padding: 0 1rem;
+    }
+
+    .item {
+        height: 60px;
+        width: 60px;
+    }
+
+    .item div {
+        height: 50px;
+        width: 50px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
 .block {
     border-radius: 1rem;
     background-color: #141414;
-    padding: 0 2rem;
-   
+    padding: 0 1rem;
 }
 
 h2 {
@@ -52,45 +81,46 @@ h2 {
     font-weight: 800;
 }
 
-
 .items-container {
    display: flex;
    flex-direction: column;
    width: 100%;
-   
- 
-
 }
+
 .items-container-random {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     gap: 2rem;
     padding: 1rem 1rem;
 }
-.item-container{
+
+.items-container-random .item-container {
+    display: flex;
+}
+
+.item-container {
     height: 80px;
     margin: .5rem 0rem;
     background-color: #1E1E1E;
 }
+
 .border-gradient {
     border: 1px solid transparent;
-    border-image:linear-gradient(to right, #00b4db, #0083b0)1;
+    border-image: linear-gradient(to right, #00b4db, #0083b0) 1;
 }
 
 .border-top-gainers {
-    border:1px solid transparent;
-    border-image:linear-gradient(to right, #8e2de2, #4a00e0) 1;
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #8e2de2, #4a00e0) 1;
 }
-
 
 .border-top-losers {
     border: 1px solid transparent;
-    border-image:linear-gradient(to right, #ff416c, #ff4b2b) 1;}
+    border-image: linear-gradient(to right, #ff416c, #ff4b2b) 1;
+}
 
 .border-top-wins {
     border: 1px solid transparent;
     border-image: linear-gradient(to right, #11998e, #38ef7d) 1;
-
-
-};
+}

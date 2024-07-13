@@ -116,8 +116,8 @@ a {
 
   .sidebar-container{
       position: absolute;
-      top: 0;
-      right: 0;
+      /* top: 0; */
+      /* right: 0; */
       background-color: inherit;
       background-color: #141414;
       

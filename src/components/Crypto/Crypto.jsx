@@ -8,7 +8,7 @@ const Crypto = ({ name, change, symbol, high24h, low24h, logo, rank }) => {
   return (
     <div className="item-container">
       <div className="logo">
-        <img height={50} width={50} src={logo} alt={`${name} logo`} />
+        <img src={logo} alt={`${name} logo`} />
       </div>
       <div className="item-desc">
         <span>

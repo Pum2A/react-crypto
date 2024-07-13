@@ -75,7 +75,7 @@ const Home = () => {
             {top6Lowest.map((crypto) => (
               <Crypto
                 key={crypto.name}
-                rank={`Currently rank is: ${crypto.rank}`}
+                rank={`${crypto.rank}`}
                 id={crypto.id}
                 name={crypto.name}
                 logo={crypto.logo}
@@ -95,7 +95,7 @@ const Home = () => {
             {top6Highest.map((crypto) => (
               <Crypto
                 key={crypto.name}
-                rank={`Currently rank is: ${crypto.rank}`}
+                rank={`${crypto.rank}`}
                 id={crypto.id}
                 logo={crypto.logo}
                 name={crypto.name}
@@ -109,12 +109,12 @@ const Home = () => {
         </div>
       </div>
       <div className="grid-second-container">
-        <h2>RANDOM CRYPTOS</h2>
         <div className="block border-gradient">
+          <h2>RANDOM CRYPTOS</h2>
           <div className="items-container-random">
             {randomCryptos.map((crypto) => (
               <Crypto
-                rank={`Currently rank is: ${crypto.rank}`}
+                rank={`${crypto.rank}`}
                 key={crypto.name}
                 id={crypto.id}
                 name={crypto.name}
