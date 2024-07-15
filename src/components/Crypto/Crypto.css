@@ -8,10 +8,11 @@
 .item-desc{
 
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     gap: .5rem;
-    /* padding: 0rem 1rem 0rem 0rem; */
+    padding: 0rem .5rem 0rem 0rem;
+    width: 80%;
 }
 span{
     display: flex;
@@ -24,12 +25,14 @@ span{
 }
 p{
     width: 100%;
+  font-size: 1.1rem;
 }
 .logo{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 0rem 1rem; */
+    /* margin: 0rem .5rem 0rem .5rem; */
+    width: 20%;
 
 }
 
@@ -44,11 +47,15 @@ p{
 @media only screen and (max-width: 600px){
 
     .logo img{
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
     }
 
-    span{
-        
+    .logo{
+        margin: 0rem 1rem 0rem 1rem;
+
+    }
+    p{
+        font-size: .8rem;
     }
 }

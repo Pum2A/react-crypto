@@ -12,15 +12,15 @@ const Crypto = ({ name, change, symbol, high24h, low24h, logo, rank }) => {
       </div>
       <div className="item-desc">
         <span>
-          <p>Current Rank:</p>
+          <p>Rank:</p>
           <p>{rank}</p>
         </span>
         <span>
           <p>Name</p>
-          <p>{name}</p>
           <p>{symbol}</p>
         </span>
         <span>
+          <p>Price</p>
           <p>{high24h}</p>
         </span>
         <span>

@@ -49,19 +49,17 @@ const Home = () => {
       <h1>HOME</h1>
       <div className="grid-container">
         <div className="block border-top-gainers">
-          <h2>TRENDING NOW</h2>
+          <h2 className="header">TRENDING NOW</h2>
           <div className="items-container">
             {top6Trending.map((crypto) => (
               <Crypto
                 key={crypto.name}
                 rank={`${crypto.rank}`}
                 id={crypto.id}
-                name={crypto.name}
+                symbol={crypto.symbol}
                 logo={crypto.logo}
-                high24h={`Highest price is: ${formatPercentage(
-                  crypto.high24h
-                )}`}
-                low24h={`Lowest price is: ${crypto.low24h}`}
+                high24h={`${formatPercentage(crypto.high24h)}`}
+                low24h={`Lowest price ${crypto.low24h}`}
                 change={`${formatPercentage(
                   crypto.quote.quotes_percentChange24h
                 )}`}
@@ -70,18 +68,17 @@ const Home = () => {
           </div>
         </div>
         <div className="block border-top-losers">
-          <h2>BIGGEST LOSSES</h2>
+          <h2 className="header">BIGGEST LOSSES</h2>
           <div className="items-container">
             {top6Lowest.map((crypto) => (
               <Crypto
                 key={crypto.name}
                 rank={`${crypto.rank}`}
                 id={crypto.id}
-                name={crypto.name}
+                symbol={crypto.symbol}
                 logo={crypto.logo}
-                high24h={`Highest price is: ${formatPercentage(
-                  crypto.high24h
-                )}`}
+                high24h={`${formatPercentage(crypto.high24h)}`}
+                low24h={`Lowest price ${crypto.low24h}`}
                 change={`${formatPercentageLost(
                   crypto.quote.quotes_percentChange24h
                 )}`}
@@ -90,18 +87,17 @@ const Home = () => {
           </div>
         </div>
         <div className="block border-top-wins">
-          <h2>BIGGEST WINS</h2>
+          <h2 className="header">BIGGEST WINS</h2>
           <div className="items-container">
             {top6Highest.map((crypto) => (
               <Crypto
                 key={crypto.name}
                 rank={`${crypto.rank}`}
                 id={crypto.id}
+                symbol={crypto.symbol}
                 logo={crypto.logo}
-                name={crypto.name}
-                high24h={`Highest price is: ${formatPercentage(
-                  crypto.high24h
-                )}`}
+                high24h={`${formatPercentage(crypto.high24h)}`}
+                low24h={`Lowest price ${crypto.low24h}`}
                 change={formatPercentage(crypto.quote.quotes_percentChange24h)}
               />
             ))}
@@ -110,19 +106,17 @@ const Home = () => {
       </div>
       <div className="grid-second-container">
         <div className="block border-gradient">
-          <h2>RANDOM CRYPTOS</h2>
+          <h2 className="header">RANDOM CRYPTOS</h2>
           <div className="items-container-random">
             {randomCryptos.map((crypto) => (
               <Crypto
-                rank={`${crypto.rank}`}
                 key={crypto.name}
+                rank={`${crypto.rank}`}
                 id={crypto.id}
-                name={crypto.name}
+                symbol={crypto.symbol}
                 logo={crypto.logo}
-                high24h={`Highest price is: ${formatPercentage(
-                  crypto.high24h
-                )}`}
-                low24h={`Lowest price is: ${crypto.low24h}`}
+                high24h={`${formatPercentage(crypto.high24h)}`}
+                low24h={`Lowest price ${crypto.low24h}`}
                 change={formatPercentage(crypto.quote.quotes_percentChange24h)}
               />
             ))}

@@ -27,6 +27,8 @@ h1 {
         font-size: 2.5rem;
     }
 
+   
+
     .block {
         padding: 0 1rem;
     }
@@ -41,8 +43,8 @@ h1 {
         width: 50px;
     }
 
-    h2 {
-        font-size: 2rem;
+    .header {
+        font-size: 1.4rem;
     }
 }
 
