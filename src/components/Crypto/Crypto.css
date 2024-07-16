@@ -13,14 +13,34 @@
     gap: .5rem;
     padding: 0rem .5rem 0rem 0rem;
     width: 80%;
+  
 }
+span button{
+    height: 2rem;
+    width: 10rem;
+}
+
+
+.details-btn{
+    width: 5rem;
+    height: 2rem;
+    color: #fff;
+    background-color: #1E1E1E;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+
+}
+
 span{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* min-width: 90px; */
-    /* max-width: 90px; */
+    min-width: 60px;
+    max-width: 60px;
   
 }
 p{

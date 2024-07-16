@@ -1,9 +1,17 @@
 import React from "react";
 import "./Crypto.css";
-const Crypto = ({ name, change, symbol, high24h, low24h, logo, rank }) => {
-  const changeColor = change >= 0 ? "green" : "red";
 
-  // const sum = high24h + low24h / 2;
+const Crypto = ({
+  name,
+  change,
+  symbol,
+  high24h,
+  low24h,
+  logo,
+  rank,
+  showButton, // Add the showButton prop
+}) => {
+  const changeColor = change >= 0 ? "green" : "red";
 
   return (
     <div className="item-container">
@@ -27,6 +35,7 @@ const Crypto = ({ name, change, symbol, high24h, low24h, logo, rank }) => {
           <p>24h</p>
           <p style={{ color: changeColor }}>{change}</p>
         </span>
+        {showButton && <button className="details-btn">Details</button>} {}
       </div>
     </div>
   );

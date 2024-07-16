@@ -6,6 +6,7 @@
 h1 {
     font-size: 4rem;
     margin: 1rem 0rem;
+    
 }
 
 .grid-container {
@@ -49,15 +50,16 @@ h1 {
 }
 
 .block {
-    border-radius: 1rem;
     background-color: #141414;
     padding: 0 1rem;
+    
 }
 
 h2 {
     text-align: center;
     font-size: 2.5rem;
     margin: 1rem 0rem;
+    
 }
 
 .item {
@@ -78,15 +80,13 @@ h2 {
     border-radius: 50%;
 }
 
-.item-desc p {
-    /* font-size: 1.3rem; */
-    font-weight: 800;
-}
+
 
 .items-container {
    display: flex;
    flex-direction: column;
    width: 100%;
+   
 }
 
 .items-container-random {
@@ -102,27 +102,51 @@ h2 {
 }
 
 .item-container {
-    height: 80px;
+    height: 70px;
     margin: .5rem 0rem;
     background-color: #1E1E1E;
+    border-radius: 1rem;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px #1E1E1E;
 }
+
+.item-container:hover{
+    background-color: #2E2E2E;
+    transition: 0.3s all;
+}
+.header-random{
+    /* background-color: red; */
+padding: 2rem 0rem 0rem 0rem;}
 
 .border-gradient {
-    border: 1px solid transparent;
-    border-image: linear-gradient(to right, #00b4db, #0083b0) 1;
+    position: relative;
+    border-radius: 10px; /* Adjust this value to your liking */
 }
 
-.border-top-gainers {
-    border: 1px solid transparent;
-    border-image: linear-gradient(to right, #8e2de2, #4a00e0) 1;
+.border-gradient::before {
+    content: "";
+    position: absolute;
+    top: -3px; /* Adjust based on your border width */
+    left: -3px; /* Adjust based on your border width */
+    right: -3px; /* Adjust based on your border width */
+    bottom: -3px; /* Adjust based on your border width */
+    background: linear-gradient(to right, #00b4db, #0083b0);
+    border-radius: 10px; /* Adjust this value to your liking */
+    z-index: -1;
 }
 
-.border-top-losers {
-    border: 1px solid transparent;
-    border-image: linear-gradient(to right, #ff416c, #ff4b2b) 1;
+
+.border-top-gainers::before {
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
 }
 
-.border-top-wins {
-    border: 1px solid transparent;
-    border-image: linear-gradient(to right, #11998e, #38ef7d) 1;
+.border-top-losers::before {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
 }
+
+.border-top-wins::before {
+    background: linear-gradient(to right, #11998e, #38ef7d);
+}
+
+
+
