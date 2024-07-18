@@ -11,10 +11,13 @@ h1 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-template-rows: 550px auto;
-    gap: 1rem;
+    gap: 2rem;
     margin: 1rem 0rem;
+}
+.header {
+    font-size: 2rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -116,7 +119,9 @@ h2 {
 }
 .header-random{
     /* background-color: red; */
-padding: 2rem 0rem 0rem 0rem;}
+padding: 2rem 0rem 0rem 0rem;
+font-size: 2rem;
+}
 
 .border-gradient {
     position: relative;

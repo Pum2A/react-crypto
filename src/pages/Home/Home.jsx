@@ -39,7 +39,7 @@ const Home = () => {
 
   const randomCryptos = [...cryptoData]
     .sort(() => 0.5 - Math.random())
-    .slice(0, 7);
+    .slice(0, 5);
 
   const sortedByPercentChange24h = [...cryptoData].sort(
     (a, b) => b.quote.quotes_percentChange24h - a.quote.quotes_percentChange24h
@@ -112,11 +112,9 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </div>
-      <div className="grid-second-container">
         <div className="block border-gradient">
-          <h2 className="header-random">RANDOM CRYPTOS</h2>
-          <div className="items-container-random">
+          <h2 className="header">RANDOM CRYPTOS</h2>
+          <div className="items-container">
             {randomCryptos.map((crypto) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
                 <Crypto
