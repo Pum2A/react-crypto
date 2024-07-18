@@ -1,11 +1,40 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../../pages/Home/Home";
-import Articles from "../../pages/Articles/Articles";
-import Messages from "../../pages/Messages/Messages";
-import MyList from "../../pages/MyList/MyList";
-import Statistics from "../../pages/Statistics/Statistics";
 import { CryptoProvider } from "../CryptoContext/CryptoContext";
+
+const Home = lazy(
+  () =>
+    new Promise((resolve) => {
+      setTimeout(() => resolve(import("../../pages/Home/Home")), 1000);
+    })
+);
+const Articles = lazy(
+  () =>
+    new Promise((resolve) => {
+      setTimeout(() => resolve(import("../../pages/Articles/Articles")), 1000);
+    })
+);
+const Messages = lazy(
+  () =>
+    new Promise((resolve) => {
+      setTimeout(() => resolve(import("../../pages/Messages/Messages")), 1000);
+    })
+);
+const MyList = lazy(
+  () =>
+    new Promise((resolve) => {
+      setTimeout(() => resolve(import("../../pages/MyList/MyList")), 1000);
+    })
+);
+const Statistics = lazy(
+  () =>
+    new Promise((resolve) => {
+      setTimeout(
+        () => resolve(import("../../pages/Statistics/Statistics")),
+        1000
+      );
+    })
+);
 
 const MainContent = () => {
   return (

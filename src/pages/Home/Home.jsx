@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, lazy, Suspense } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./Home.css";
-import Crypto from "../../components/Crypto/Crypto";
+
+// Lazy load the Crypto component
+const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
 const Home = () => {
   const { cryptoData, loading, error } = useContext(CryptoContext);
@@ -52,18 +54,19 @@ const Home = () => {
           <h2 className="header">TRENDING NOW</h2>
           <div className="items-container">
             {top6Trending.map((crypto, index) => (
-              <Crypto
-                key={crypto.name}
-                rank={`${crypto.rank}`}
-                id={crypto.id}
-                symbol={crypto.symbol}
-                logo={crypto.logo}
-                high24h={`${formatPercentage(crypto.high24h)} $`}
-                low24h={`Lowest price ${crypto.low24h}`}
-                change={`${formatPercentage(
-                  crypto.quote.quotes_percentChange24h
-                )}`}
-              />
+              <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
+                <Crypto
+                  rank={`${crypto.rank}`}
+                  id={crypto.id}
+                  symbol={crypto.symbol}
+                  logo={crypto.logo}
+                  high24h={`${formatPercentage(crypto.high24h)} $`}
+                  low24h={`Lowest price ${crypto.low24h}`}
+                  change={`${formatPercentage(
+                    crypto.quote.quotes_percentChange24h
+                  )}`}
+                />
+              </Suspense>
             ))}
           </div>
         </div>
@@ -71,19 +74,20 @@ const Home = () => {
           <h2 className="header">BIGGEST LOSSES</h2>
           <div className="items-container">
             {top6Lowest.map((crypto) => (
-              <Crypto
-                key={crypto.name}
-                rank={`${crypto.rank}`}
-                id={crypto.id}
-                symbol={crypto.symbol}
-                logo={crypto.logo}
-                high24h={`${formatPercentage(crypto.high24h)} $`}
-                low24h={`Lowest price ${crypto.low24h}`}
-                change={`${formatPercentageLost(
-                  crypto.quote.quotes_percentChange24h
-                )}`}
-                showButton={false} // Don't show the button
-              />
+              <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
+                <Crypto
+                  rank={`${crypto.rank}`}
+                  id={crypto.id}
+                  symbol={crypto.symbol}
+                  logo={crypto.logo}
+                  high24h={`${formatPercentage(crypto.high24h)} $`}
+                  low24h={`Lowest price ${crypto.low24h}`}
+                  change={`${formatPercentageLost(
+                    crypto.quote.quotes_percentChange24h
+                  )}`}
+                  showButton={false} // Don't show the button
+                />
+              </Suspense>
             ))}
           </div>
         </div>
@@ -91,17 +95,20 @@ const Home = () => {
           <h2 className="header">BIGGEST WINS</h2>
           <div className="items-container">
             {top6Highest.map((crypto) => (
-              <Crypto
-                key={crypto.name}
-                rank={`${crypto.rank}`}
-                id={crypto.id}
-                symbol={crypto.symbol}
-                logo={crypto.logo}
-                high24h={`${formatPercentage(crypto.high24h)} $`}
-                low24h={`Lowest price ${crypto.low24h}`}
-                change={formatPercentage(crypto.quote.quotes_percentChange24h)}
-                showButton={false} // Don't show the button
-              />
+              <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
+                <Crypto
+                  rank={`${crypto.rank}`}
+                  id={crypto.id}
+                  symbol={crypto.symbol}
+                  logo={crypto.logo}
+                  high24h={`${formatPercentage(crypto.high24h)} $`}
+                  low24h={`Lowest price ${crypto.low24h}`}
+                  change={formatPercentage(
+                    crypto.quote.quotes_percentChange24h
+                  )}
+                  showButton={false} // Don't show the button
+                />
+              </Suspense>
             ))}
           </div>
         </div>
@@ -111,17 +118,20 @@ const Home = () => {
           <h2 className="header-random">RANDOM CRYPTOS</h2>
           <div className="items-container-random">
             {randomCryptos.map((crypto) => (
-              <Crypto
-                key={crypto.name}
-                rank={`${crypto.rank}`}
-                id={crypto.id}
-                symbol={crypto.symbol}
-                logo={crypto.logo}
-                high24h={`${formatPercentage(crypto.high24h)} $`}
-                low24h={`Lowest price ${crypto.low24h}`}
-                change={formatPercentage(crypto.quote.quotes_percentChange24h)}
-                showButton
-              />
+              <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
+                <Crypto
+                  rank={`${crypto.rank}`}
+                  id={crypto.id}
+                  symbol={crypto.symbol}
+                  logo={crypto.logo}
+                  high24h={`${formatPercentage(crypto.high24h)} $`}
+                  low24h={`Lowest price ${crypto.low24h}`}
+                  change={formatPercentage(
+                    crypto.quote.quotes_percentChange24h
+                  )}
+                  showButton
+                />
+              </Suspense>
             ))}
           </div>
         </div>
