@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { CryptoProvider } from "../CryptoContext/CryptoContext";
+import CryptoDetails from "../CryptoDetails/CryptoDetails";
 
 const Home = lazy(
   () =>
@@ -48,7 +49,7 @@ const MainContent = () => {
             <Route path="/messages" element={<Messages />} />
             <Route path="/mylist" element={<MyList />} />
             <Route path="/statistics" element={<Statistics />} />
-            <Route path="/crypto/:id" />
+            <Route path="/crypto/:id" element={<CryptoDetails />} />
           </Routes>
         </CryptoProvider>
       </Suspense>

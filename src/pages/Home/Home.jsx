@@ -58,6 +58,7 @@ const Home = () => {
                 <Crypto
                   rank={`${crypto.rank}`}
                   id={crypto.id}
+                  key={crypto.key}
                   symbol={crypto.symbol}
                   logo={crypto.logo}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
@@ -78,6 +79,7 @@ const Home = () => {
                 <Crypto
                   rank={`${crypto.rank}`}
                   id={crypto.id}
+                  key={crypto.key}
                   symbol={crypto.symbol}
                   logo={crypto.logo}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
@@ -99,6 +101,7 @@ const Home = () => {
                 <Crypto
                   rank={`${crypto.rank}`}
                   id={crypto.id}
+                  key={crypto.key}
                   symbol={crypto.symbol}
                   logo={crypto.logo}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
@@ -120,6 +123,7 @@ const Home = () => {
                 <Crypto
                   rank={`${crypto.rank}`}
                   id={crypto.id}
+                  key={crypto.key}
                   symbol={crypto.symbol}
                   logo={crypto.logo}
                   high24h={`${formatPercentage(crypto.high24h)} $`}

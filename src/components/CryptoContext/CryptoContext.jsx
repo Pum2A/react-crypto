@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
-import { lazy } from "react";
 
 const CryptoContext = createContext();
 
