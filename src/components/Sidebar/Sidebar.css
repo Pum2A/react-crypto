@@ -8,11 +8,14 @@
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
+  z-index: 100000;
+
 }
 
 .sidebar-container.collapsed {
   max-width: 100px;
   min-width: 100px;
+  z-index: 100000;
 }
 
 .icon {
@@ -31,7 +34,12 @@
 .cancel-icon {
   cursor: pointer;
 }
-
+button{
+  
+  background-color: #101010;
+  outline: none;
+  border: none;
+}
 .profile-container span {
   padding: 0.5rem .8rem;
   border-radius: 50%;

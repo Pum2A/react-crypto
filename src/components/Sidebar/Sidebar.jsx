@@ -29,7 +29,7 @@ function Sidebar() {
           onClick={toggleSidebar}>
           <DisabledByDefaultIcon
             className="cancel-icon"
-            sx={{ color: "white", fontSize: "4rem", bgcolor: "red" }}
+            sx={{ color: "white", fontSize: "4rem" }}
           />
         </button>
       </div>

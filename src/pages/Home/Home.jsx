@@ -85,7 +85,7 @@ const Home = () => {
                   change={`${formatPercentageLost(
                     crypto.quote.quotes_percentChange24h
                   )}`}
-                  showButton={false} // Don't show the button
+                  showButton={false}
                 />
               </Suspense>
             ))}
@@ -106,7 +106,7 @@ const Home = () => {
                   change={formatPercentage(
                     crypto.quote.quotes_percentChange24h
                   )}
-                  showButton={false} // Don't show the button
+                  showButton={false}
                 />
               </Suspense>
             ))}
@@ -127,7 +127,6 @@ const Home = () => {
                   change={formatPercentage(
                     crypto.quote.quotes_percentChange24h
                   )}
-                  showButton
                 />
               </Suspense>
             ))}
