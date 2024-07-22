@@ -42,7 +42,7 @@ const Home = () => {
     .slice(0, 5);
 
   const sortedByPercentChange24h = [...cryptoData].sort(
-    (a, b) => b.quote.quotes_percentChange24h - a.quote.quotes_percentChange24h
+    (a, b) => b.price_change_24h - a.price_change_24h
   );
   const top6Trending = sortedByPercentChange24h.slice(0, 5);
 
@@ -63,8 +63,8 @@ const Home = () => {
                   logo={crypto.logo}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
                   low24h={`Lowest price ${crypto.low24h}`}
-                  change={`${formatPercentage(
-                    crypto.quote.quotes_percentChange24h
+                  price_change_24h={`${formatPercentage(
+                    crypto.price_change_24h
                   )}`}
                 />
               </Suspense>
@@ -84,8 +84,8 @@ const Home = () => {
                   logo={crypto.logo}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
                   low24h={`Lowest price ${crypto.low24h}`}
-                  change={`${formatPercentageLost(
-                    crypto.quote.quotes_percentChange24h
+                  price_change_24h={`${formatPercentageLost(
+                    crypto.price_change_24h
                   )}`}
                   showButton={false}
                 />
@@ -106,9 +106,7 @@ const Home = () => {
                   logo={crypto.logo}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
                   low24h={`Lowest price ${crypto.low24h}`}
-                  change={formatPercentage(
-                    crypto.quote.quotes_percentChange24h
-                  )}
+                  price_change_24h={formatPercentage(crypto.price_change_24h)}
                   showButton={false}
                 />
               </Suspense>
@@ -128,9 +126,7 @@ const Home = () => {
                   logo={crypto.logo}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
                   low24h={`Lowest price ${crypto.low24h}`}
-                  change={formatPercentage(
-                    crypto.quote.quotes_percentChange24h
-                  )}
+                  price_change_24h={formatPercentage(crypto.price_change_24h)}
                 />
               </Suspense>
             ))}

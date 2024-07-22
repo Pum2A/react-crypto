@@ -49,7 +49,7 @@ const MainContent = () => {
             <Route path="/messages" element={<Messages />} />
             <Route path="/mylist" element={<MyList />} />
             <Route path="/statistics" element={<Statistics />} />
-            <Route path="/crypto/:id" element={<CryptoDetails />} />
+            <Route path="/crypto/:symbol" element={<CryptoDetails />} />
           </Routes>
         </CryptoProvider>
       </Suspense>

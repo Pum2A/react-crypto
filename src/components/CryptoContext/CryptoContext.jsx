@@ -4,7 +4,7 @@ import axios from "axios";
 const CryptoContext = createContext();
 
 const CryptoProvider = ({ children }) => {
-  const [cryptoData, setCryptoData] = useState([]); // Initial state is an empty array
+  const [cryptoData, setCryptoData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -12,22 +12,20 @@ const CryptoProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://cryptocurrency-markets.p.rapidapi.com/v1/crypto/coins?page=1",
+          "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/markets",
           {
-            headers: {
-              "x-rapidapi-host": "cryptocurrency-markets.p.rapidapi.com",
-              "x-rapidapi-key":
-                "c385c9b574mshbc03521ee35dcbbp13d783jsn006ee8acd396", // Replace with your actual RapidAPI key
+            params: {
+              vs_currency: "usd",
+              order: "market_cap_desc",
+              per_page: 100,
+              page: 1,
+              sparkline: false,
             },
           }
         );
 
-        console.log("API Response:", response.data); // Log the full response for debugging
-
-        // Convert the data object into an array
-        const dataArray = Object.values(response.data.data);
-
-        setCryptoData(dataArray); // Adjust according to the API's response structure
+        console.log("API Response:", response.data);
+        setCryptoData(response.data);
         setError(null);
       } catch (err) {
         setError(err.message);
