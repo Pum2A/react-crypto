@@ -60,7 +60,7 @@ const Home = () => {
                   id={crypto.id}
                   key={crypto.key}
                   symbol={crypto.symbol}
-                  logo={crypto.logo}
+                  image={crypto.image}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
                   low24h={`Lowest price ${crypto.low24h}`}
                   price_change_24h={`${formatPercentage(
@@ -81,7 +81,7 @@ const Home = () => {
                   id={crypto.id}
                   key={crypto.key}
                   symbol={crypto.symbol}
-                  logo={crypto.logo}
+                  image={crypto.image}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
                   low24h={`Lowest price ${crypto.low24h}`}
                   price_change_24h={`${formatPercentageLost(
@@ -103,7 +103,7 @@ const Home = () => {
                   id={crypto.id}
                   key={crypto.key}
                   symbol={crypto.symbol}
-                  logo={crypto.logo}
+                  image={crypto.image}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
                   low24h={`Lowest price ${crypto.low24h}`}
                   price_change_24h={formatPercentage(crypto.price_change_24h)}
@@ -123,7 +123,7 @@ const Home = () => {
                   id={crypto.id}
                   key={crypto.key}
                   symbol={crypto.symbol}
-                  logo={crypto.logo}
+                  image={crypto.image}
                   high24h={`${formatPercentage(crypto.high24h)} $`}
                   low24h={`Lowest price ${crypto.low24h}`}
                   price_change_24h={formatPercentage(crypto.price_change_24h)}

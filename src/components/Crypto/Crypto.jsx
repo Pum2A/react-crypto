@@ -3,14 +3,16 @@ import "./Crypto.css";
 import { Link } from "react-router-dom";
 
 const Crypto = ({
-  name,
-  price_change_24h,
-  symbol,
-  current_price,
-  image,
-  market_cap_rank,
-  showButton,
   id,
+  name,
+  symbol,
+  image,
+  current_price,
+  high_24h,
+  low_24h,
+  market_cap_rank,
+  price_change_24h,
+  showButton,
 }) => {
   const changeColor = price_change_24h >= 0 ? "green" : "red";
 

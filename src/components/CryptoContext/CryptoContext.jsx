@@ -10,22 +10,26 @@ const CryptoProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/markets",
-          {
-            params: {
-              vs_currency: "usd",
-              order: "market_cap_desc",
-              per_page: 100,
-              page: 1,
-              sparkline: false,
-            },
-          }
-        );
+      const options = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          "x-cg-demo-api-key": "CG-n22mrDz3LvU7NunHbKNJap5K",
+        },
+      };
 
-        console.log("API Response:", response.data);
-        setCryptoData(response.data);
+      try {
+        const response = await fetch(
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false",
+          options
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        console.log("API Response:", data);
+        setCryptoData(data);
         setError(null);
       } catch (err) {
         setError(err.message);
