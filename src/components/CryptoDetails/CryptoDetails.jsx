@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { CryptoContext } from "../CryptoContext/CryptoContext";
 
 const CryptoDetails = () => {
-  const { symbol } = useParams(); // Get the symbol from URL params
+  const { id } = useParams(); // Get the id from URL params
   const { cryptoData, loading, error } = useContext(CryptoContext);
 
   if (loading) {
@@ -14,16 +14,32 @@ const CryptoDetails = () => {
     return <div>Error: {error}</div>;
   }
 
-  const crypto = cryptoData.find((crypto) => crypto.symbol === symbol);
+  if (!Array.isArray(cryptoData) || cryptoData.length === 0) {
+    console.log(
+      "No crypto data available or data is not in an array:",
+      cryptoData
+    );
+    return <div>No data available</div>;
+  }
+
+  console.log(
+    "Available IDs in cryptoData:",
+    cryptoData.map((crypto) => crypto.id)
+  );
+  console.log("Searching for ID:", id);
+
+  // Find the crypto by ID
+  const crypto = cryptoData.find((crypto) => crypto.id === id);
 
   if (!crypto) {
+    console.log("No matching data for ID:", id);
     return <div>No data available</div>;
   }
 
   return (
     <div>
       <h1>{crypto.name}</h1>
-      <img src={crypto.image} alt={crypto.symbol} />
+      <img src={crypto.image} alt={crypto.id} />
       <p>Symbol: {crypto.symbol}</p>
       <p>Rank: {crypto.market_cap_rank}</p>
       <p>High 24h: {crypto.high_24h}</p>

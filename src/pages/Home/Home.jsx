@@ -56,13 +56,12 @@ const Home = () => {
             {top6Trending.map((crypto, index) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
                 <Crypto
-                  rank={`${crypto.rank}`}
+                  market_cap_rank={`${crypto.market_cap_rank}`}
                   id={crypto.id}
                   key={crypto.key}
                   symbol={crypto.symbol}
                   image={crypto.image}
-                  high24h={`${formatPercentage(crypto.high24h)} $`}
-                  low24h={`Lowest price ${crypto.low24h}`}
+                  current_price={crypto.current_price}
                   price_change_24h={`${formatPercentage(
                     crypto.price_change_24h
                   )}`}
@@ -77,17 +76,15 @@ const Home = () => {
             {top6Lowest.map((crypto) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
                 <Crypto
-                  rank={`${crypto.rank}`}
+                  market_cap_rank={`${crypto.market_cap_rank}`}
                   id={crypto.id}
                   key={crypto.key}
                   symbol={crypto.symbol}
                   image={crypto.image}
-                  high24h={`${formatPercentage(crypto.high24h)} $`}
-                  low24h={`Lowest price ${crypto.low24h}`}
-                  price_change_24h={`${formatPercentageLost(
+                  current_price={crypto.current_price}
+                  price_change_24h={`${formatPercentage(
                     crypto.price_change_24h
                   )}`}
-                  showButton={false}
                 />
               </Suspense>
             ))}
@@ -99,15 +96,15 @@ const Home = () => {
             {top6Highest.map((crypto) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
                 <Crypto
-                  rank={`${crypto.rank}`}
+                  market_cap_rank={`${crypto.market_cap_rank}`}
                   id={crypto.id}
                   key={crypto.key}
                   symbol={crypto.symbol}
                   image={crypto.image}
-                  high24h={`${formatPercentage(crypto.high24h)} $`}
-                  low24h={`Lowest price ${crypto.low24h}`}
-                  price_change_24h={formatPercentage(crypto.price_change_24h)}
-                  showButton={false}
+                  current_price={crypto.current_price}
+                  price_change_24h={`${formatPercentage(
+                    crypto.price_change_24h
+                  )}`}
                 />
               </Suspense>
             ))}
@@ -119,14 +116,15 @@ const Home = () => {
             {randomCryptos.map((crypto) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
                 <Crypto
-                  rank={`${crypto.rank}`}
+                  market_cap_rank={`${crypto.market_cap_rank}`}
                   id={crypto.id}
                   key={crypto.key}
                   symbol={crypto.symbol}
                   image={crypto.image}
-                  high24h={`${formatPercentage(crypto.high24h)} $`}
-                  low24h={`Lowest price ${crypto.low24h}`}
-                  price_change_24h={formatPercentage(crypto.price_change_24h)}
+                  current_price={crypto.current_price}
+                  price_change_24h={`${formatPercentage(
+                    crypto.price_change_24h
+                  )}`}
                 />
               </Suspense>
             ))}
