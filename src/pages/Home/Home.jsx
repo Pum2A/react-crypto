@@ -48,17 +48,16 @@ const Home = () => {
 
   return (
     <>
-      <h1>HOME</h1>
-      <div className="grid-container">
-        <div className="block border-gradient border-top-gainers">
-          <h2 className="header">TRENDING NOW</h2>
-          <div className="items-container">
+      <h1 className="home__title">HOME</h1>
+      <div className="home__grid">
+        <div className="home__block home__block--trending">
+          <h2 className="home__header">TRENDING NOW</h2>
+          <div className="home__items">
             {top6Trending.map((crypto, index) => (
-              <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
+              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                 <Crypto
                   market_cap_rank={`${crypto.market_cap_rank}`}
                   id={crypto.id}
-                  key={crypto.key}
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}
@@ -70,15 +69,14 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="block border-gradient border-top-losers">
-          <h2 className="header">BIGGEST LOSSES</h2>
-          <div className="items-container">
+        <div className="home__block home__block--losers">
+          <h2 className="home__header">BIGGEST LOSSES</h2>
+          <div className="home__items">
             {top6Lowest.map((crypto) => (
-              <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
+              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                 <Crypto
                   market_cap_rank={`${crypto.market_cap_rank}`}
                   id={crypto.id}
-                  key={crypto.key}
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}
@@ -90,15 +88,14 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="block border-gradient border-top-wins">
-          <h2 className="header">BIGGEST WINS</h2>
-          <div className="items-container">
+        <div className="home__block home__block--wins">
+          <h2 className="home__header">BIGGEST WINS</h2>
+          <div className="home__items">
             {top6Highest.map((crypto) => (
-              <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
+              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                 <Crypto
                   market_cap_rank={`${crypto.market_cap_rank}`}
                   id={crypto.id}
-                  key={crypto.key}
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}
@@ -110,15 +107,14 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="block border-gradient">
-          <h2 className="header">RANDOM CRYPTOS</h2>
-          <div className="items-container">
+        <div className="home__block home__block--random">
+          <h2 className="home__header">RANDOM CRYPTOS</h2>
+          <div className="home__items">
             {randomCryptos.map((crypto) => (
-              <Suspense fallback={<div>Loading...</div>} key={crypto.name}>
+              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                 <Crypto
                   market_cap_rank={`${crypto.market_cap_rank}`}
                   id={crypto.id}
-                  key={crypto.key}
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}

@@ -1,11 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CryptoContext } from "../CryptoContext/CryptoContext";
+import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./CryptoDetails.css";
 
 const CryptoDetails = () => {
-  const { id } = useParams(); // Get the id from URL params
+  const { id } = useParams();
   const { cryptoData, loading, error } = useContext(CryptoContext);
+  const [crypto, setCrypto] = useState(null);
+
+  useEffect(() => {
+    if (cryptoData && !loading) {
+      const foundCrypto = cryptoData.find((c) => c.id === id);
+      setCrypto(foundCrypto);
+    }
+  }, [cryptoData, loading, id]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -15,72 +23,50 @@ const CryptoDetails = () => {
     return <div>Error: {error}</div>;
   }
 
-  if (!Array.isArray(cryptoData) || cryptoData.length === 0) {
-    console.log(
-      "No crypto data available or data is not in an array:",
-      cryptoData
-    );
-    return <div>No data available</div>;
-  }
-
-  console.log(
-    "Available IDs in cryptoData:",
-    cryptoData.map((crypto) => crypto.id)
-  );
-  console.log("Searching for ID:", id);
-
-  // Find the crypto by ID
-  const crypto = cryptoData.find((crypto) => crypto.id === id);
-
   if (!crypto) {
-    console.log("No matching data for ID:", id);
     return <div>No data available</div>;
   }
 
   return (
-    <>
-      <div className="product-details-header">
-        <h3>Product Details</h3>
+    <div className="crypto-details">
+      <div className="crypto-details__header">
+        <img
+          src={crypto.image}
+          alt={`${crypto.name} logo`}
+          className="crypto-details__image"
+        />
+        <h1>
+          {crypto.name} ({crypto.symbol.toUpperCase()})
+        </h1>
       </div>
-      <div className="details-container">
-        <div className="details-block">
-          <div className="details-content-container">
-            <div className="block-content-container">
-              <p>Logo</p>
-              <img src={crypto.image} alt={crypto.id} className="details-img" />
-            </div>
-            <div className="block-content-container">
-              <p>Name</p>
-              <h3 className="crypto-details-name">{crypto.name}</h3>
-            </div>
-            <div className="block-content-container">
-              <p>Symbol:</p>
-              <p>{crypto.symbol}</p>
-            </div>
-            <div className="block-content-container">
-              <p>Rank:</p>
-              <p>{crypto.market_cap_rank}</p>
-            </div>
-            <div className="block-content-container">
-              <p>High 24h</p>
-              <p>{crypto.high_24h}</p>
-            </div>
-            <div className="block-content-container">
-              <p>Low 24H</p>
-              <p>{crypto.low_24h}</p>
-            </div>
-            <div className="block-content-container">
-              <p>Current Price:</p>
-              <p>{crypto.current_price}</p>
-            </div>
-            <div className="block-content-container">
-              <p>Price Change 24h: </p>
-              <p>{crypto.price_change_24h}</p>
-            </div>
-          </div>
+      <div className="crypto-details__stats">
+        <div className="crypto-details__stat">
+          <span className="label">Current Price:</span>
+          <span className="value">${crypto.current_price}</span>
+        </div>
+        <div className="crypto-details__stat">
+          <span className="label">Market Cap Rank:</span>
+          <span className="value">{crypto.market_cap_rank}</span>
+        </div>
+        <div className="crypto-details__stat">
+          <span className="label">24h High:</span>
+          <span className="value">${crypto.high_24h}</span>
+        </div>
+        <div className="crypto-details__stat">
+          <span className="label">24h Low:</span>
+          <span className="value">${crypto.low_24h}</span>
+        </div>
+        <div className="crypto-details__stat">
+          <span className="label">Price Change 24h:</span>
+          <span
+            className={`value ${
+              crypto.price_change_percentage_24h >= 0 ? "positive" : "negative"
+            }`}>
+            {crypto.price_change_percentage_24h.toFixed(2)}%
+          </span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

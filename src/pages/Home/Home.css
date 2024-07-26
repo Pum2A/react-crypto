@@ -1,71 +1,102 @@
-/* Home.css */
+/* Resetting potential inherited styles */
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     color: #fff;
 }
 
-h1 {
+/* Home component styles */
+.home__title {
     font-size: 4rem;
-    margin: 1rem 0rem;
-    
+    margin: 1rem 0;
+    text-align: center;
 }
 
-.grid-container {
+.home__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-template-rows: 550px auto;
     gap: 2rem;
-    margin: 1rem 0rem;
+    margin: 1rem 0;
 }
-.header {
+
+.home__header {
     font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0;
 }
 
 @media only screen and (max-width: 600px) {
-    .grid-container {
+    .home__grid {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
         gap: 0.5rem;
     }
 
-    h1 {
+    .home__title {
         font-size: 2.5rem;
     }
 
-   
-
-    .block {
+    .home__block {
         padding: 0 1rem;
     }
 
-    .item {
+    .home__item {
         height: 60px;
         width: 60px;
     }
 
-    .item div {
+    .home__item div {
         height: 50px;
         width: 50px;
     }
 
-    .header {
+    .home__header {
         font-size: 1.4rem;
     }
 }
 
-.block {
+/* Blocks styling */
+.home__block {
     background-color: #141414;
-    padding: 0 1rem;
-    
+    padding: 1rem;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
-h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin: 1rem 0rem;
-    
+/* Gradient borders for specific blocks */
+.home__block--gradient::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 10px;
+    z-index: -1;
 }
 
-.item {
+.home__block--trending::before {
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+}
+
+.home__block--losers::before {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+}
+
+.home__block--wins::before {
+    background: linear-gradient(to right, #11998e, #38ef7d);
+}
+
+/* Items styling */
+.home__items {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   gap: 1rem;
+}
+
+.home__item {
     height: 80px;
     width: 80px;
     background-color: #0F0F0F;
@@ -73,85 +104,27 @@ h2 {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    margin: 0rem 0rem .5rem 0rem;
+    margin: 0.5rem 0;
 }
 
-.item div {
+.home__item div {
     height: 70px;
     width: 70px;
     background-color: #1E1E1E;
     border-radius: 50%;
 }
 
-
-
-.items-container {
-   display: flex;
-   flex-direction: column;
-   width: 100%;
-   
-}
-
-.items-container-random {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 2rem;
-    padding: 1rem 1rem;
-}
-
-.items-container-random .item-container {
-    display: flex;
-}
-
-.item-container {
+/* Item container styling */
+.home__item-container {
     height: 70px;
-    margin: .5rem 0rem;
+    margin: 0.5rem 0;
     background-color: #1E1E1E;
     border-radius: 1rem;
     cursor: pointer;
-    box-shadow: 0px 0px 15px #1E1E1E;
+    box-shadow: 0 0 15px #1E1E1E;
 }
 
-.item-container:hover{
+.home__item-container:hover {
     background-color: #2E2E2E;
-    transition: 0.3s all;
+    transition: background-color 0.3s ease;
 }
-.header-random{
-    /* background-color: red; */
-padding: 2rem 0rem 0rem 0rem;
-font-size: 2rem;
-}
-
-.border-gradient {
-    position: relative;
-    border-radius: 10px; /* Adjust this value to your liking */
-}
-
-.border-gradient::before {
-    content: "";
-    position: absolute;
-    top: -3px; /* Adjust based on your border width */
-    left: -3px; /* Adjust based on your border width */
-    right: -3px; /* Adjust based on your border width */
-    bottom: -3px; /* Adjust based on your border width */
-    background: linear-gradient(to right, #00b4db, #0083b0);
-    border-radius: 10px; /* Adjust this value to your liking */
-    z-index: -1;
-}
-
-
-.border-top-gainers::before {
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
-}
-
-.border-top-losers::before {
-    background: linear-gradient(to right, #ff416c, #ff4b2b);
-}
-
-.border-top-wins::before {
-    background: linear-gradient(to right, #11998e, #38ef7d);
-}
-
-
-

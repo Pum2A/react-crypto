@@ -1,81 +1,48 @@
-.item-container{
-
+.crypto {
     display: flex;
-    width: 100%;
-
-}
-
-.item-desc{
-
-    display: flex;
-    justify-content: space-evenly;
     align-items: center;
-    gap: .5rem;
-    padding: 0rem .5rem 0rem 0rem;
-    width: 80%;
-  
-}
-span button{
-    height: 2rem;
-    width: 10rem;
-}
-
-
-.details-btn{
-    width: 5rem;
-    height: 2rem;
-    color: #fff;
     background-color: #1E1E1E;
-    border-radius: 1rem;
-    outline: none;
-    border: none;
-    border: 1px solid #fff;
-    cursor: pointer;
-
-}
-
-span{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-width: 60px;
-    max-width: 60px;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 0.5rem 0;
+  }
   
-}
-p{
-    width: 100%;
-  font-size: 1.1rem;
-}
-.logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* margin: 0rem .5rem 0rem .5rem; */
-    width: 20%;
-
-}
-
-
-
-
-.logo img{
-    height: 50px;
+  .crypto__rank {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+  }
+  
+  .crypto__image img {
     width: 50px;
-}
-
-@media only screen and (max-width: 600px){
-
-    .logo img{
-        width: 30px;
-        height: 30px;
-    }
-
-    .logo{
-        margin: 0rem 1rem 0rem 1rem;
-
-    }
-    p{
-        font-size: .8rem;
-    }
-}
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .crypto__info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .crypto__symbol {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .crypto__price {
+    font-size: 1.2rem;
+    color: #00ff00;
+  }
+  
+  .crypto__change {
+    font-size: 1rem;
+  }
+  
+  .crypto__change--positive {
+    color: #4caf50;
+  }
+  
+  .crypto__change--negative {
+    color: #f44336;
+  }
+  

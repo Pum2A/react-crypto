@@ -18,28 +18,22 @@ const Crypto = ({
 
   return (
     <Link to={`/crypto/${id}`}>
-      <div className="item-container">
-        <div className="logo">
-          <img src={image} alt={`${name} logo`} />
+      <div className="crypto">
+        <div className="crypto__rank">{market_cap_rank}</div>
+        <div className="crypto__image">
+          <img src={image} alt={`${symbol} logo`} />
         </div>
-        <div className="item-desc">
-          <span>
-            <p>Rank:</p>
-            <p>{market_cap_rank}</p>
-          </span>
-          <span>
-            <p>Name:</p>
-            <p>{symbol}</p>
-          </span>
-          <span>
-            <p>Price:</p>
-            <p>{current_price}</p>
-          </span>
-          <span>
-            <p>24h:</p>
-            <p style={{ color: changeColor }}>{price_change_24h}</p>
-          </span>
-          {showButton && <button className="details-btn">Details</button>}
+        <div className="crypto__info">
+          <div className="crypto__symbol">{symbol.toUpperCase()}</div>
+          <div className="crypto__price">${current_price}</div>
+          <div
+            className={`crypto__change ${
+              price_change_24h >= 0
+                ? "crypto__change--positive"
+                : "crypto__change--negative"
+            }`}>
+            {price_change_24h}%
+          </div>
         </div>
       </div>
     </Link>
