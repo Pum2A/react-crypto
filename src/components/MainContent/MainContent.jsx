@@ -39,7 +39,7 @@ const Statistics = lazy(
 
 const MainContent = () => {
   return (
-    <div className="container" style={{ padding: "0rem 1rem", flex: 1 }}>
+    <div className="container" style={{ flex: 1 }}>
       <Suspense fallback={<div>Loading...</div>}>
         <CryptoProvider>
           <Routes>

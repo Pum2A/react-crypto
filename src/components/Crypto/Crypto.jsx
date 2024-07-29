@@ -25,7 +25,7 @@ const Crypto = ({
         </div>
         <div className="crypto__info">
           <div className="crypto__symbol">{symbol.toUpperCase()}</div>
-          <div className="crypto__price">${current_price}</div>
+          <div className="crypto__price">{current_price}$</div>
           <div
             className={`crypto__change ${
               price_change_24h >= 0

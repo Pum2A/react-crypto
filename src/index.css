@@ -1,21 +1,32 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
-body{
+
+:root{
+  --bg-main: #023E8A;
+  --bg-blocks: #0077B6;
+  --bg-second-blocks:#0096C7;
+  --bg-block-item:#00B4D8;
+
+}
+
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0F0F0F; 
+  background-color: #efefef; /* Light pastel background for body */
 }
-html{
+
+html {
   font-family: "Inter", sans-serif;
 }
 
-li{
+li {
   list-style: none;
 }
-.flex{
+
+.flex {
   display: flex;
 }
+

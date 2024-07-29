@@ -9,7 +9,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import ListIcon from "@mui/icons-material/List";
 
 function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const location = useLocation();
 
   const toggleSidebar = () => {
@@ -23,15 +23,7 @@ function Sidebar() {
   return (
     <div className={`sidebar-container ${isCollapsed ? "collapsed" : ""}`}>
       <div className="profile-container">
-        <button
-          aria-label="Toggle sidebar"
-          className="cancel-icon-button"
-          onClick={toggleSidebar}>
-          <DisabledByDefaultIcon
-            className="cancel-icon"
-            sx={{ color: "white", fontSize: "4rem" }}
-          />
-        </button>
+        <span className="logo">BeCryp</span>
       </div>
       <nav
         className={`${isCollapsed ? "collapsed" : ""}`}
@@ -41,7 +33,8 @@ function Sidebar() {
             <NavLink
               to="/home"
               aria-label="Home"
-              aria-current={isActive("/home") ? "page" : undefined}>
+              aria-current={isActive("/home") ? "page" : undefined}
+              className={"navLink"}>
               <HomeIcon />
               <span>Home</span>
             </NavLink>
@@ -50,7 +43,8 @@ function Sidebar() {
             <NavLink
               to="/statistics"
               aria-label="Statistics"
-              aria-current={isActive("/statistics") ? "page" : undefined}>
+              aria-current={isActive("/statistics") ? "page" : undefined}
+              className={"navLink"}>
               <QueryStatsIcon />
               <span>Statistics</span>
             </NavLink>
@@ -59,7 +53,8 @@ function Sidebar() {
             <NavLink
               to="/messages"
               aria-label="Messages"
-              aria-current={isActive("/messages") ? "page" : undefined}>
+              aria-current={isActive("/messages") ? "page" : undefined}
+              className={"navLink"}>
               <MessageIcon />
               <span>Messages</span>
             </NavLink>
@@ -68,7 +63,8 @@ function Sidebar() {
             <NavLink
               to="/articles"
               aria-label="Articles"
-              aria-current={isActive("/articles") ? "page" : undefined}>
+              aria-current={isActive("/articles") ? "page" : undefined}
+              className={"navLink"}>
               <ArticleIcon />
               <span>Articles</span>
             </NavLink>
@@ -77,7 +73,8 @@ function Sidebar() {
             <NavLink
               to="/mylist"
               aria-label="My List"
-              aria-current={isActive("/mylist") ? "page" : undefined}>
+              aria-current={isActive("/mylist") ? "page" : undefined}
+              className={"navLink"}>
               <ListIcon />
               <span>My List</span>
             </NavLink>

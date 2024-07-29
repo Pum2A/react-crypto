@@ -48,10 +48,12 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="home__title">HOME</h1>
+      <div className="home__container">
+        <h1 className="home__title">Home</h1>
+      </div>
       <div className="home__grid">
         <div className="home__block home__block--trending">
-          <h2 className="home__header">TRENDING NOW</h2>
+          <h2 className="home__header">Trending Now</h2>
           <div className="home__items">
             {top6Trending.map((crypto, index) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
@@ -70,7 +72,7 @@ const Home = () => {
           </div>
         </div>
         <div className="home__block home__block--losers">
-          <h2 className="home__header">BIGGEST LOSSES</h2>
+          <h2 className="home__header">Biggest Losses</h2>
           <div className="home__items">
             {top6Lowest.map((crypto) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
@@ -88,27 +90,9 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="home__block home__block--wins">
-          <h2 className="home__header">BIGGEST WINS</h2>
-          <div className="home__items">
-            {top6Highest.map((crypto) => (
-              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
-                <Crypto
-                  market_cap_rank={`${crypto.market_cap_rank}`}
-                  id={crypto.id}
-                  symbol={crypto.symbol}
-                  image={crypto.image}
-                  current_price={crypto.current_price}
-                  price_change_24h={`${formatPercentage(
-                    crypto.price_change_24h
-                  )}`}
-                />
-              </Suspense>
-            ))}
-          </div>
-        </div>
+
         <div className="home__block home__block--random">
-          <h2 className="home__header">RANDOM CRYPTOS</h2>
+          <h2 className="home__header">Random Cryptos</h2>
           <div className="home__items">
             {randomCryptos.map((crypto) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
@@ -125,6 +109,14 @@ const Home = () => {
               </Suspense>
             ))}
           </div>
+        </div>
+      </div>
+      <div className="home__grid--second">
+        <div className="home__block home__block--statistics">
+          <div className="home__header home__header--statistics">
+            Statistics
+          </div>
+          <div className="home__items--statistics">Test</div>
         </div>
       </div>
     </>

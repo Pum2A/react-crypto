@@ -1,21 +1,23 @@
 .crypto {
   display: flex;
   align-items: center;
-  background-color: #1E1E1E;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #fff; /* Light blue background */
+  padding: 0rem 1rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Softer shadow */
   margin: 0.1rem 0;
+  border: 5px solid #fff; /* Soft purple border */
 }
 
 .crypto__rank {
-  width: 50px; /* Fixed width */
+  width: 50px;
   font-size: 1.2rem;
-  text-align: left; /* Ensure consistent alignment */
+  text-align: left;
+  color: #141414; /* Dark text color for contrast */
 }
 
 .crypto__image {
-  width: 50px; /* Fixed width */
+  width: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,35 +32,39 @@
 .crypto__info {
   display: flex;
   align-items: center;
-  flex-grow: 1; /* Grow to take available space */
-  justify-content: space-between; /* Space between elements */
-  padding-left: 1rem; /* Consistent padding for alignment */
+  flex-grow: 1;
+  justify-content: space-between;
+  padding-left: 1rem;
 }
 
 .crypto__symbol {
   font-size: 1.5rem;
   font-weight: bold;
   width: 100px;
-  text-align: left; /* Ensure consistent alignment */
+  text-align: left;
+  color: #141414; /* Dark text color */
 }
 
 .crypto__price {
   font-size: 1.2rem;
-  color: #00ff00;
+  color: #000; /* Bright pink for price */
   width: 100px;
-  margin-right: 1rem; /* Space between price and change */
+  /* margin-right: 1rem; */
 }
 
 .crypto__change {
-  width: 75px; /* Fixed width */
+  width: 75px;
   font-size: 1rem;
-  text-align: right; /* Align text to the right */
+  text-align: right;
 }
 
 .crypto__change--positive {
-  color: #4caf50;
+  color: #1cb121; /* Positive change color */
+  font-weight: 800;
 }
 
 .crypto__change--negative {
-  color: #f44336;
+  color: #f44336; /* Negative change color */
+  font-weight: 800;
+
 }
