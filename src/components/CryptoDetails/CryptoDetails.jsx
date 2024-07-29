@@ -42,19 +42,19 @@ const CryptoDetails = () => {
       <div className="crypto-details__stats">
         <div className="crypto-details__stat">
           <span className="label">Current Price:</span>
-          <span className="value">${crypto.current_price}</span>
+          <span className="value">{crypto.current_price}$</span>
         </div>
         <div className="crypto-details__stat">
           <span className="label">Market Cap Rank:</span>
           <span className="value">{crypto.market_cap_rank}</span>
         </div>
         <div className="crypto-details__stat">
-          <span className="label">24h High:</span>
-          <span className="value">${crypto.high_24h}</span>
+          <span className="label label__24high">24h High:</span>
+          <span className="value">{crypto.high_24h}$</span>
         </div>
         <div className="crypto-details__stat">
-          <span className="label">24h Low:</span>
-          <span className="value">${crypto.low_24h}</span>
+          <span className="label label__24low">24h Low:</span>
+          <span className="value">{crypto.low_24h}$</span>
         </div>
         <div className="crypto-details__stat">
           <span className="label">Price Change 24h:</span>
