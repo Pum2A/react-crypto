@@ -7,6 +7,8 @@ import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import MessageIcon from "@mui/icons-material/Message";
 import ArticleIcon from "@mui/icons-material/Article";
 import ListIcon from "@mui/icons-material/List";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 
 function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -23,7 +25,13 @@ function Sidebar() {
   return (
     <div className={`sidebar-container ${isCollapsed ? "collapsed" : ""}`}>
       <div className="profile-container">
-        <span className="logo">BeCryp</span>
+        <span onClick={toggleSidebar} className="logo">
+          {isCollapsed ? (
+            <MenuIcon className="menu" fontSize="large" />
+          ) : (
+            <CloseIcon />
+          )}
+        </span>
       </div>
       <nav
         className={`${isCollapsed ? "collapsed" : ""}`}

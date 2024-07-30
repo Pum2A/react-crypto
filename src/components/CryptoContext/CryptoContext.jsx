@@ -7,6 +7,7 @@ const CryptoProvider = ({ children }) => {
   const [cryptoData, setCryptoData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,8 +28,6 @@ const CryptoProvider = ({ children }) => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-
-        console.log("API Response:", data);
         setCryptoData(data);
         setError(null);
       } catch (err) {
@@ -42,8 +41,29 @@ const CryptoProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  const addFavorite = (crypto) => {
+    setFavorites((prevFavorites) => [...prevFavorites, crypto]);
+  };
+
+  const removeFavorite = (cryptoId) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((fav) => fav.id !== cryptoId)
+    );
+  };
+
+  const isFavorite = (cryptoId) => favorites.some((fav) => fav.id === cryptoId);
+
   return (
-    <CryptoContext.Provider value={{ cryptoData, loading, error }}>
+    <CryptoContext.Provider
+      value={{
+        cryptoData,
+        loading,
+        error,
+        favorites,
+        addFavorite,
+        removeFavorite,
+        isFavorite,
+      }}>
       {children}
     </CryptoContext.Provider>
   );

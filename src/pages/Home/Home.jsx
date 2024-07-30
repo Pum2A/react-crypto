@@ -6,7 +6,7 @@ import "./Home.css";
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
 const Home = () => {
-  const { cryptoData, loading, error } = useContext(CryptoContext);
+  const { cryptoData, loading, error, favorites } = useContext(CryptoContext);
 
   const formatPercentage = (value) => {
     let numberValue = parseFloat(value);
@@ -52,6 +52,23 @@ const Home = () => {
         <h1 className="home__title">Home</h1>
       </div>
       <div className="home__grid">
+        <div className="home__block home__block--favorites">
+          <h2 className="home__header">Your Favorites</h2>
+          <div className="home__items">
+            {favorites.map((crypto) => (
+              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
+                <Crypto
+                  market_cap_rank={`${crypto.market_cap_rank}`}
+                  id={crypto.id}
+                  symbol={crypto.symbol}
+                  image={crypto.image}
+                  current_price={crypto.current_price}
+                  price_change_24h={`${crypto.price_change_24h}`}
+                />
+              </Suspense>
+            ))}
+          </div>
+        </div>
         <div className="home__block home__block--trending">
           <h2 className="home__header">Trending Now</h2>
           <div className="home__items">

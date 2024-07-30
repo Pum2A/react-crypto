@@ -33,6 +33,7 @@
 .crypto-details__stat {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #fff; /* Light blue background for stats */
   padding: 1rem;
   border-radius: 10px;

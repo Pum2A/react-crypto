@@ -11,6 +11,13 @@
   z-index: 100000;
 }
 
+.menu{
+  border: 5px solid #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  /* padding: 1rem 0rem; */
+}
+
 .sidebar-container.collapsed {
   max-width: 100px;
   min-width: 100px;
@@ -21,6 +28,7 @@
   font-size: 3rem;
   padding: 0rem 1rem;
   color: #fff;
+  cursor: pointer;
   font-weight: 700;
 }
 
@@ -58,9 +66,10 @@ nav {
 
 nav ul {
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 100%;
+  /* width: 100%; */
   height: 50vh;
 }
 
@@ -127,13 +136,19 @@ a {
 
   .sidebar-container {
     position: absolute;
-    background-color: #0077B6; 
+    /* background-color: #0077B6;  */
     max-width: 100px;
     min-width: 100px;
   }
+  
 
   .sidebar-container.collapsed {
     background-color: inherit;
+  }
+
+  .logo{
+    /* display: none; */
+    padding: 0rem 0rem;
   }
 
   li span {
@@ -142,6 +157,8 @@ a {
 
   nav {
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   nav.collapsed {

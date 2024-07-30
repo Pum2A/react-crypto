@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./Crypto.css";
 import { Link } from "react-router-dom";
 
@@ -12,9 +13,29 @@ const Crypto = ({
   low_24h,
   market_cap_rank,
   price_change_24h,
-  showButton,
 }) => {
+  const { addFavorite, removeFavorite, isFavorite } = useContext(CryptoContext);
   const changeColor = price_change_24h >= 0 ? "green" : "red";
+  const favorite = isFavorite(id);
+
+  const handleFavoriteClick = (e) => {
+    e.preventDefault();
+    if (favorite) {
+      removeFavorite(id);
+    } else {
+      addFavorite({
+        id,
+        name,
+        symbol,
+        image,
+        current_price,
+        high_24h,
+        low_24h,
+        market_cap_rank,
+        price_change_24h,
+      });
+    }
+  };
 
   return (
     <Link to={`/crypto/${id}`}>
@@ -34,6 +55,9 @@ const Crypto = ({
             }`}>
             {price_change_24h}%
           </div>
+          <button onClick={handleFavoriteClick}>
+            {favorite ? "Unfavorite" : "Favorite"}
+          </button>
         </div>
       </div>
     </Link>
