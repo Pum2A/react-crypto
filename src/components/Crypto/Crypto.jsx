@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./Crypto.css";
 import { Link } from "react-router-dom";
+import StarIcon from "@mui/icons-material/Star";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 const Crypto = ({
   id,
@@ -15,7 +17,6 @@ const Crypto = ({
   price_change_24h,
 }) => {
   const { addFavorite, removeFavorite, isFavorite } = useContext(CryptoContext);
-  const changeColor = price_change_24h >= 0 ? "green" : "red";
   const favorite = isFavorite(id);
 
   const handleFavoriteClick = (e) => {
@@ -55,8 +56,12 @@ const Crypto = ({
             }`}>
             {price_change_24h}%
           </div>
-          <button onClick={handleFavoriteClick}>
-            {favorite ? "Unfavorite" : "Favorite"}
+          <button onClick={handleFavoriteClick} className="favorite-button">
+            {favorite ? (
+              <StarIcon style={{ color: "orange" }} />
+            ) : (
+              <StarBorderIcon style={{ color: "yellow" }} />
+            )}
           </button>
         </div>
       </div>

@@ -59,12 +59,33 @@
 }
 
 .crypto__change--positive {
-  color: #1cb121; /* Positive change color */
+  color: #1cb121; 
   font-weight: 800;
 }
 
 .crypto__change--negative {
-  color: #f44336; /* Negative change color */
+  color: #f44336; 
   font-weight: 800;
 
+}
+
+
+
+.favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.favorite-button svg {
+  font-size: 24px;
+}
+
+
+.favorite-button svg {
+  color: orange; 
+}
+
+.favorite-button:hover svg {
+  color: yellow; 
 }
