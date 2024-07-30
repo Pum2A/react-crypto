@@ -81,7 +81,7 @@ li.active {
 li {
   display: flex;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
   padding: .5rem 2rem;
   color: #fff; /* Dark text color */
   cursor: pointer;
