@@ -2,30 +2,42 @@
   display: flex;
   align-items: center;
   background-color: #fff; /* Light blue background */
-  padding: 0rem 1rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Softer shadow */
-  margin: 0.1rem 0;
-  border: 5px solid #fff; /* Soft purple border */
+  padding: 0.5rem 0.5rem; 
+  border-radius: 1rem; /* Adjusted for better look on smaller screens */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  margin: 0.5rem 0; /* Margin to separate items */
+  overflow: hidden; /* Ensure no content overflows */
+  flex-wrap: wrap; /* Allow wrapping of content */
 }
 
 .crypto__rank {
-  width: 50px;
-  font-size: 1.2rem;
+  /* width: 30px; Adjusted width for very small screens */
+  padding: 0rem 1rem;
+  font-size: 0.8rem; /* Reduced font size for very small screens */
   text-align: left;
   color: #141414; /* Dark text color for contrast */
 }
 
 .crypto__image {
-  width: 50px;
+  width: 30px; /* Adjusted width for very small screens */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.crypto__heading{
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+}
+
+
+
 .crypto__image img {
-  width: 50px;
-  height: 50px;
+  width: 20px; /* Adjusted size for very small screens */
+  height: 20px; /* Adjusted size for very small screens */
   border-radius: 50%;
 }
 
@@ -34,28 +46,30 @@
   align-items: center;
   flex-grow: 1;
   justify-content: space-between;
-  padding-left: 1rem;
+  padding-left: 0.5rem; /* Adjusted padding for very small screens */
+  overflow: hidden; /* Prevent overflow */
+  text-overflow: ellipsis; /* Handle overflowing text */
 }
 
 .crypto__symbol {
-  font-size: 1.5rem;
+  font-size: 0.9rem; /* Adjusted font size for very small screens */
   font-weight: bold;
-  width: 100px;
+  width: 60px; /* Adjusted width for very small screens */
   text-align: left;
   color: #141414; /* Dark text color */
 }
 
 .crypto__price {
-  font-size: 1.2rem;
+  font-size: 0.8rem; /* Adjusted font size for very small screens */
   color: #000; /* Bright pink for price */
-  width: 100px;
-  /* margin-right: 1rem; */
+  width: 60px; /* Adjusted width for very small screens */
 }
 
 .crypto__change {
-  width: 75px;
-  font-size: 1rem;
+  width: 40px; /* Adjusted width for very small screens */
+  font-size: 0.8rem; /* Adjusted font size for very small screens */
   text-align: right;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .crypto__change--positive {
@@ -66,10 +80,7 @@
 .crypto__change--negative {
   color: #f44336; 
   font-weight: 800;
-
 }
-
-
 
 .favorite-button {
   background: none;
@@ -78,14 +89,45 @@
 }
 
 .favorite-button svg {
-  font-size: 24px;
-}
-
-
-.favorite-button svg {
+  font-size: 18px; /* Adjusted size for very small screens */
   color: orange; 
 }
 
 .favorite-button:hover svg {
   color: yellow; 
+}
+
+@media (max-width: 800px) {
+  .crypto__rank {
+    /* width: 0px; Adjusted width for smaller screens */
+    font-size: 0.8rem; /* Adjusted font size for smaller screens */
+  }
+
+  .crypto__image img {
+    width: 20px; /* Adjusted size for smaller screens */
+    height: 20px; /* Adjusted size for smaller screens */
+  }
+
+  .crypto__symbol {
+    font-size: 0.9rem; /* Adjusted font size for smaller screens */
+  }
+
+  .crypto__price {
+    font-size: 0.8rem; /* Adjusted font size for smaller screens */
+  }
+
+  .crypto__change {
+    font-size: 0.8rem; /* Adjusted font size for smaller screens */
+  }
+
+  .favorite-button svg {
+    font-size: 16px; /* Further reduced size for very small screens */
+  }
+
+  .crypto__heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }

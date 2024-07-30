@@ -52,23 +52,6 @@ const Home = () => {
         <h1 className="home__title">Home</h1>
       </div>
       <div className="home__grid">
-        <div className="home__block home__block--favorites">
-          <h2 className="home__header">Your Favorites</h2>
-          <div className="home__items">
-            {favorites.map((crypto) => (
-              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
-                <Crypto
-                  market_cap_rank={`${crypto.market_cap_rank}`}
-                  id={crypto.id}
-                  symbol={crypto.symbol}
-                  image={crypto.image}
-                  current_price={crypto.current_price}
-                  price_change_24h={`${crypto.price_change_24h}`}
-                />
-              </Suspense>
-            ))}
-          </div>
-        </div>
         <div className="home__block home__block--trending">
           <h2 className="home__header">Trending Now</h2>
           <div className="home__items">
@@ -127,13 +110,24 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </div>
-      <div className="home__grid--second">
-        <div className="home__block home__block--statistics">
-          <div className="home__header home__header--statistics">
-            Statistics
+        <div className="home__block home__block--favorites">
+          <h2 className="home__header home__header--favorites">
+            Your Favorites
+          </h2>
+          <div className="home__items home__items--favorites">
+            {favorites.map((crypto) => (
+              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
+                <Crypto
+                  market_cap_rank={`${crypto.market_cap_rank}`}
+                  id={crypto.id}
+                  symbol={crypto.symbol}
+                  image={crypto.image}
+                  current_price={crypto.current_price}
+                  price_change_24h={`${crypto.price_change_24h}`}
+                />
+              </Suspense>
+            ))}
           </div>
-          <div className="home__items--statistics">Test</div>
         </div>
       </div>
     </>

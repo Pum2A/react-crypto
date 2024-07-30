@@ -41,9 +41,11 @@ const Crypto = ({
   return (
     <Link to={`/crypto/${id}`}>
       <div className="crypto">
-        <div className="crypto__rank">{market_cap_rank}</div>
-        <div className="crypto__image">
-          <img src={image} alt={`${symbol} logo`} />
+        <div className="crypto__heading">
+          <div className="crypto__rank">{market_cap_rank}</div>
+          <div className="crypto__image">
+            <img src={image} alt={`${symbol} logo`} />
+          </div>
         </div>
         <div className="crypto__info">
           <div className="crypto__symbol">{symbol.toUpperCase()}</div>
@@ -58,9 +60,9 @@ const Crypto = ({
           </div>
           <button onClick={handleFavoriteClick} className="favorite-button">
             {favorite ? (
-              <StarIcon style={{ color: "orange" }} />
+              <StarIcon style={{ fontSize: 36, color: "orange" }} />
             ) : (
-              <StarBorderIcon style={{ color: "yellow" }} />
+              <StarBorderIcon style={{ fontSize: 36, color: "yellow" }} />
             )}
           </button>
         </div>
