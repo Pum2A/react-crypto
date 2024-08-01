@@ -9,6 +9,7 @@ const CryptoProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [favorites, setFavorites] = useState([]);
 
+  // Fetch crypto data from API
   useEffect(() => {
     const fetchData = async () => {
       const options = {
@@ -41,11 +42,30 @@ const CryptoProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const savedFavorites = localStorage.getItem("favorites");
+    if (savedFavorites) {
+      const parsedFavorites = JSON.parse(savedFavorites);
+      if (parsedFavorites.length && favorites.length === 0) {
+        setFavorites(parsedFavorites);
+      }
+    } else {
+      console.log("No favorites found in localStorage.");
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("Favorites updated:", favorites);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
   const addFavorite = (crypto) => {
+    console.log("Adding favorite:", crypto);
     setFavorites((prevFavorites) => [...prevFavorites, crypto]);
   };
 
   const removeFavorite = (cryptoId) => {
+    console.log("Removing favorite with ID:", cryptoId);
     setFavorites((prevFavorites) =>
       prevFavorites.filter((fav) => fav.id !== cryptoId)
     );

@@ -74,16 +74,19 @@ nav ul {
 }
 
 li.active {
-  border-left: 10px solid #fff; /* Pastel purple border for active */
+  border-bottom: 5px solid #fff; /* Pastel purple border for active */
   transition: 0.3s all;
 }
 
 li {
   display: flex;
   align-items: center;
-  /* width: 100%; */
+  /* justify-content: center; */
+  width: 100%;
   padding: .5rem 2rem;
+  border-radius: 1rem;
   color: #fff; /* Dark text color */
+  background-color: #30275a;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -95,6 +98,7 @@ li {
   gap: 2rem;
   font-size: 1.3rem;
   font-weight: 300;
+  justify-content: center;
   /* justify-content: space-evenly; */
   color: #fff;
 }
@@ -177,6 +181,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 0rem;
+    /* margin: 1rem 0rem; */
+    padding: 0.5rem .5rem;
+    border-radius: .5rem;
+    /* gap: 1rem; */
+    /* width: 0%; */
+
   }
 }

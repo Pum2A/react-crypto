@@ -90,6 +90,7 @@
 
 .favorite-button svg {
   font-size: 18px; /* Adjusted size for very small screens */
+  border-radius: 50%;
   color: orange; 
 }
 

@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
-import "./Crypto.css";
 import { Link } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-
+import "./Crypto.css";
 const Crypto = ({
   id,
   name,
@@ -41,11 +40,9 @@ const Crypto = ({
   return (
     <Link to={`/crypto/${id}`}>
       <div className="crypto">
-        <div className="crypto__heading">
-          <div className="crypto__rank">{market_cap_rank}</div>
-          <div className="crypto__image">
-            <img src={image} alt={`${symbol} logo`} />
-          </div>
+        <div className="crypto__rank">{market_cap_rank}</div>
+        <div className="crypto__image">
+          <img src={image} alt={`${symbol} logo`} />
         </div>
         <div className="crypto__info">
           <div className="crypto__symbol">{symbol.toUpperCase()}</div>

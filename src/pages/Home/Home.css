@@ -7,7 +7,7 @@
 
 /* Title styles */
 .home__title {
-  font-size: 1.5rem; /* Adjusted for better scaling */
+  font-size: 1.4rem; /* Adjusted for better scaling */
   color: #2c2c2c; 
 }
 
@@ -33,6 +33,7 @@
 .home__header {
   color: #fff; 
   margin: 1rem;
+  font-size: 1.3rem;
 }
 
 .home__header--statistics {
