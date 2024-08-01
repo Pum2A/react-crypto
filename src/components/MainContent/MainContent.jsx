@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { CryptoProvider } from "../CryptoContext/CryptoContext";
 import CryptoDetails from "../CryptoDetails/CryptoDetails";
+import "./MainContent.css";
 
 const Home = lazy(
   () =>
@@ -39,7 +40,7 @@ const Statistics = lazy(
 
 const MainContent = () => {
   return (
-    <div className="container" style={{ flex: 1 }}>
+    <div className="container">
       <Suspense fallback={<div>Loading...</div>}>
         <CryptoProvider>
           <Routes>

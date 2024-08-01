@@ -1,6 +1,6 @@
 /* Sidebar styles */
 .sidebar-container {
-  background-color: #5440C7; /* Soft pink background */
+  background-color: #4F4557; /* Soft pink background */
   max-width: 300px;
   min-width: 300px;
   min-height: 100vh;
@@ -83,10 +83,10 @@ li {
   align-items: center;
   /* justify-content: center; */
   width: 100%;
-  padding: .5rem 2rem;
-  border-radius: 1rem;
+  padding: 1rem 2rem;
+  border-radius: .5rem;
   color: #fff; /* Dark text color */
-  background-color: #30275a;
+  background-color: #6D5D6E;
   cursor: pointer;
   transition: all 0.3s ease;
 }

@@ -7,27 +7,32 @@
 
 /* Title styles */
 .home__title {
-  font-size: 1.4rem; /* Adjusted for better scaling */
-  color: #2c2c2c; 
+  font-size: 2rem; /* Adjusted for better scaling */
+  color: #393646; 
+  font-weight: 800;
 }
 
 /* Container styles */
 .home__container {
-  background-color: #fff;
+  background-color: #F4EEE0;
+  margin: 1rem 1rem;
+  border-radius: 1rem;
   height: auto; /* Adjusted to fit content */
-  padding: 1rem; /* Adjusted padding for smaller screens */
+  padding: .5rem; /* Adjusted padding for smaller screens */
   display: flex;
   align-items: center;
-  justify-content: center; /* Centered title for better alignment */
+  justify-content: center;
 }
 
 /* Grid container for larger screens */
 .home__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid */
-  gap: 1rem; /* Reduced gap for smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-auto-rows: minmax(200px, auto); /* Ensures all rows adjust automatically */
+  gap: 1rem;
   margin: 1rem;
 }
+
 
 /* Header styles */
 .home__header {
@@ -43,26 +48,29 @@
 
 /* Block styles */
 .home__block {
-  background-color: #29224D; 
+  background-color: #6D5D6E; 
   border-radius: 1rem; /* Adjusted for better look on smaller screens */
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); /* Changed color for better visibility */
   position: relative;
-  overflow: hidden;
+  height: 530px;
+  /* height: 600px; Or whatever value suits your design */
+  overflow: auto; /* Scroll if content overflows */
   padding: 1rem; /* Added padding for block content */
 }
 
+
 .home__block--losers {
-  background-color: #311CA6;
+  background-color: #6D5D6E;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
 }
 
 .home__block--random {
-  background-color: #5F5696;
+  background-color: #6D5D6E;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
 }
 
 .home__block--favorites {
-  background-color: #569681;
+  background-color: #6D5D6E;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -115,7 +123,8 @@
   }
 
   .home__block {
-    padding: 1rem; /* Adjusted block padding for mobile */
+    min-height: auto;
+    height: auto;
   }
 
   .home__item {
@@ -130,5 +139,10 @@
 
   .home__header {
     font-size: 1.2rem; /* Adjusted header font size for smaller screens */
+  }
+
+  .home__grid{
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
   }
 }

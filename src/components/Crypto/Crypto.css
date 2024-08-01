@@ -1,7 +1,7 @@
 .crypto {
   display: flex;
   align-items: center;
-  background-color: #fff; /* Light blue background */
+  background-color: #F4EEE0; /* Light blue background */
   padding: 0.5rem 0.5rem; 
   border-radius: 1rem; /* Adjusted for better look on smaller screens */
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
