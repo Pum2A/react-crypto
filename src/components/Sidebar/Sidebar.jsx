@@ -9,7 +9,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import ListIcon from "@mui/icons-material/List";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import LogoutIcon from "@mui/icons-material/Logout";
 function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const location = useLocation();
@@ -91,7 +91,7 @@ function Sidebar() {
       </nav>
       <div className={`sign-out-container ${isCollapsed ? "collapsed" : ""}`}>
         <button className="sign-out" aria-label="Sign Out">
-          Sign Out
+          <LogoutIcon className="logout-icon" />
         </button>
       </div>
     </div>

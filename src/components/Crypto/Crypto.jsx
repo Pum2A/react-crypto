@@ -55,14 +55,14 @@ const Crypto = ({
             }`}>
             {price_change_24h}%
           </div>
-          <button onClick={handleFavoriteClick} className="favorite-button">
-            {favorite ? (
-              <StarIcon style={{ fontSize: 36, color: "orange" }} />
-            ) : (
-              <StarBorderIcon style={{ fontSize: 36, color: "yellow" }} />
-            )}
-          </button>
         </div>
+        <button onClick={handleFavoriteClick} className="favorite-button">
+          {favorite ? (
+            <StarIcon style={{ fontSize: 36, color: "orange" }} />
+          ) : (
+            <StarBorderIcon style={{ fontSize: 36, color: "yellow" }} />
+          )}
+        </button>
       </div>
     </Link>
   );

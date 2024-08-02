@@ -1,8 +1,8 @@
 .crypto-details {
   padding: 2rem;
-  background-color: #311ca6; /* Soft pink background */
-  color: #fff; /* Dark text color */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  background-color: #6D5D6E;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .crypto-details__header {
@@ -21,7 +21,7 @@
 .crypto-details__header h1 {
   font-size: 2.5rem;
   margin: 0;
-  color: #fff; /* Soft purple for headers */
+  color: #fff; 
 }
 
 .crypto-details__stats {
@@ -34,17 +34,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff; /* Light blue background for stats */
+  background-color: #fff; 
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
 }
 
 
 .label {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #141414; /* Dark text color */
+  color: #141414; 
 }
 
 .label__24high{
@@ -57,14 +57,14 @@
 
 .value {
   font-size: 1.2rem;
-  color: #141414; /* Dark text color */
+  color: #141414; 
 }
 
 .value.positive {
-  color: #1cb121; /* Positive change color */
+  color: #1cb121;
   font-weight: 800;
 }
 
 .value.negative {
-  color: #f44336; /* Negative change color */
+  color: #f44336;
 }

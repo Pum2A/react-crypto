@@ -12,7 +12,7 @@
 }
 
 .menu{
-  border: 5px solid #fff;
+  /* border: 5px solid #fff; */
   font-size: 2rem;
   border-radius: 50%;
   /* padding: 1rem 0rem; */
@@ -83,7 +83,7 @@ li {
   align-items: center;
   /* justify-content: center; */
   width: 100%;
-  padding: 1rem 2rem;
+  padding: .5rem 2rem;
   border-radius: .5rem;
   color: #fff; /* Dark text color */
   background-color: #6D5D6E;
@@ -104,6 +104,7 @@ li {
 }
 
 li:hover {
+  background-color: #5a4c5b;
   transition: 0.3s ease all;
 }
 
@@ -113,21 +114,23 @@ li:hover {
 
 .sign-out {
   margin: 2rem 0rem;
-  height: 3rem;
+  height: 2.5rem;
   width: 100%;
-  font-weight: 900;
+  /* font-weight: 900; */
   outline: none;
-  background-color: #CAD2C5; /* Bright pink background */
+  background-color: #82142e; /* Bright pink background */
   color: #141414; /* Dark text color */
   text-transform: uppercase;
-  font-size: 1rem;
-  border-radius: 1.5rem;
+  /* font-size: .8rem; */
+  border-radius: 1rem;
   border: none;
   cursor: pointer;
   font-family: "Inter", sans-serif;
 }
 
-
+.logout-icon{
+  color: #fff;
+}
 
 a {
   text-decoration: none;
