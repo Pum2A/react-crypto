@@ -1,32 +1,70 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-} from "@/components/ui/card";
-import { BarChart, Bar } from "recharts";
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
+import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
+
 function Statistics() {
-  const userActivity = [
-    { date: "6d ago", activeUsers: 120 },
-    { date: "2d ago", activeUsers: 30 },
-    { date: "63d ago", activeUsers: 450 },
-    { date: "1d ago", activeUsers: 10 },
-    { date: "2d ago", activeUsers: 130 },
-    { date: "67d ago", activeUsers: 1220 },
-  ];
+  const { cryptoData } = useContext(CryptoContext);
+
+  // Prepare chart data
+  const chartData = cryptoData.map((crypto) => ({
+    name: crypto.name,
+    price: crypto.current_price,
+    market_cap_rank: crypto.market_cap_rank,
+  }));
+
+  // Style objects for container and titles
+  const containerStyle = {
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "10px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+  };
+
+  const titleStyle = {
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "20px",
+    textAlign: "center",
+    color: "#333",
+  };
 
   return (
-    <div>
-      <Card>
-        <CardHeader>
-          <CardContent>
-            <BarChart width={48} height={48} data={userActivity}>
-              <Bar dataKey={"activeUsers"}></Bar>
-            </BarChart>
-          </CardContent>
-        </CardHeader>
-      </Card>
+    <div style={containerStyle}>
+      <h2 style={titleStyle}>Crypto Statistics</h2>
+
+      <h3 style={titleStyle}>Prices</h3>
+      <ResponsiveContainer width="100%" height={400}>
+        <BarChart
+          data={chartData}
+          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis scale="log" domain={["auto", "auto"]} />
+          <Tooltip />
+          <Bar dataKey="price" fill="#8884d8" />
+        </BarChart>
+      </ResponsiveContainer>
+
+      <h3 style={titleStyle}>Market Cap Rank</h3>
+      <ResponsiveContainer width="100%" height={400}>
+        <BarChart
+          data={chartData}
+          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="market_cap_rank" fill="#82ca9d" />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 }
