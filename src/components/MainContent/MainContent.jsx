@@ -4,39 +4,11 @@ import { CryptoProvider } from "../CryptoContext/CryptoContext";
 import CryptoDetails from "../CryptoDetails/CryptoDetails";
 import "./MainContent.css";
 
-const Home = lazy(
-  () =>
-    new Promise((resolve) => {
-      setTimeout(() => resolve(import("../../pages/Home/Home")), 1000);
-    })
-);
-const Articles = lazy(
-  () =>
-    new Promise((resolve) => {
-      setTimeout(() => resolve(import("../../pages/Articles/Articles")), 1000);
-    })
-);
-const Messages = lazy(
-  () =>
-    new Promise((resolve) => {
-      setTimeout(() => resolve(import("../../pages/Messages/Messages")), 1000);
-    })
-);
-const MyList = lazy(
-  () =>
-    new Promise((resolve) => {
-      setTimeout(() => resolve(import("../../pages/MyList/MyList")), 1000);
-    })
-);
-const Statistics = lazy(
-  () =>
-    new Promise((resolve) => {
-      setTimeout(
-        () => resolve(import("../../pages/Statistics/Statistics")),
-        1000
-      );
-    })
-);
+const Home = lazy(() => import("../../pages/Home/Home"));
+const Articles = lazy(() => import("../../pages/Articles/Articles"));
+const Messages = lazy(() => import("../../pages/Messages/Messages"));
+const MyList = lazy(() => import("../../pages/MyList/MyList"));
+const Statistics = lazy(() => import("../../pages/Statistics/Statistics"));
 
 const MainContent = () => {
   return (
