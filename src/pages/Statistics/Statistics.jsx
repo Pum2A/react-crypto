@@ -35,6 +35,13 @@ function Statistics() {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
+  // Go back to previous data
+  const goBackData = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
+
   return (
     <div className="container">
       <h2 className="title">Crypto Statistics</h2>
@@ -74,11 +81,22 @@ function Statistics() {
         </ResponsiveContainer>
       </div>
 
-      {indexOfLastItem < cryptoData.length && (
-        <button className="load-more" onClick={loadMoreData}>
-          Load More
-        </button>
-      )}
+      <div className="pagination-info">
+        <span>Page {currentPage}</span>
+      </div>
+
+      <div className="button-wrapper">
+        {currentPage > 1 && (
+          <button className="back" onClick={goBackData}>
+            Back
+          </button>
+        )}
+        {indexOfLastItem < cryptoData.length && (
+          <button className="load-more" onClick={loadMoreData}>
+            Load More
+          </button>
+        )}
+      </div>
     </div>
   );
 }
