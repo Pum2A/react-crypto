@@ -15,10 +15,17 @@
   margin: 1rem 1rem;
   border-radius: 1rem;
   height: auto;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.user__container{
+  height: 100%;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .home__grid {

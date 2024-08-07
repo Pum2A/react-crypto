@@ -27,7 +27,7 @@ function Statistics() {
   const chartData = currentData.map((crypto) => ({
     name: crypto.name,
     price: crypto.current_price,
-    market_cap_rank: crypto.market_cap_rank,
+    rank: crypto.market_cap_rank,
   }));
 
   // Load more data
@@ -68,15 +68,10 @@ function Statistics() {
             data={chartData}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis
-              dataKey="name"
-              axisLine={false}
-              tickLine={false}
-              scale="band"
-            />
+            <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="market_cap_rank" fill="#82ca9d" />
+            <Bar dataKey="rank" fill="#82ca9d" />
           </BarChart>
         </ResponsiveContainer>
       </div>

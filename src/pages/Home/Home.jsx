@@ -1,6 +1,7 @@
 import React, { useContext, lazy, Suspense } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./Home.css";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 // Lazy load the Crypto component
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
@@ -50,6 +51,11 @@ const Home = () => {
     <>
       <div className="home__container">
         <h1 className="home__title">Home</h1>
+        <div className="user__container">
+          <div className="user">
+            <AccountCircleIcon style={{ fontSize: 42, marginTop: 5 }} />
+          </div>
+        </div>
       </div>
       <div className="home__grid">
         <div className="home__block home__block--trending">
