@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./CryptoDetails.css";
 
@@ -7,6 +7,7 @@ const CryptoDetails = () => {
   const { id } = useParams();
   const { cryptoData, loading, error } = useContext(CryptoContext);
   const [crypto, setCrypto] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (cryptoData && !loading) {
@@ -66,6 +67,9 @@ const CryptoDetails = () => {
           </span>
         </div>
       </div>
+      <button className="back-details-btn" onClick={() => navigate("/home")}>
+        Back
+      </button>
     </div>
   );
 };

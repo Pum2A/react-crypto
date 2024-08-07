@@ -53,7 +53,10 @@ const Home = () => {
         <h1 className="home__title">Home</h1>
         <div className="user__container">
           <div className="user">
-            <AccountCircleIcon style={{ fontSize: 42, marginTop: 5 }} />
+            <AccountCircleIcon
+              className="user-icon"
+              style={{ fontSize: 42, marginTop: 5 }}
+            />
           </div>
         </div>
       </div>

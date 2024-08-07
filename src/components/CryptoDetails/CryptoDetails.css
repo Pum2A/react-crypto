@@ -30,6 +30,14 @@
   gap: 1rem;
 }
 
+.back-details-btn{
+  width: 5rem;
+  height:2rem;
+  margin:1rem 0rem;
+  background-color:#fff ;
+  cursor: pointer;
+}
+
 .crypto-details__stat {
   display: flex;
   justify-content: space-between;
