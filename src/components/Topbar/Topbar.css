@@ -1,0 +1,19 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #F4EEE0;
+    color: #000;
+  }
+  
+  .topbar__logo h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .topbar__user {
+    display: flex;
+    align-items: center;
+  }
+  
