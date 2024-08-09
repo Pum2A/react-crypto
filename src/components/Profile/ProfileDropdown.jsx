@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { AuthContext } from "../AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const ProfileDropdown = ({ username }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -11,6 +15,12 @@ const ProfileDropdown = ({ username }) => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    logout();
+    handleClose();
+    navigate("/login");
   };
 
   return (
@@ -30,7 +40,9 @@ const ProfileDropdown = ({ username }) => {
           <Typography variant="body1">Settings</Typography>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Typography variant="body1">Logout</Typography>
+          <Typography onClick={handleLogout} variant="body1">
+            Logout
+          </Typography>
         </MenuItem>
       </Menu>
     </>
