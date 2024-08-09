@@ -4,9 +4,9 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { AuthContext } from "../AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const ProfileDropdown = ({ username }) => {
+const ProfileDropdown = ({}) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const { logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleClick = (event) => {
@@ -34,7 +34,7 @@ const ProfileDropdown = ({ username }) => {
         onClose={handleClose}
         sx={{ mt: 2 }}>
         <MenuItem disabled>
-          <Typography variant="body1">Hello, {username}!</Typography>
+          <Typography variant="body1">Hello, {user}!</Typography>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Typography variant="body1">Settings</Typography>
