@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Register.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -24,33 +25,36 @@ const Register = () => {
       navigate("/login");
     }
   };
+
   const handleLoginClick = () => {
     navigate("/login");
   };
 
   return (
-    <div className="auth-form">
-      <h2>Register</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleRegister}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Register</button>
-      </form>
-      <p>Do you have an account?</p>
-      <button onClick={handleLoginClick}>Login</button>
+    <div className="auth-container">
+      <div className="auth-form">
+        <h2 className="register">Register</h2>
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleRegister}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Register</button>
+        </form>
+        <p className="login-question">Do you have an account?</p>
+        <button onClick={handleLoginClick}>Login</button>
+      </div>
     </div>
   );
 };
