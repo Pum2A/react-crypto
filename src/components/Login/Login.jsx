@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -30,28 +31,30 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-form">
-      <h2>Login</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p>Don't have an account?</p>
-      <button onClick={handleRegisterClick}>Register</button>
+    <div className="auth-container">
+      <div className="auth-form">
+        <h2 className="login">Login</h2>
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+        <p className="register-question">Don't have an account?</p>
+        <button onClick={handleRegisterClick}>Register</button>
+      </div>
     </div>
   );
 };

@@ -9,6 +9,8 @@ const Articles = lazy(() => import("../../pages/Articles/Articles"));
 const Messages = lazy(() => import("../../pages/Messages/Messages"));
 const MyList = lazy(() => import("../../pages/MyList/MyList"));
 const Statistics = lazy(() => import("../../pages/Statistics/Statistics"));
+const Login = lazy(() => import("../Login/Login"));
+const Register = lazy(() => import("../Register/Register"));
 
 const MainContent = () => {
   return (
@@ -23,6 +25,8 @@ const MainContent = () => {
             <Route path="/mylist" element={<MyList />} />
             <Route path="/statistics" element={<Statistics />} />
             <Route path="/crypto/:id" element={<CryptoDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </CryptoProvider>
       </Suspense>
