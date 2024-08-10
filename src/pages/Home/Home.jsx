@@ -2,7 +2,6 @@ import React, { useContext, lazy, Suspense } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./Home.css";
 import Topbar from "../../components/Topbar/Topbar";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 // Lazy load the Crypto component
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
@@ -13,11 +12,6 @@ const Home = () => {
   const formatPercentage = (value) => {
     let numberValue = parseFloat(value);
     return `${numberValue.toFixed(2)}`;
-  };
-
-  const formatPercentageLost = (v) => {
-    let value = parseFloat(v);
-    return `${value.toFixed(7)}`;
   };
 
   if (loading) {
@@ -53,64 +47,67 @@ const Home = () => {
       <Topbar />
 
       <div className="home__grid">
+        {/* Trending Now Block */}
         <div className="home__block home__block--trending">
           <h2 className="home__header">Trending Now</h2>
           <div className="home__items">
-            {top6Trending.map((crypto, index) => (
+            {top6Trending.map((crypto) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                 <Crypto
-                  market_cap_rank={`${crypto.market_cap_rank}`}
+                  market_cap_rank={crypto.market_cap_rank}
                   id={crypto.id}
+                  name={crypto.name} // Added name prop
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}
-                  price_change_24h={`${formatPercentage(
-                    crypto.price_change_24h
-                  )}`}
-                />
-              </Suspense>
-            ))}
-          </div>
-        </div>
-        <div className="home__block home__block--losers">
-          <h2 className="home__header">Biggest Losses</h2>
-          <div className="home__items">
-            {top6Lowest.map((crypto) => (
-              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
-                <Crypto
-                  market_cap_rank={`${crypto.market_cap_rank}`}
-                  id={crypto.id}
-                  symbol={crypto.symbol}
-                  image={crypto.image}
-                  current_price={crypto.current_price}
-                  price_change_24h={`${formatPercentage(
-                    crypto.price_change_24h
-                  )}`}
+                  price_change_24h={formatPercentage(crypto.price_change_24h)}
                 />
               </Suspense>
             ))}
           </div>
         </div>
 
+        {/* Biggest Losses Block */}
+        <div className="home__block home__block--losers">
+          <h2 className="home__header">Biggest Losses</h2>
+          <div className="home__items">
+            {top6Lowest.map((crypto) => (
+              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
+                <Crypto
+                  market_cap_rank={crypto.market_cap_rank}
+                  id={crypto.id}
+                  name={crypto.name} // Added name prop
+                  symbol={crypto.symbol}
+                  image={crypto.image}
+                  current_price={crypto.current_price}
+                  price_change_24h={formatPercentage(crypto.price_change_24h)}
+                />
+              </Suspense>
+            ))}
+          </div>
+        </div>
+
+        {/* Random Cryptos Block */}
         <div className="home__block home__block--random">
           <h2 className="home__header">Random Cryptos</h2>
           <div className="home__items">
             {randomCryptos.map((crypto) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                 <Crypto
-                  market_cap_rank={`${crypto.market_cap_rank}`}
+                  market_cap_rank={crypto.market_cap_rank}
                   id={crypto.id}
+                  name={crypto.name} // Added name prop
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}
-                  price_change_24h={`${formatPercentage(
-                    crypto.price_change_24h
-                  )}`}
+                  price_change_24h={formatPercentage(crypto.price_change_24h)}
                 />
               </Suspense>
             ))}
           </div>
         </div>
+
+        {/* Your Favorites Block */}
         <div className="home__block home__block--favorites">
           <h2 className="home__header home__header--favorites">
             Your Favorites
@@ -119,12 +116,13 @@ const Home = () => {
             {favorites.map((crypto) => (
               <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                 <Crypto
-                  market_cap_rank={`${crypto.market_cap_rank}`}
+                  market_cap_rank={crypto.market_cap_rank}
                   id={crypto.id}
+                  name={crypto.name}
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}
-                  price_change_24h={`${crypto.price_change_24h}`}
+                  price_change_24h={formatPercentage(crypto.price_change_24h)}
                 />
               </Suspense>
             ))}

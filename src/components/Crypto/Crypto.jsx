@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import { Link } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 import FavoritePopup from "../favoritePopup/FavoritePopup";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import { useState } from "react";
 import "./Crypto.css";
+
 const Crypto = ({
   id,
   name,
@@ -73,7 +73,7 @@ const Crypto = ({
       <FavoritePopup
         message={`${name} has been added to your favorites!`}
         isVisible={popupVisible}
-        onClose={() => setPopupVisible(false)}
+        onClose={() => setPopupVisible(false)} // Ensure this closes the popup after 3 seconds
       />
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./FavoritePopup.css";
 
 const FavoritePopup = ({ message, isVisible, onClose }) => {
@@ -6,12 +6,12 @@ const FavoritePopup = ({ message, isVisible, onClose }) => {
     if (isVisible) {
       const timer = setTimeout(() => {
         onClose();
-      }, 3000);
+      }, 3000); // Adjust this timeout if needed
       return () => clearTimeout(timer);
     }
-  }, [isVisible, onClose]);
+  }, [isVisible, onClose]); // Make sure the dependency array is correct
 
-  return isVisible && <div className="popup-notification">{message}</div>;
+  return isVisible ? <div className="popup-notification">{message}</div> : null;
 };
 
 export default FavoritePopup;

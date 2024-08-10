@@ -83,6 +83,7 @@ li {
   align-items: center;
   /* justify-content: center; */
   width: 100%;
+
   padding: .5rem 2rem;
   border-radius: .5rem;
   color: #fff; /* Dark text color */
@@ -97,10 +98,14 @@ li {
   align-items: center;
   gap: 2rem;
   font-size: 1.3rem;
-  font-weight: 300;
-  justify-content: center;
-  /* justify-content: space-evenly; */
+  font-weight: 400;
+  /* justify-content: center; */
+  justify-content: space-between;
   color: #fff;
+}
+
+.sidebar-container.collapsed .navLink {
+  justify-content: center; /* Centered when collapsed */
 }
 
 li:hover {
@@ -131,6 +136,7 @@ li:hover {
 .logout-icon{
   color: #fff;
 }
+
 
 a {
   text-decoration: none;
@@ -191,4 +197,5 @@ a {
     /* width: 0%; */
 
   }
+  
 }
