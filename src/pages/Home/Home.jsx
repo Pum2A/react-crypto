@@ -1,4 +1,4 @@
-import React, { useContext, lazy, Suspense } from "react";
+import React, { useContext, lazy, Suspense, useState, useEffect } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./Home.css";
 import Topbar from "../../components/Topbar/Topbar";
@@ -8,10 +8,30 @@ const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
 const Home = () => {
   const { cryptoData, loading, error, favorites } = useContext(CryptoContext);
+  const [randomCryptos, setRandomCryptos] = useState([]);
+  const [remainingCryptos, setRemainingCryptos] = useState([]);
 
   const formatPercentage = (value) => {
     let numberValue = parseFloat(value);
     return `${numberValue.toFixed(2)}`;
+  };
+
+  useEffect(() => {
+    if (cryptoData.length > 0) {
+      // Shuffle and set the initial random cryptos and the remaining cryptos
+      const shuffledCryptos = [...cryptoData].sort(() => 0.5 - Math.random());
+      setRandomCryptos(shuffledCryptos.slice(0, 5));
+      setRemainingCryptos(shuffledCryptos.slice(5));
+    }
+  }, [cryptoData]);
+
+  const handleLoadMore = () => {
+    if (remainingCryptos.length > 0) {
+      const newRandomCryptos = remainingCryptos.slice(0, 5);
+      const updatedRemainingCryptos = remainingCryptos.slice(5);
+      setRandomCryptos(newRandomCryptos);
+      setRemainingCryptos(updatedRemainingCryptos);
+    }
   };
 
   if (loading) {
@@ -27,15 +47,11 @@ const Home = () => {
     return <div>No data available</div>;
   }
 
-  const sortedByHigh = [...cryptoData].sort((a, b) => b.high24h - a.high24h);
+  const sortedByHigh = [...cryptoData].sort((a, b) => b.high_24h - a.high_24h);
   const top6Highest = sortedByHigh.slice(0, 5);
 
-  const sortedByLow = [...cryptoData].sort((a, b) => a.low24h - b.low24h);
+  const sortedByLow = [...cryptoData].sort((a, b) => a.low_24h - b.low_24h);
   const top6Lowest = sortedByLow.slice(0, 5);
-
-  const randomCryptos = [...cryptoData]
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 5);
 
   const sortedByPercentChange24h = [...cryptoData].sort(
     (a, b) => b.price_change_24h - a.price_change_24h
@@ -56,7 +72,7 @@ const Home = () => {
                 <Crypto
                   market_cap_rank={crypto.market_cap_rank}
                   id={crypto.id}
-                  name={crypto.name} // Added name prop
+                  name={crypto.name}
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}
@@ -76,7 +92,7 @@ const Home = () => {
                 <Crypto
                   market_cap_rank={crypto.market_cap_rank}
                   id={crypto.id}
-                  name={crypto.name} // Added name prop
+                  name={crypto.name}
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}
@@ -96,7 +112,7 @@ const Home = () => {
                 <Crypto
                   market_cap_rank={crypto.market_cap_rank}
                   id={crypto.id}
-                  name={crypto.name} // Added name prop
+                  name={crypto.name}
                   symbol={crypto.symbol}
                   image={crypto.image}
                   current_price={crypto.current_price}
@@ -105,6 +121,11 @@ const Home = () => {
               </Suspense>
             ))}
           </div>
+          {remainingCryptos.length > 0 && (
+            <button onClick={handleLoadMore} className="load-more-button">
+              Load More
+            </button>
+          )}
         </div>
 
         {/* Your Favorites Block */}

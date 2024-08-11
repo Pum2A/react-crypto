@@ -6,10 +6,10 @@ const FavoritePopup = ({ message, isVisible, onClose }) => {
     if (isVisible) {
       const timer = setTimeout(() => {
         onClose();
-      }, 3000); // Adjust this timeout if needed
+      }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [isVisible, onClose]); // Make sure the dependency array is correct
+  }, [isVisible, onClose]);
 
   return isVisible ? <div className="popup-notification">{message}</div> : null;
 };
