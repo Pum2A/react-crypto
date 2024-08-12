@@ -8,6 +8,16 @@ const CryptoProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [favorites, setFavorites] = useState([]);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+
+  const showPopup = (message) => {
+    setPopupMessage(message);
+    setPopupVisible(true);
+    setTimeout(() => {
+      setPopupVisible(false);
+    }, 3000);
+  };
 
   // Fetch crypto data from API
   useEffect(() => {
@@ -59,19 +69,21 @@ const CryptoProvider = ({ children }) => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
+  // Add a favorite
   const addFavorite = (crypto) => {
-    console.log("Adding favorite:", crypto);
     setFavorites((prevFavorites) => [...prevFavorites, crypto]);
   };
 
+  // Remove a favorite
   const removeFavorite = (cryptoId) => {
-    console.log("Removing favorite with ID:", cryptoId);
     setFavorites((prevFavorites) =>
       prevFavorites.filter((fav) => fav.id !== cryptoId)
     );
   };
 
-  const isFavorite = (cryptoId) => favorites.some((fav) => fav.id === cryptoId);
+  const isFavorite = (cryptoId) => {
+    return favorites.some((fav) => fav.id === cryptoId);
+  };
 
   return (
     <CryptoContext.Provider
@@ -83,6 +95,9 @@ const CryptoProvider = ({ children }) => {
         addFavorite,
         removeFavorite,
         isFavorite,
+        showPopup,
+        popupVisible,
+        popupMessage,
       }}>
       {children}
     </CryptoContext.Provider>

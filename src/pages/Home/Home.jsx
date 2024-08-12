@@ -57,6 +57,7 @@ const Home = () => {
     (a, b) => b.price_change_24h - a.price_change_24h
   );
   const top6Trending = sortedByPercentChange24h.slice(0, 5);
+  console.log("Rendering Home component with favorites:", favorites);
 
   return (
     <>
@@ -135,17 +136,16 @@ const Home = () => {
           </h2>
           <div className="home__items home__items--favorites">
             {favorites.map((crypto) => (
-              <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
-                <Crypto
-                  market_cap_rank={crypto.market_cap_rank}
-                  id={crypto.id}
-                  name={crypto.name}
-                  symbol={crypto.symbol}
-                  image={crypto.image}
-                  current_price={crypto.current_price}
-                  price_change_24h={formatPercentage(crypto.price_change_24h)}
-                />
-              </Suspense>
+              <Crypto
+                key={crypto.id} // Use crypto.id as the key
+                market_cap_rank={crypto.market_cap_rank}
+                id={crypto.id}
+                name={crypto.name}
+                symbol={crypto.symbol}
+                image={crypto.image}
+                current_price={crypto.current_price}
+                price_change_24h={crypto.price_change_24h}
+              />
             ))}
           </div>
         </div>

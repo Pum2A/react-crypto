@@ -12,14 +12,17 @@ const Crypto = ({
   symbol,
   image,
   current_price,
-  high_24h,
-  low_24h,
   market_cap_rank,
   price_change_24h,
 }) => {
-  const { addFavorite, removeFavorite, isFavorite } = useContext(CryptoContext);
-  const [popupVisible, setPopupVisible] = useState(false);
-  const [popupMessage, setPopupMessage] = useState("");
+  const {
+    addFavorite,
+    removeFavorite,
+    isFavorite,
+    showPopup,
+    popupVisible,
+    popupMessage,
+  } = useContext(CryptoContext);
   const favorite = isFavorite(id);
 
   const handleFavoriteClick = (e) => {
@@ -27,7 +30,7 @@ const Crypto = ({
 
     if (favorite) {
       removeFavorite(id);
-      setPopupMessage(`${name} has been removed from your favorites!`);
+      showPopup(`${name} has been removed from your favorites!`);
     } else {
       addFavorite({
         id,
@@ -35,19 +38,11 @@ const Crypto = ({
         symbol,
         image,
         current_price,
-        high_24h,
-        low_24h,
         market_cap_rank,
         price_change_24h,
       });
-      setPopupMessage(`${name} has been added to your favorites!`);
+      showPopup(`${name} has been added to your favorites!`);
     }
-
-    setPopupVisible(true);
-
-    setTimeout(() => {
-      setPopupVisible(false);
-    }, 3000);
   };
 
   return (
@@ -79,11 +74,7 @@ const Crypto = ({
           </button>
         </div>
       </Link>
-      <FavoritePopup
-        message={popupMessage}
-        isVisible={popupVisible}
-        onClose={() => setPopupVisible(false)}
-      />
+      <FavoritePopup message={popupMessage} isVisible={popupVisible} />
     </>
   );
 };
