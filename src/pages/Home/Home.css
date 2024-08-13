@@ -59,6 +59,34 @@
   overflow: auto;
 }
 
+
+.load-more-btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1rem;
+}
+
+.load-more-button{
+  border-radius: .2rem;
+  border: 1px solid rgb(39, 68, 188);
+  box-shadow: 0px 0px 5px rgb(39, 68, 188) ;
+  background-color: rgb(39, 68, 188);
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s all;
+  color: #fff;
+}
+
+.load-more-button:hover{
+  border: 1px solid rgb(31, 54, 147);
+  box-shadow: 0px 0px 5px rgb(31, 54, 147);
+  background-color: rgb(31, 54, 147);
+  transition: 0.3s all;
+
+}
+
+
 .home__block--losers {
   background-color: #6D5D6E;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);

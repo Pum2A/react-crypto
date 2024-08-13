@@ -2,7 +2,7 @@ import React, { useContext, lazy, Suspense, useState, useEffect } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import "./Home.css";
 import Topbar from "../../components/Topbar/Topbar";
-
+import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 // Lazy load the Crypto component
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
@@ -123,9 +123,14 @@ const Home = () => {
             ))}
           </div>
           {remainingCryptos.length > 0 && (
-            <button onClick={handleLoadMore} className="load-more-button">
-              Load More
-            </button>
+            <>
+              <div className="load-more-btn-container">
+                <UnfoldMoreIcon
+                  onClick={handleLoadMore}
+                  className="load-more-button"
+                />
+              </div>
+            </>
           )}
         </div>
 
