@@ -11,6 +11,7 @@ const CryptoProvider = ({ children }) => {
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const [modalColor, setModalColor] = useState("transparent");
 
   // Fetch crypto data from API
   useEffect(() => {
@@ -62,6 +63,7 @@ const CryptoProvider = ({ children }) => {
     setFavorites((prevFavorites) => {
       if (!prevFavorites.some((fav) => fav.id === crypto.id)) {
         setModalMessage(`${crypto.name} has been added to favorites`);
+        setModalColor("green"); // Set color for added
         setIsModalOpen(true);
         return [...prevFavorites, crypto];
       }
@@ -80,6 +82,7 @@ const CryptoProvider = ({ children }) => {
         setModalMessage(
           `${removedCrypto.name} has been removed from favorites`
         );
+        setModalColor("red"); // Set color for removed
         setIsModalOpen(true);
       }
       return updatedFavorites;
@@ -93,6 +96,7 @@ const CryptoProvider = ({ children }) => {
   const closeModal = () => {
     setIsModalOpen(false);
     setModalMessage("");
+    setModalColor("transparent");
   };
 
   return (
@@ -107,6 +111,7 @@ const CryptoProvider = ({ children }) => {
         isFavorite,
         isModalOpen,
         modalMessage,
+        modalColor,
         closeModal,
       }}>
       {children}

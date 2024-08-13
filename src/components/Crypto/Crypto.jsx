@@ -18,6 +18,7 @@ const Crypto = ({
   const { addFavorite, removeFavorite, isFavorite } = useContext(CryptoContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+
   const favorite = isFavorite(id);
 
   const handleFavoriteClick = (e) => {

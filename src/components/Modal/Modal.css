@@ -1,30 +1,35 @@
 /* Modal.css */
 .modal-overlay {
+  /* padding: .5rem; */
+  border-radius: .5rem;
+  color: #fff;
+  font-size: .8rem;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  bottom: 1rem;
+  right: 1rem;
   z-index: 1000;
+  transition: background-color 0.5s ease; /* Smooth transition for background color */
 }
 
 .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+gap:2rem ;
+  align-items: center;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+
   position: relative;
+  font-weight: 800;
 }
 
 .modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  color: #fff;
   background: none;
+  /* width: 25px; */
+  /* height: 25px; */
+  /* padding: .2rem .2rem; */
   border: none;
-  font-size: 24px;
   cursor: pointer;
 }

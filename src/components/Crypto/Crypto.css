@@ -10,6 +10,7 @@
   flex-wrap: wrap;
   width: 100%;
   font-size: 0.8rem;
+  transition: background-color 0.5s ease;
 }
 
 .crypto__rank {
@@ -66,7 +67,7 @@
 }
 
 .crypto__change--negative {
-  color: #f44336; 
+  color: #e61a0c; 
   font-weight: 800;
 }
 .favorite-button.is-not-favorite {
