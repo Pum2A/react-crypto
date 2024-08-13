@@ -16,19 +16,17 @@ const MainContent = () => {
   return (
     <div className="container">
       <Suspense fallback={<div>Loading...</div>}>
-        <CryptoProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/articles" element={<Articles />} />
-            <Route path="/messages" element={<Messages />} />
-            <Route path="/mylist" element={<MyList />} />
-            <Route path="/statistics" element={<Statistics />} />
-            <Route path="/crypto/:id" element={<CryptoDetails />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </CryptoProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/mylist" element={<MyList />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/crypto/:id" element={<CryptoDetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
       </Suspense>
     </div>
   );

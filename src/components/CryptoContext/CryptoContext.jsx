@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-import axios from "axios";
 
 const CryptoContext = createContext();
 
@@ -8,32 +7,24 @@ const CryptoProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [favorites, setFavorites] = useState([]);
-  const [popupVisible, setPopupVisible] = useState(false);
-  const [popupMessage, setPopupMessage] = useState("");
 
-  const showPopup = (message) => {
-    setPopupMessage(message);
-    setPopupVisible(true);
-    setTimeout(() => {
-      setPopupVisible(false);
-    }, 3000);
-  };
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   // Fetch crypto data from API
   useEffect(() => {
     const fetchData = async () => {
-      const options = {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          "x-cg-demo-api-key": "CG-n22mrDz3LvU7NunHbKNJap5K",
-        },
-      };
-
       try {
         const response = await fetch(
           "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false",
-          options
+          {
+            method: "GET",
+            headers: {
+              accept: "application/json",
+              "x-cg-demo-api-key": "CG-n22mrDz3LvU7NunHbKNJap5K",
+            },
+          }
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -59,30 +50,49 @@ const CryptoProvider = ({ children }) => {
       if (parsedFavorites.length && favorites.length === 0) {
         setFavorites(parsedFavorites);
       }
-    } else {
-      console.log("No favorites found in localStorage.");
     }
   }, []);
 
   useEffect(() => {
-    console.log("Favorites updated:", favorites);
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
   // Add a favorite
   const addFavorite = (crypto) => {
-    setFavorites((prevFavorites) => [...prevFavorites, crypto]);
+    setFavorites((prevFavorites) => {
+      if (!prevFavorites.some((fav) => fav.id === crypto.id)) {
+        setModalMessage(`${crypto.name} has been added to favorites`);
+        setIsModalOpen(true);
+        return [...prevFavorites, crypto];
+      }
+      return prevFavorites;
+    });
   };
 
   // Remove a favorite
   const removeFavorite = (cryptoId) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.filter((fav) => fav.id !== cryptoId)
-    );
+    setFavorites((prevFavorites) => {
+      const updatedFavorites = prevFavorites.filter(
+        (fav) => fav.id !== cryptoId
+      );
+      const removedCrypto = prevFavorites.find((fav) => fav.id === cryptoId);
+      if (removedCrypto) {
+        setModalMessage(
+          `${removedCrypto.name} has been removed from favorites`
+        );
+        setIsModalOpen(true);
+      }
+      return updatedFavorites;
+    });
   };
 
   const isFavorite = (cryptoId) => {
     return favorites.some((fav) => fav.id === cryptoId);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalMessage("");
   };
 
   return (
@@ -95,9 +105,9 @@ const CryptoProvider = ({ children }) => {
         addFavorite,
         removeFavorite,
         isFavorite,
-        showPopup,
-        popupVisible,
-        popupMessage,
+        isModalOpen,
+        modalMessage,
+        closeModal,
       }}>
       {children}
     </CryptoContext.Provider>

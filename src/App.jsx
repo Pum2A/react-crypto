@@ -12,21 +12,10 @@ function App() {
     <Router>
       <AuthProvider>
         <CryptoProvider>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route
-              path="/*"
-              element={
-                <ProtectedRoute>
-                  <div className="flex">
-                    <Sidebar />
-                    <MainContent />
-                  </div>
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
+          <div className="flex">
+            <Sidebar />
+            <MainContent />
+          </div>
         </CryptoProvider>
       </AuthProvider>
     </Router>

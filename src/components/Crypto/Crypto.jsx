@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import { Link } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
-import FavoritePopup from "../favoritePopup/FavoritePopup";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import "./Crypto.css";
-
+import Modal from "../Modal/Modal";
 const Crypto = ({
   id,
   name,
@@ -14,15 +13,11 @@ const Crypto = ({
   current_price,
   market_cap_rank,
   price_change_24h,
+  popupVisible,
 }) => {
-  const {
-    addFavorite,
-    removeFavorite,
-    isFavorite,
-    showPopup,
-    popupVisible,
-    popupMessage,
-  } = useContext(CryptoContext);
+  const { addFavorite, removeFavorite, isFavorite } = useContext(CryptoContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
   const favorite = isFavorite(id);
 
   const handleFavoriteClick = (e) => {
@@ -30,7 +25,7 @@ const Crypto = ({
 
     if (favorite) {
       removeFavorite(id);
-      showPopup(`${name} has been removed from your favorites!`);
+      setModalMessage(`${name} has been removed from favorites`);
     } else {
       addFavorite({
         id,
@@ -41,8 +36,14 @@ const Crypto = ({
         market_cap_rank,
         price_change_24h,
       });
-      showPopup(`${name} has been added to your favorites!`);
+      setModalMessage(`${name} has been added to favorites`);
     }
+
+    // Log the message for debugging
+    console.log("Updated Message:", modalMessage);
+
+    // Open the modal after updating the message
+    setIsModalOpen(true);
   };
 
   return (
@@ -74,7 +75,9 @@ const Crypto = ({
           </button>
         </div>
       </Link>
-      <FavoritePopup message={popupMessage} isVisible={popupVisible} />
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <p>{modalMessage}</p>
+      </Modal>
     </>
   );
 };
