@@ -1,0 +1,71 @@
+.settings_container {
+  padding: 2rem;
+  background-color: #6D5D6E; /* Dark background similar to crypto-details */
+  color: #fff; /* White text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Allow scrolling if content exceeds viewport height */
+}
+
+.settings_header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.settings_header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #fff; /* White text color */
+}
+
+.settings_avatar_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.settings_avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #fff; /* Add a border for better visual separation */
+}
+
+.settings_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.settings_form input[type="file"] {
+  margin-bottom: 1rem;
+  border: 1px solid #fff; /* Light border for file input */
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #6D5D6E; /* Match background color */
+}
+
+.settings_save_btn {
+  width: 7rem;
+  height: 2.5rem;
+  background-color: #fff;
+  color: #6D5D6E; /* Match background color */
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.settings_save_btn:hover {
+  background-color: #6D5D6E;
+  color: #fff;
+}

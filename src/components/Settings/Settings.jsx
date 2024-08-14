@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Avatar } from "@mui/material";
+import styles from "./settings.module.css"; // Importing the CSS Module
 
 const Settings = () => {
   const [profilePicture, setProfilePicture] = useState("");
@@ -18,7 +19,6 @@ const Settings = () => {
     if (selectedFile) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        // Ensure we are getting a base64 encoded string
         setFile(reader.result);
       };
       reader.readAsDataURL(selectedFile);
@@ -36,22 +36,24 @@ const Settings = () => {
   };
 
   return (
-    <div>
-      <h1>Settings</h1>
-      <Avatar
-        src={file || profilePicture} // Render the uploaded or saved picture
-        alt="Profile Picture"
-        sx={{ width: 100, height: 100 }}
-      />
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleFileChange}
-        style={{ margin: "10px 0" }} // Add some margin for better UI
-      />
-      <Button onClick={handleSave} variant="contained" color="primary">
-        Save
-      </Button>
+    <div className={styles.settings_container}>
+      <div className={styles.settings_header}>
+        <h1>Settings</h1>
+      </div>
+      <div className={styles.settings_form}>
+        <div className={styles.settings_avatar_text}>
+          <h3>Avatar</h3>
+          <Avatar
+            src={file || profilePicture}
+            alt="Profile Picture"
+            className={styles.settings_avatar}
+          />
+        </div>
+        <input type="file" accept="image/*" onChange={handleFileChange} />
+        <Button onClick={handleSave} className={styles.settings_save_btn}>
+          Save
+        </Button>
+      </div>
     </div>
   );
 };
