@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { IconButton, Menu, MenuItem, Typography } from "@mui/material";
+import { IconButton, Menu, MenuItem, Typography, Avatar } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { AuthContext } from "../AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const ProfileDropdown = ({}) => {
+const ProfileDropdown = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -26,7 +26,9 @@ const ProfileDropdown = ({}) => {
   return (
     <>
       <IconButton onClick={handleClick} color="inherit">
-        <AccountCircleIcon />
+        <Avatar src={user.profilePicture} alt={user.name}>
+          <AccountCircleIcon />
+        </Avatar>
       </IconButton>
       <Menu
         anchorEl={anchorEl}
@@ -34,15 +36,13 @@ const ProfileDropdown = ({}) => {
         onClose={handleClose}
         sx={{ mt: 2 }}>
         <MenuItem disabled>
-          <Typography variant="body1">Hello, {user}!</Typography>
+          <Typography variant="body1">Hello, {user.name}!</Typography>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => navigate("/settings")}>
           <Typography variant="body1">Settings</Typography>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Typography onClick={handleLogout} variant="body1">
-            Logout
-          </Typography>
+        <MenuItem onClick={handleLogout}>
+          <Typography variant="body1">Logout</Typography>
         </MenuItem>
       </Menu>
     </>
