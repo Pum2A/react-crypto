@@ -84,12 +84,10 @@
 .favorite-button svg {
   font-size: 18px;
   border-radius: 50%;
-  color: orange; 
+  color: rgb(6, 6, 6); 
 }
 
-.favorite-button:hover svg {
-  color: yellow; 
-}
+
 
 @media (max-width: 800px) {
   .crypto {

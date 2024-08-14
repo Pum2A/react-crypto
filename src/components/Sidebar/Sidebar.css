@@ -75,7 +75,7 @@ nav ul {
 
 li.active {
   border-bottom: 5px solid #fff; /* Pastel purple border for active */
-  transition: 0.3s all;
+  transition: 0.1s all;
 }
 
 li {
@@ -84,12 +84,11 @@ li {
   /* justify-content: center; */
   width: 100%;
 
-  padding: .5rem 2rem;
-  border-radius: .5rem;
+  padding: .4rem 1rem;
   color: #fff; /* Dark text color */
   background-color: #6D5D6E;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.1s all;
 }
 
 .navLink{

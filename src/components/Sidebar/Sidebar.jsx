@@ -57,16 +57,7 @@ function Sidebar() {
               <span>Statistics</span>
             </NavLink>
           </li>
-          <li className={isActive("/messages") ? "active" : ""}>
-            <NavLink
-              to="/messages"
-              aria-label="Messages"
-              aria-current={isActive("/messages") ? "page" : undefined}
-              className={"navLink"}>
-              <MessageIcon />
-              <span>Messages</span>
-            </NavLink>
-          </li>
+
           <li className={isActive("/articles") ? "active" : ""}>
             <NavLink
               to="/articles"
@@ -84,7 +75,7 @@ function Sidebar() {
               aria-current={isActive("/mylist") ? "page" : undefined}
               className={"navLink"}>
               <ListIcon />
-              <span>My List</span>
+              <span>Favorites</span>
             </NavLink>
           </li>
         </ul>

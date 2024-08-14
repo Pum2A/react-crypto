@@ -69,9 +69,9 @@ const Crypto = ({
           </div>
           <button onClick={handleFavoriteClick} className="favorite-button">
             {favorite ? (
-              <StarIcon style={{ fontSize: 36, color: "orange" }} />
+              <StarIcon style={{ fontSize: 25 }} />
             ) : (
-              <StarBorderIcon style={{ fontSize: 36, color: "yellow" }} />
+              <StarBorderIcon style={{ fontSize: 25 }} />
             )}
           </button>
         </div>
