@@ -4,17 +4,17 @@
   box-sizing: border-box;
 }
 
-.home__title {
+.homeTitle {
   font-size: 2rem;
   color: #393646;
   font-weight: 800;
 }
 
-.user-icon{
+.userIcon {
   cursor: pointer;
 }
 
-.home__container {
+.homeContainer {
   background-color: #F4EEE0;
   margin: 1rem 1rem;
   border-radius: 1rem;
@@ -25,32 +25,32 @@
   justify-content: space-between;
 }
 
-.user__container{
+.userContainer {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.home__grid {
+.homeGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 1rem;
   margin: 1rem;
 }
 
-.home__header {
+.homeHeader {
   color: #fff;
   margin: 1rem;
   font-size: 1.3rem;
 }
 
-.home__header--statistics {
+.homeHeaderStatistics {
   color: #000;
   font-weight: 700;
 }
 
-.home__block {
+.homeBlock {
   background-color: #6D5D6E;
   border-radius: 1rem;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
@@ -59,18 +59,17 @@
   overflow: auto;
 }
 
-
-.load-more-btn-container{
+.loadMoreBtnContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 1rem 1rem;
 }
 
-.load-more-button{
+.loadMoreButton {
   border-radius: .2rem;
   border: 1px solid rgb(39, 68, 188);
-  box-shadow: 0px 0px 5px rgb(39, 68, 188) ;
+  box-shadow: 0px 0px 5px rgb(39, 68, 188);
   background-color: rgb(39, 68, 188);
   font-weight: 800;
   cursor: pointer;
@@ -78,29 +77,26 @@
   color: #fff;
 }
 
-
-
-.home__options-group {
+.homeOptionsGroup {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.home__filters,
-.home__sorting {
+.homeFilters,
+.homeSorting {
   display: flex;
   margin: 1rem 0rem;
   gap: 1rem;
-
 }
-.home__grid.single-column {
+
+.homeGridSingleColumn {
   grid-template-columns: 1fr;
 }
 
-
-.home__filters button,
-.home__sorting button {
+.homeFilters button,
+.homeSorting button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -109,40 +105,30 @@
   cursor: pointer;
 }
 
-.home__filters button:hover,
-.home__sorting button:hover {
+.homeFilters button:hover,
+.homeSorting button:hover {
   background-color: #0056b3;
 }
 
-.load-more-button:hover{
+.loadMoreButton:hover {
   border: 1px solid rgb(31, 54, 147);
   box-shadow: 0px 0px 5px rgb(31, 54, 147);
   background-color: rgb(31, 54, 147);
   transition: 0.3s all;
-
 }
 
-
-.home__block--losers {
+.homeBlockLosers,
+.homeBlockRandom,
+.homeBlockFavorites {
   background-color: #6D5D6E;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
 }
 
-.home__block--random {
-  background-color: #6D5D6E;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
-}
-
-.home__block--favorites {
-  background-color: #6D5D6E;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
-}
-
-.home__header--favorites {
+.homeHeaderFavorites {
   color: #fff;
 }
 
-.home__items {
+.homeItems {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -151,30 +137,30 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .home__title {
+  .homeTitle {
     font-size: 1.8rem;
   }
 
-  .home__block {
+  .homeBlock {
     min-height: auto;
     height: auto;
   }
 
-  .home__item {
+  .homeItem {
     height: 50px;
     width: 50px;
   }
 
-  .home__item div {
+  .homeItem div {
     height: 40px;
     width: 40px;
   }
 
-  .home__header {
+  .homeHeader {
     font-size: 1.2rem;
   }
 
-  .home__grid {
+  .homeGrid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }

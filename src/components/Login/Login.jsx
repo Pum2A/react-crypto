@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import styles from "./Login.module.css"; // Importing the CSS Module
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -31,10 +31,10 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-form">
-        <h2 className="login">Login</h2>
-        {error && <p className="error">{error}</p>}
+    <div className={styles.authContainer}>
+      <div className={styles.authForm}>
+        <h2 className={styles.loginTitle}>Login</h2>
+        {error && <p className={styles.error}>{error}</p>}
         <form onSubmit={handleLogin}>
           <input
             type="text"
@@ -52,7 +52,7 @@ const Login = () => {
           />
           <button type="submit">Login</button>
         </form>
-        <p className="register-question">Don't have an account?</p>
+        <p className={styles.registerQuestion}>Don't have an account?</p>
         <button onClick={handleRegisterClick}>Register</button>
       </div>
     </div>

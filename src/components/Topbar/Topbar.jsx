@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
-import "./Topbar.css";
+import styles from "./Topbar.module.css"; // Importing the CSS Module
 import ProfileDropdown from "../Profile/ProfileDropdown";
 
 const Topbar = ({ onSearch }) => {
@@ -20,24 +20,27 @@ const Topbar = ({ onSearch }) => {
   };
 
   return (
-    <div className="topbar">
-      <div className="topbar__logo">
+    <div className={styles.topbar}>
+      <div className={styles.topbar__logo}>
         <h1>CRX</h1>
       </div>
-      <div className="topbar__search-container">
-        <SearchIcon className="topbar__search-icon" />
+      <div className={styles.topbar__searchContainer}>
+        <SearchIcon className={styles.topbar__searchIcon} />
         <input
           type="text"
           placeholder="Search"
           value={searchQuery}
           onChange={handleSearch}
-          className="topbar__search"
+          className={styles.topbar__search}
         />
         {searchQuery && (
-          <CloseIcon className="topbar__clear-icon" onClick={clearSearch} />
+          <CloseIcon
+            className={styles.topbar__clearIcon}
+            onClick={clearSearch}
+          />
         )}
       </div>
-      <div className="topbar__user">
+      <div className={styles.topbar__user}>
         <ProfileDropdown username="Test" />
       </div>
     </div>

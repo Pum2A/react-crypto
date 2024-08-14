@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { CryptoContext } from "../CryptoContext/CryptoContext";
-import "./Modal.css";
+import styles from "./Modal.module.css"; // Importing the CSS Module
 import CloseIcon from "@mui/icons-material/Close";
+
 const Modal = () => {
   const { isModalOpen, modalMessage, modalColor, closeModal } =
     useContext(CryptoContext);
@@ -10,13 +11,12 @@ const Modal = () => {
 
   return (
     <div
-      className="modal-overlay"
+      className={styles.modalOverlay}
       style={{ backgroundColor: modalColor }} // Use the modalColor here
       onClick={closeModal}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <p>{modalMessage}</p>
-
-        <CloseIcon className="modal-close" onClick={closeModal} />
+        <CloseIcon className={styles.modalClose} onClick={closeModal} />
       </div>
     </div>
   );

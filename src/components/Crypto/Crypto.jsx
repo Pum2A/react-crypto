@@ -1,10 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import { Link } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import "./Crypto.css";
+import styles from "./Crypto.module.css"; // Importing the CSS Module
 import Modal from "../Modal/Modal";
+
 const Crypto = ({
   id,
   name,
@@ -13,7 +14,6 @@ const Crypto = ({
   current_price,
   market_cap_rank,
   price_change_24h,
-  popupVisible,
 }) => {
   const { addFavorite, removeFavorite, isFavorite } = useContext(CryptoContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,24 +50,28 @@ const Crypto = ({
   return (
     <>
       <Link to={`/crypto/${id}`}>
-        <div className="crypto">
-          <div className="crypto__rank">{market_cap_rank}</div>
-          <div className="crypto__image">
+        <div className={styles.crypto}>
+          {" "}
+          {/* Apply the scoped class */}
+          <div className={styles.crypto__rank}>{market_cap_rank}</div>
+          <div className={styles.crypto__image}>
             <img src={image} alt={`${symbol} logo`} />
           </div>
-          <div className="crypto__info">
-            <div className="crypto__symbol">{symbol.toUpperCase()}</div>
-            <div className="crypto__price">{current_price}$</div>
+          <div className={styles.crypto__info}>
+            <div className={styles.crypto__symbol}>{symbol.toUpperCase()}</div>
+            <div className={styles.crypto__price}>{current_price}$</div>
             <div
-              className={`crypto__change ${
+              className={`${styles.crypto__change} ${
                 price_change_24h >= 0
-                  ? "crypto__change--positive"
-                  : "crypto__change--negative"
+                  ? styles.crypto__change__positive
+                  : styles.crypto__change__negative
               }`}>
               {price_change_24h}%
             </div>
           </div>
-          <button onClick={handleFavoriteClick} className="favorite-button">
+          <button
+            onClick={handleFavoriteClick}
+            className={styles.favoriteButton}>
             {favorite ? (
               <StarIcon style={{ fontSize: 25 }} />
             ) : (

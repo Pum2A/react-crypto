@@ -1,6 +1,6 @@
 import React, { useContext, lazy, Suspense, useState, useEffect } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
-import "./Home.css";
+import styles from "./Home.module.css"; // Importing the CSS Module
 import Topbar from "../../components/Topbar/Topbar";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 
@@ -111,13 +111,16 @@ const Home = () => {
     <>
       <Topbar onSearch={handleSearch} />
 
-      <div className={`home__grid ${searchQuery ? "single-column" : ""}`}>
+      <div
+        className={`${styles.homeGrid} ${
+          searchQuery ? styles.homeGridSingleColumn : ""
+        }`}>
         {searchQuery ? (
           <>
             {/* Display search results with filters */}
-            <div className="home__block">
-              <h2 className="home__header">Search Results</h2>
-              <div className="home__items">
+            <div className={styles.homeBlock}>
+              <h2 className={styles.homeHeader}>Search Results</h2>
+              <div className={styles.homeItems}>
                 {filteredCryptos.length > 0 ? (
                   filteredCryptos.map((crypto) => (
                     <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
@@ -141,9 +144,9 @@ const Home = () => {
             </div>
 
             {/* Filter and Sorting Options */}
-            <div className="home__options">
-              <div className="home__options-group">
-                <div className="home__sorting">
+            <div className={styles.homeOptions}>
+              <div className={styles.homeOptionsGroup}>
+                <div className={styles.homeSorting}>
                   <button onClick={() => handleSortChange("priceAsc")}>
                     Price Ascending
                   </button>
@@ -157,9 +160,9 @@ const Home = () => {
         ) : (
           <>
             {/* Trending Now Block */}
-            <div className="home__block home__block--trending">
-              <h2 className="home__header">Trending Now</h2>
-              <div className="home__items">
+            <div className={`${styles.homeBlock} ${styles.homeBlockTrending}`}>
+              <h2 className={styles.homeHeader}>Trending Now</h2>
+              <div className={styles.homeItems}>
                 {top6Trending.map((crypto) => (
                   <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                     <Crypto
@@ -179,9 +182,9 @@ const Home = () => {
             </div>
 
             {/* Biggest Losses Block */}
-            <div className="home__block home__block--losers">
-              <h2 className="home__header">Biggest Losses</h2>
-              <div className="home__items">
+            <div className={`${styles.homeBlock} ${styles.homeBlockLosers}`}>
+              <h2 className={styles.homeHeader}>Biggest Losses</h2>
+              <div className={styles.homeItems}>
                 {top6Lowest.map((crypto) => (
                   <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                     <Crypto
@@ -201,9 +204,9 @@ const Home = () => {
             </div>
 
             {/* Random Cryptos Block */}
-            <div className="home__block home__block--random">
-              <h2 className="home__header">Random Cryptos</h2>
-              <div className="home__items">
+            <div className={`${styles.homeBlock} ${styles.homeBlockRandom}`}>
+              <h2 className={styles.homeHeader}>Random Cryptos</h2>
+              <div className={styles.homeItems}>
                 {randomCryptos.map((crypto) => (
                   <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
                     <Crypto
@@ -221,21 +224,23 @@ const Home = () => {
                 ))}
               </div>
               {remainingCryptos.length > 0 && (
-                <div className="load-more-btn-container">
+                <div className={styles.loadMoreBtnContainer}>
                   <UnfoldMoreIcon
                     onClick={handleLoadMore}
-                    className="load-more-button"
+                    className={styles.loadMoreButton}
                   />
                 </div>
               )}
             </div>
 
             {/* Your Favorites Block */}
-            <div className="home__block home__block--favorites">
-              <h2 className="home__header home__header--favorites">
+            <div className={`${styles.homeBlock} ${styles.homeBlockFavorites}`}>
+              <h2
+                className={`${styles.homeHeader} ${styles.homeHeaderFavorites}`}>
                 Your Favorites
               </h2>
-              <div className="home__items home__items--favorites">
+              <div
+                className={`${styles.homeItems} ${styles.homeItemsFavorites}`}>
                 {favorites.map((crypto) => (
                   <Crypto
                     key={crypto.id} // Use crypto.id as the key

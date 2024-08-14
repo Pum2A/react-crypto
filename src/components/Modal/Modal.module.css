@@ -1,9 +1,7 @@
-/* Modal.css */
-.modal-overlay {
-  /* padding: .5rem; */
-  border-radius: .5rem;
+.modalOverlay {
+  border-radius: 0.5rem;
   color: #fff;
-  font-size: .8rem;
+  font-size: 0.8rem;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -11,25 +9,22 @@
   transition: background-color 0.5s ease; /* Smooth transition for background color */
 }
 
-.modal-content {
+.modalContent {
   display: flex;
   justify-content: center;
-gap:2rem ;
+  gap: 2rem;
   align-items: center;
-  padding: .5rem 1rem;
-  border-radius: .5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   font-size: 1rem;
-
   position: relative;
   font-weight: 800;
 }
 
-.modal-close {
+.modalClose {
   color: #fff;
   background: none;
-  /* width: 25px; */
-  /* height: 25px; */
-  /* padding: .2rem .2rem; */
   border: none;
   cursor: pointer;
 }
+

@@ -61,12 +61,12 @@
   white-space: nowrap;
 }
 
-.crypto__change--positive {
+.crypto__change__positive {
   color: #1cb121; 
   font-weight: 800;
 }
 
-.crypto__change--negative {
+.crypto__change__negative {
   color: #e61a0c; 
   font-weight: 800;
 }
