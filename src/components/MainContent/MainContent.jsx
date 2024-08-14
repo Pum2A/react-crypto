@@ -12,6 +12,7 @@ const MyList = lazy(() => import("../../pages/MyList/MyList"));
 const Statistics = lazy(() => import("../../pages/Statistics/Statistics"));
 const Login = lazy(() => import("../Login/Login"));
 const Register = lazy(() => import("../Register/Register"));
+const Settings = lazy(() => import("../Settings/Settings"));
 
 const MainContent = () => {
   return (
@@ -35,7 +36,6 @@ const MainContent = () => {
               </ProtectedRoute>
             }
           />
-
           <Route
             path="/mylist"
             element={
@@ -67,6 +67,14 @@ const MainContent = () => {
               <UnprotectedRoute>
                 <Register />
               </UnprotectedRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
             }
           />
         </Routes>

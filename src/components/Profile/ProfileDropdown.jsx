@@ -23,6 +23,11 @@ const ProfileDropdown = () => {
     navigate("/login");
   };
 
+  const handleSettings = () => {
+    handleClose();
+    navigate("/settings");
+  };
+
   return (
     <>
       <IconButton onClick={handleClick} color="inherit">
@@ -37,6 +42,9 @@ const ProfileDropdown = () => {
         sx={{ mt: 2 }}>
         <MenuItem disabled>
           <Typography variant="body1">Hello, {user.name}!</Typography>
+          <Typography variant="body2" color="textSecondary">
+            {user.email}
+          </Typography>
         </MenuItem>
         <MenuItem onClick={() => navigate("/settings")}>
           <Typography variant="body1">Settings</Typography>
