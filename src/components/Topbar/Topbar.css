@@ -36,8 +36,21 @@
     border-radius: 20px;
     border: 1px solid #ccc;
     font-size: 16px;
+    
   }
-  
+  .topbar__clear-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #fff;
+    background-color: #3e3e3e;
+    border-radius: 50%;
+    padding: .2rem .2rem;
+  }
+
+
   .topbar__search::placeholder {
     color: #888;
     font-size: 16px;
