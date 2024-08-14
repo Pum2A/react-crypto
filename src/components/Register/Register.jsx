@@ -11,14 +11,12 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    // Check if the user already exists
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
     const userExists = existingUsers.find((user) => user.username === username);
 
     if (userExists) {
       setError("User already exists");
     } else {
-      // Add new user to localStorage
       const newUser = { username, password };
       existingUsers.push(newUser);
       localStorage.setItem("users", JSON.stringify(existingUsers));

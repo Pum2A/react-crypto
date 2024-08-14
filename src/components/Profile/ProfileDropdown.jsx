@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { IconButton, Menu, MenuItem, Typography, Avatar } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { AuthContext } from "../AuthContext/AuthContext";
@@ -6,8 +6,17 @@ import { useNavigate } from "react-router-dom";
 
 const ProfileDropdown = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [profilePicture, setProfilePicture] = useState("");
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Load the profile picture from local storage when the component mounts
+    const savedProfilePicture = localStorage.getItem("profilePicture");
+    if (savedProfilePicture) {
+      setProfilePicture(savedProfilePicture);
+    }
+  }, []);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -23,16 +32,16 @@ const ProfileDropdown = () => {
     navigate("/login");
   };
 
-  const handleSettings = () => {
-    handleClose();
-    navigate("/settings");
-  };
+  const displayName = user?.name || "User"; // Use user.name if available, otherwise fallback to "User"
 
   return (
     <>
       <IconButton onClick={handleClick} color="inherit">
-        <Avatar src={user.profilePicture} alt={user.name}>
-          <AccountCircleIcon />
+        <Avatar
+          src={profilePicture}
+          alt={displayName}
+          sx={{ width: 40, height: 40 }}>
+          {!profilePicture && <AccountCircleIcon />}
         </Avatar>
       </IconButton>
       <Menu
@@ -41,12 +50,13 @@ const ProfileDropdown = () => {
         onClose={handleClose}
         sx={{ mt: 2 }}>
         <MenuItem disabled>
-          <Typography variant="body1">Hello, {user.name}!</Typography>
-          <Typography variant="body2" color="textSecondary">
-            {user.email}
-          </Typography>
+          <Typography variant="body1">Hello, {displayName}!</Typography>
         </MenuItem>
-        <MenuItem onClick={() => navigate("/settings")}>
+        <MenuItem
+          onClick={() => {
+            handleClose();
+            navigate("/settings");
+          }}>
           <Typography variant="body1">Settings</Typography>
         </MenuItem>
         <MenuItem onClick={handleLogout}>

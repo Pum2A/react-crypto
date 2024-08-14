@@ -13,8 +13,9 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (username) => {
-    setUser(username);
-    localStorage.setItem("user", JSON.stringify(username));
+    const userObject = { name: username }; // Store the username in an object
+    setUser(userObject);
+    localStorage.setItem("user", JSON.stringify(userObject)); // Save the user object to localStorage
   };
 
   const logout = () => {
