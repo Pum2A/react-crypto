@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { CryptoProvider } from "../CryptoContext/CryptoContext";
 import CryptoDetails from "../CryptoDetails/CryptoDetails";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import UnprotectedRoute from "../UnprotectedRoute/UnprotectedRoute";
 import "./MainContent.css";
 
 const Home = lazy(() => import("../../pages/Home/Home"));
@@ -18,14 +20,63 @@ const MainContent = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/articles" element={<Articles />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/mylist" element={<MyList />} />
-          <Route path="/statistics" element={<Statistics />} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/articles"
+            element={
+              <ProtectedRoute>
+                <Articles />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/messages"
+            element={
+              <ProtectedRoute>
+                <Messages />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mylist"
+            element={
+              <ProtectedRoute>
+                <MyList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/statistics"
+            element={
+              <ProtectedRoute>
+                <Statistics />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/crypto/:id" element={<CryptoDetails />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/login"
+            element={
+              <UnprotectedRoute>
+                <Login />
+              </UnprotectedRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <UnprotectedRoute>
+                <Register />
+              </UnprotectedRoute>
+            }
+          />
         </Routes>
       </Suspense>
     </div>
