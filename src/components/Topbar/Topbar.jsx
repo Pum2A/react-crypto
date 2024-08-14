@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import SearchIcon from "@mui/icons-material/Search";
 import "./Topbar.css";
 import ProfileDropdown from "../Profile/ProfileDropdown";
 
@@ -17,13 +18,16 @@ const Topbar = ({ onSearch }) => {
       <div className="topbar__logo">
         <h1>CRX</h1>
       </div>
-      <input
-        type="text"
-        placeholder="Search cryptocurrencies..."
-        value={searchQuery}
-        onChange={handleSearch}
-        className="topbar__search"
-      />
+      <div className="topbar__search-container">
+        <SearchIcon className="topbar__search-icon" />
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={handleSearch}
+          className="topbar__search"
+        />
+      </div>
       <div className="topbar__user">
         <ProfileDropdown username="Test" />
       </div>
