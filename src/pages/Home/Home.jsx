@@ -13,6 +13,8 @@ const Home = () => {
   const [remainingCryptos, setRemainingCryptos] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredCryptos, setFilteredCryptos] = useState([]);
+  const [filter, setFilter] = useState("all");
+  const [sortCriteria, setSortCriteria] = useState("default");
 
   const formatPercentage = (value) => {
     let numberValue = parseFloat(value);
@@ -21,7 +23,28 @@ const Home = () => {
 
   useEffect(() => {
     if (cryptoData.length > 0) {
-      // Shuffle and set the initial random cryptos and the remaining cryptos
+      let filtered = [...cryptoData];
+
+      if (searchQuery) {
+        if (filter === "highMarketCap") {
+          filtered = filtered.sort((a, b) => b.market_cap - a.market_cap);
+        } else if (filter === "lowMarketCap") {
+          filtered = filtered.sort((a, b) => a.market_cap - b.market_cap);
+        }
+
+        if (sortCriteria === "priceAsc") {
+          filtered = filtered.sort((a, b) => a.current_price - b.current_price);
+        } else if (sortCriteria === "priceDesc") {
+          filtered = filtered.sort((a, b) => b.current_price - a.current_price);
+        }
+      }
+
+      setFilteredCryptos(filtered);
+    }
+  }, [cryptoData, filter, sortCriteria, searchQuery]);
+
+  useEffect(() => {
+    if (cryptoData.length > 0) {
       const shuffledCryptos = [...cryptoData].sort(() => 0.5 - Math.random());
       setRandomCryptos(shuffledCryptos.slice(0, 5));
       setRemainingCryptos(shuffledCryptos.slice(5));
@@ -29,7 +52,6 @@ const Home = () => {
   }, [cryptoData]);
 
   useEffect(() => {
-    // Filter the cryptocurrencies based on the search query
     if (searchQuery) {
       const filtered = cryptoData.filter(
         (crypto) =>
@@ -38,7 +60,7 @@ const Home = () => {
       );
       setFilteredCryptos(filtered);
     } else {
-      setFilteredCryptos(cryptoData); // Display all if no search query
+      setFilteredCryptos(cryptoData);
     }
   }, [searchQuery, cryptoData]);
 
@@ -53,6 +75,10 @@ const Home = () => {
       setRandomCryptos(newRandomCryptos);
       setRemainingCryptos(updatedRemainingCryptos);
     }
+  };
+
+  const handleSortChange = (criteria) => {
+    setSortCriteria(criteria);
   };
 
   if (loading) {
@@ -85,33 +111,49 @@ const Home = () => {
     <>
       <Topbar onSearch={handleSearch} />
 
-      <div className="home__grid">
+      <div className={`home__grid ${searchQuery ? "single-column" : ""}`}>
         {searchQuery ? (
-          // Display search results if there's a query
-          <div className="home__block">
-            <h2 className="home__header">Search Results</h2>
-            <div className="home__items">
-              {filteredCryptos.length > 0 ? (
-                filteredCryptos.map((crypto) => (
-                  <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
-                    <Crypto
-                      market_cap_rank={crypto.market_cap_rank}
-                      id={crypto.id}
-                      name={crypto.name}
-                      symbol={crypto.symbol}
-                      image={crypto.image}
-                      current_price={crypto.current_price}
-                      price_change_24h={formatPercentage(
-                        crypto.price_change_24h
-                      )}
-                    />
-                  </Suspense>
-                ))
-              ) : (
-                <div>No results found</div>
-              )}
+          <>
+            {/* Display search results with filters */}
+            <div className="home__block">
+              <h2 className="home__header">Search Results</h2>
+              <div className="home__items">
+                {filteredCryptos.length > 0 ? (
+                  filteredCryptos.map((crypto) => (
+                    <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
+                      <Crypto
+                        market_cap_rank={crypto.market_cap_rank}
+                        id={crypto.id}
+                        name={crypto.name}
+                        symbol={crypto.symbol}
+                        image={crypto.image}
+                        current_price={crypto.current_price}
+                        price_change_24h={formatPercentage(
+                          crypto.price_change_24h
+                        )}
+                      />
+                    </Suspense>
+                  ))
+                ) : (
+                  <div>No results found</div>
+                )}
+              </div>
             </div>
-          </div>
+
+            {/* Filter and Sorting Options */}
+            <div className="home__options">
+              <div className="home__options-group">
+                <div className="home__sorting">
+                  <button onClick={() => handleSortChange("priceAsc")}>
+                    Price Ascending
+                  </button>
+                  <button onClick={() => handleSortChange("priceDesc")}>
+                    Price Descending
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
         ) : (
           <>
             {/* Trending Now Block */}
@@ -179,14 +221,12 @@ const Home = () => {
                 ))}
               </div>
               {remainingCryptos.length > 0 && (
-                <>
-                  <div className="load-more-btn-container">
-                    <UnfoldMoreIcon
-                      onClick={handleLoadMore}
-                      className="load-more-button"
-                    />
-                  </div>
-                </>
+                <div className="load-more-btn-container">
+                  <UnfoldMoreIcon
+                    onClick={handleLoadMore}
+                    className="load-more-button"
+                  />
+                </div>
               )}
             </div>
 
