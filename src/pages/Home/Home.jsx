@@ -2,7 +2,7 @@ import React, { useContext, lazy, Suspense, useState, useEffect } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import styles from "./Home.module.css";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
-
+import Legend from "../../components/Legend/Legend";
 // Lazy load the Crypto component
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
@@ -13,6 +13,7 @@ const Home = ({ searchQuery }) => {
   const [filteredCryptos, setFilteredCryptos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [sortCriteria, setSortCriteria] = useState("default");
+  const [activeSection, setActiveSection] = useState("trending"); // Added state for active section
 
   const formatPercentage = (value) => {
     let numberValue = parseFloat(value);
@@ -103,152 +104,202 @@ const Home = ({ searchQuery }) => {
 
   return (
     <>
-      <div
-        className={`${styles.homeGrid} ${
-          searchQuery ? styles.homeGridSingleColumn : ""
-        }`}>
-        {searchQuery ? (
-          <>
-            {/* Display search results with filters */}
-            <div className={styles.homeBlock}>
-              <h2 className={styles.homeHeader}>Search Results</h2>
-              <div className={styles.homeItems}>
-                {filteredCryptos.length > 0 ? (
-                  filteredCryptos.map((crypto) => (
-                    <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
+      <div className={styles.homeMain}>
+        <div
+          className={`${styles.homeGrid} ${
+            searchQuery ? styles.homeGridSingleColumn : ""
+          }`}>
+          {searchQuery ? (
+            <>
+              {/* Display search results with filters */}
+              <div className={styles.homeBlock}>
+                <h2 className={styles.homeHeader}>Search Results</h2>
+                <div className={styles.homeItems}>
+                  {filteredCryptos.length > 0 ? (
+                    filteredCryptos.map((crypto) => (
+                      <Suspense
+                        fallback={<div>Loading...</div>}
+                        key={crypto.id}>
+                        <Crypto
+                          market_cap_rank={crypto.market_cap_rank}
+                          id={crypto.id}
+                          name={crypto.name}
+                          symbol={crypto.symbol}
+                          image={crypto.image}
+                          current_price={crypto.current_price}
+                          price_change_24h={formatPercentage(
+                            crypto.price_change_24h
+                          )}
+                        />
+                      </Suspense>
+                    ))
+                  ) : (
+                    <div>No results found</div>
+                  )}
+                </div>
+              </div>
+
+              {/* Filter and Sorting Options */}
+              <div className={styles.homeOptions}>
+                <div className={styles.homeOptionsGroup}>
+                  <div className={styles.homeSorting}>
+                    <button onClick={() => handleSortChange("priceAsc")}>
+                      Price Ascending
+                    </button>
+                    <button onClick={() => handleSortChange("priceDesc")}>
+                      Price Descending
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Render Active Section */}
+              {activeSection === "trending" && (
+                <div
+                  className={`${styles.homeBlock} ${styles.homeBlockTrending}`}>
+                  <h2 className={styles.homeHeader}>Trending Now</h2>
+                  <Legend />
+
+                  <div className={styles.homeItems}>
+                    {top6Trending.map((crypto) => (
+                      <Suspense
+                        fallback={<div>Loading...</div>}
+                        key={crypto.id}>
+                        <Crypto
+                          market_cap_rank={crypto.market_cap_rank}
+                          id={crypto.id}
+                          name={crypto.name}
+                          symbol={crypto.symbol}
+                          image={crypto.image}
+                          current_price={crypto.current_price}
+                          price_change_24h={formatPercentage(
+                            crypto.price_change_24h
+                          )}
+                        />
+                      </Suspense>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {activeSection === "losers" && (
+                <div
+                  className={`${styles.homeBlock} ${styles.homeBlockLosers}`}>
+                  <div className={styles.homeHeaderContainer}>
+                    <h2 className={styles.homeHeader}>Biggest Losses</h2>
+                  </div>
+                  <div className={styles.homeItems}>
+                    {top6Lowest.map((crypto) => (
+                      <Suspense
+                        fallback={<div>Loading...</div>}
+                        key={crypto.id}>
+                        <Crypto
+                          market_cap_rank={crypto.market_cap_rank}
+                          id={crypto.id}
+                          name={crypto.name}
+                          symbol={crypto.symbol}
+                          image={crypto.image}
+                          current_price={crypto.current_price}
+                          price_change_24h={formatPercentage(
+                            crypto.price_change_24h
+                          )}
+                        />
+                      </Suspense>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {activeSection === "random" && (
+                <div
+                  className={`${styles.homeBlock} ${styles.homeBlockRandom}`}>
+                  <h2 className={styles.homeHeader}>Random Cryptos</h2>
+                  <div className={styles.homeItems}>
+                    {randomCryptos.map((crypto) => (
+                      <Suspense
+                        fallback={<div>Loading...</div>}
+                        key={crypto.id}>
+                        <Crypto
+                          market_cap_rank={crypto.market_cap_rank}
+                          id={crypto.id}
+                          name={crypto.name}
+                          symbol={crypto.symbol}
+                          image={crypto.image}
+                          current_price={crypto.current_price}
+                          price_change_24h={formatPercentage(
+                            crypto.price_change_24h
+                          )}
+                        />
+                      </Suspense>
+                    ))}
+                  </div>
+                  {remainingCryptos.length > 0 && (
+                    <div className={styles.loadMoreBtnContainer}>
+                      <UnfoldMoreIcon
+                        onClick={handleLoadMore}
+                        className={styles.loadMoreButton}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {activeSection === "favorites" && (
+                <div
+                  className={`${styles.homeBlock} ${styles.homeBlockFavorites}`}>
+                  <h2
+                    className={`${styles.homeHeader} ${styles.homeHeaderFavorites}`}>
+                    Your Favorites
+                  </h2>
+                  <div
+                    className={`${styles.homeItems} ${styles.homeItemsFavorites}`}>
+                    {favorites.map((crypto) => (
                       <Crypto
+                        key={crypto.id}
                         market_cap_rank={crypto.market_cap_rank}
                         id={crypto.id}
                         name={crypto.name}
                         symbol={crypto.symbol}
                         image={crypto.image}
                         current_price={crypto.current_price}
-                        price_change_24h={formatPercentage(
-                          crypto.price_change_24h
-                        )}
+                        price_change_24h={crypto.price_change_24h}
                       />
-                    </Suspense>
-                  ))
-                ) : (
-                  <div>No results found</div>
-                )}
-              </div>
-            </div>
-
-            {/* Filter and Sorting Options */}
-            <div className={styles.homeOptions}>
-              <div className={styles.homeOptionsGroup}>
-                <div className={styles.homeSorting}>
-                  <button onClick={() => handleSortChange("priceAsc")}>
-                    Price Ascending
-                  </button>
-                  <button onClick={() => handleSortChange("priceDesc")}>
-                    Price Descending
-                  </button>
-                </div>
-              </div>
-            </div>
-          </>
-        ) : (
-          <>
-            {/* Trending Now Block */}
-            <div className={`${styles.homeBlock} ${styles.homeBlockTrending}`}>
-              <h2 className={styles.homeHeader}>Trending Now</h2>
-              <div className={styles.homeItems}>
-                {top6Trending.map((crypto) => (
-                  <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
-                    <Crypto
-                      market_cap_rank={crypto.market_cap_rank}
-                      id={crypto.id}
-                      name={crypto.name}
-                      symbol={crypto.symbol}
-                      image={crypto.image}
-                      current_price={crypto.current_price}
-                      price_change_24h={formatPercentage(
-                        crypto.price_change_24h
-                      )}
-                    />
-                  </Suspense>
-                ))}
-              </div>
-            </div>
-
-            {/* Biggest Losses Block */}
-            <div className={`${styles.homeBlock} ${styles.homeBlockLosers}`}>
-              <h2 className={styles.homeHeader}>Biggest Losses</h2>
-              <div className={styles.homeItems}>
-                {top6Lowest.map((crypto) => (
-                  <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
-                    <Crypto
-                      market_cap_rank={crypto.market_cap_rank}
-                      id={crypto.id}
-                      name={crypto.name}
-                      symbol={crypto.symbol}
-                      image={crypto.image}
-                      current_price={crypto.current_price}
-                      price_change_24h={formatPercentage(
-                        crypto.price_change_24h
-                      )}
-                    />
-                  </Suspense>
-                ))}
-              </div>
-            </div>
-
-            {/* Random Cryptos Block */}
-            <div className={`${styles.homeBlock} ${styles.homeBlockRandom}`}>
-              <h2 className={styles.homeHeader}>Random Cryptos</h2>
-              <div className={styles.homeItems}>
-                {randomCryptos.map((crypto) => (
-                  <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
-                    <Crypto
-                      market_cap_rank={crypto.market_cap_rank}
-                      id={crypto.id}
-                      name={crypto.name}
-                      symbol={crypto.symbol}
-                      image={crypto.image}
-                      current_price={crypto.current_price}
-                      price_change_24h={formatPercentage(
-                        crypto.price_change_24h
-                      )}
-                    />
-                  </Suspense>
-                ))}
-              </div>
-              {remainingCryptos.length > 0 && (
-                <div className={styles.loadMoreBtnContainer}>
-                  <UnfoldMoreIcon
-                    onClick={handleLoadMore}
-                    className={styles.loadMoreButton}
-                  />
+                    ))}
+                  </div>
                 </div>
               )}
-            </div>
-
-            {/* Your Favorites Block */}
-            <div className={`${styles.homeBlock} ${styles.homeBlockFavorites}`}>
-              <h2
-                className={`${styles.homeHeader} ${styles.homeHeaderFavorites}`}>
-                Your Favorites
-              </h2>
-              <div
-                className={`${styles.homeItems} ${styles.homeItemsFavorites}`}>
-                {favorites.map((crypto) => (
-                  <Crypto
-                    key={crypto.id}
-                    market_cap_rank={crypto.market_cap_rank}
-                    id={crypto.id}
-                    name={crypto.name}
-                    symbol={crypto.symbol}
-                    image={crypto.image}
-                    current_price={crypto.current_price}
-                    price_change_24h={crypto.price_change_24h}
-                  />
-                ))}
-              </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
+        </div>
+        <div className={styles.homeOptions}>
+          <button
+            className={
+              activeSection === "trending" ? styles.active : "trending"
+            }
+            onClick={() => setActiveSection("trending")}
+            id="first-btn">
+            Trending Now
+          </button>
+          <button
+            className={activeSection === "losers" ? styles.active : ""}
+            onClick={() => setActiveSection("losers")}>
+            Biggest Losses
+          </button>
+          <button
+            className={activeSection === "random" ? styles.active : ""}
+            onClick={() => setActiveSection("random")}>
+            Random
+          </button>
+          <button
+            className={
+              activeSection === "favorites" ? styles.active : "favorites"
+            }
+            onClick={() => setActiveSection("favorites")}>
+            Your Favorites
+          </button>
+        </div>
       </div>
     </>
   );

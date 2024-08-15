@@ -5,7 +5,9 @@ import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import styles from "./Crypto.module.css"; // Importing the CSS Module
 import Modal from "../Modal/Modal";
-
+import Legend from "../Legend/Legend";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
 const Crypto = ({
   id,
   name,
@@ -40,10 +42,6 @@ const Crypto = ({
       setModalMessage(`${name} has been added to favorites`);
     }
 
-    // Log the message for debugging
-    console.log("Updated Message:", modalMessage);
-
-    // Open the modal after updating the message
     setIsModalOpen(true);
   };
 
@@ -51,14 +49,19 @@ const Crypto = ({
     <>
       <Link to={`/crypto/${id}`}>
         <div className={styles.crypto}>
-          {" "}
-          {/* Apply the scoped class */}
-          <div className={styles.crypto__rank}>{market_cap_rank}</div>
-          <div className={styles.crypto__image}>
-            <img src={image} alt={`${symbol} logo`} />
+          <div className={styles.cryptoHeader}>
+            <div className={styles.crypto__text}>
+              {name} ({symbol.toUpperCase()})
+            </div>
           </div>
-          <div className={styles.crypto__info}>
-            <div className={styles.crypto__symbol}>{symbol.toUpperCase()}</div>
+          <div className={styles.cryptoContent}>
+            <div className={styles.crypto__image}>
+              <img src={image} alt={`${symbol} logo`} />
+            </div>
+            <div className={styles.crypto__rank__container}>
+              <div className={styles.crypto__rank}>{market_cap_rank}</div>
+            </div>
+
             <div className={styles.crypto__price}>{current_price}$</div>
             <div
               className={`${styles.crypto__change} ${
@@ -68,16 +71,18 @@ const Crypto = ({
               }`}>
               {price_change_24h}%
             </div>
+            <div className={styles.favoriteButtonContainer}>
+              <button
+                onClick={handleFavoriteClick}
+                className={styles.favoriteButton}>
+                {favorite ? (
+                  <Favorite style={{ fontSize: 25 }} />
+                ) : (
+                  <FavoriteBorder style={{ fontSize: 25 }} />
+                )}
+              </button>
+            </div>
           </div>
-          <button
-            onClick={handleFavoriteClick}
-            className={styles.favoriteButton}>
-            {favorite ? (
-              <StarIcon style={{ fontSize: 25 }} />
-            ) : (
-              <StarBorderIcon style={{ fontSize: 25 }} />
-            )}
-          </button>
         </div>
       </Link>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

@@ -5,10 +5,13 @@
     left: -250px; /* Hide the sidebar */
     width: 125px;
     height: 100vh;
-    background-color: #4F4557;
+    top: 55px;
+    background-color: #171717;
     transition: left 0.3s ease;
     z-index: 1000;
     padding: 1rem;
+    border-right:1px solid #141317;
+
   }
   
   nav {
@@ -51,37 +54,55 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    padding: 0.5rem;
-    transition: background-color 0.3s ease;
+    transition: 0.2s ease;
+}
+
+.navLink.active .navLinkIcon {
+      transition: 0.2s ease;
+    background-color: inherit;
+    /* border: 1px solid #fff; */
+    color: #5a31b1;
   }
-  
-  .navLink.active .navLinkIcon {
-    background-color: #352e3bc7;
-    border: 3px solid #fff;
+
+  .navLinkIcon:hover, .navLink:hover{
+    color: #5a31b1;
+
   }
   
   .signOut {
-    background-color: #82142e;
-    color: #fff;
+      background-color: #82142e;
+      color: #fff;
     border: none;
-    padding: 1rem;
+    /* padding: 1rem; */
     width: 100%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: auto;
+    flex-direction: column;
+    padding: .5rem 0rem;
+    border-radius: .2rem;
+    font-size: .8rem;
+    font-weight: 500;
+    gap: .3rem;
+    font-family: "Inter", sans-serif;
+    
+
+  }
+  .signOutContainer{
+    
   }
   
-  .signOut span {
-    margin-left: 0.5rem;
-  }
+ 
+  
   
   .topbar__clearIcon {
+    width: 100%;
     cursor: pointer;
     color: #fff;
     background-color: #3e3e3e;
     border-radius: 50%;
     padding: .2rem .2rem;
+    border: 2px solid #fff;
   }
   

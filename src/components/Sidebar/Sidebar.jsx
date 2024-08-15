@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
-import QueryStatsIcon from "@mui/icons-material/QueryStats";
-import ArticleIcon from "@mui/icons-material/Article";
-import ListIcon from "@mui/icons-material/List";
-import LogoutIcon from "@mui/icons-material/Logout";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import QueryStatsOutlinedIcon from "@mui/icons-material/QueryStatsOutlined";
+import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
+import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import styles from "./Sidebar.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -22,7 +22,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }>
               <span className={styles.navLinkIcon}>
-                <HomeIcon />
+                <HomeOutlinedIcon />
               </span>
               <span>Home</span>
             </NavLink>
@@ -34,7 +34,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }>
               <span className={styles.navLinkIcon}>
-                <QueryStatsIcon />
+                <QueryStatsOutlinedIcon />
               </span>
               <span>Statistics</span>
             </NavLink>
@@ -46,7 +46,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }>
               <span className={styles.navLinkIcon}>
-                <ArticleIcon />
+                <ArticleOutlinedIcon />
               </span>
               <span>Articles</span>
             </NavLink>
@@ -58,17 +58,18 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }>
               <span className={styles.navLinkIcon}>
-                <ListIcon />
+                <ListOutlinedIcon />
               </span>
               <span>My List</span>
             </NavLink>
           </li>
         </ul>
       </nav>
-      <button className={styles.signOut}>
-        <LogoutIcon />
-        <span>Sign Out</span>
-      </button>
+      <div className={styles.signOutContainer}>
+        <button className={styles.signOut}>
+          <LogoutOutlinedIcon />
+        </button>
+      </div>
     </div>
   );
 };

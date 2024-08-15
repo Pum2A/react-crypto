@@ -11,11 +11,17 @@
   --bg-block-item:#00B4D8;
 
 }
+a{
+  text-decoration: none;
+}
+button{
+  border: none;
+}
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #393646; /* Light pastel background for body */
+  background-color: #131112; /* Light pastel background for body */
 }
 
 html {

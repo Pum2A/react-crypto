@@ -41,7 +41,7 @@ const ProfileDropdown = () => {
           src={profilePicture}
           alt={displayName}
           sx={{ width: 40, height: 40 }}>
-          {!profilePicture && <AccountCircleIcon />}
+          {<AccountCircleIcon /> && !profilePicture}
         </Avatar>
       </IconButton>
       <Menu

@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
-  background-color: #4F4557;
+  padding: 0rem 1rem;
+  background-color: #171717;
   color: #000;
+  border-bottom:1px solid #141317;
 }
 
 .topbar__logo h1 {
@@ -62,3 +63,8 @@
   border-color: #888;
 }
 
+.menuIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

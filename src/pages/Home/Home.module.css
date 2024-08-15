@@ -3,10 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+.homeMain{
+  margin: 0rem 1rem;
+}
 
 .homeTitle {
   font-size: 2rem;
-  color: #393646;
+  color: #fff;
   font-weight: 800;
 }
 
@@ -15,8 +18,7 @@
 }
 
 .homeContainer {
-  background-color: #F4EEE0;
-  margin: 1rem 1rem;
+  background-color: #171717;
   border-radius: 1rem;
   height: auto;
   padding: 0.5rem 1rem;
@@ -33,30 +35,99 @@
 }
 
 .homeGrid {
+  margin: 2rem 0rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1rem;
+  gap: .5rem;
+  background-color: #131112;
+
+}
+.homeHeaderText{
+  gap: .5rem;
   margin: 1rem;
+  font-size: 3rem;
+  color: #fff;
+  border-radius: 1rem;
+}
+
+.homeHeaderContainer{
+  
 }
 
 .homeHeader {
   color: #fff;
+  background-color: #1b1b1d;
+  text-transform: uppercase;
   margin: 1rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .homeHeaderStatistics {
-  color: #000;
+  color: #fff;
   font-weight: 700;
 }
 
 .homeBlock {
-  background-color: #6D5D6E;
-  border-radius: 1rem;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
   position: relative;
-  height: 630px;
+  height: 550px;
   overflow: auto;
+  
+}
+
+.homeOptions{
+  width: 100%;
+  margin: 1rem 0rem;
+  padding: .8rem 0rem;
+  display: flex;
+  justify-content: center;
+  background-color: #131112;
+  z-index: 1000;
+
+}
+
+.homeOptions button{
+  color: #fff;
+  text-transform: uppercase;
+
+  width: 10rem;
+  height: 100%;
+  border: 1px solid #fff;
+  /* margin: 0rem 1rem; */
+  /* border-radius: 1rem; */
+  font-weight: 600;
+  font-size: .8rem;
+  background-color: inherit;
+  height: 2.5rem;
+  /* padding: .7rem 0rem; */
+  cursor: pointer;
+  transition: 0.1s ease;
+
+
+  /* background-color: #5d4f5e; */
+}
+
+.homeOptions button:nth-child(1){
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+.homeOptions button:nth-last-child(1){
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+
+.homeOptions button.active {
+  /* border: 1px solid #000; */
+  background-color: #ff6647;
+  color: #fff;
+  transition: 0.1s ease;
 }
 
 .loadMoreBtnContainer {
@@ -101,7 +172,7 @@
   border: none;
   border-radius: 5px;
   background-color: #007bff;
-  color: white;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -120,7 +191,7 @@
 .homeBlockLosers,
 .homeBlockRandom,
 .homeBlockFavorites {
-  background-color: #6D5D6E;
+  background-color: #131112;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -137,6 +208,20 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+  .homeOptions{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .homeOptions button{
+    height: 2rem;
+    width: 7rem;
+    padding: 0rem .3rem;
+  }
   .homeTitle {
     font-size: 1.8rem;
   }
