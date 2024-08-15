@@ -1,12 +1,11 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import { CryptoProvider } from "../CryptoContext/CryptoContext";
-import CryptoDetails from "../CryptoDetails/CryptoDetails";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import UnprotectedRoute from "../UnprotectedRoute/UnprotectedRoute";
 import "./MainContent.css";
 
 const Home = lazy(() => import("../../pages/Home/Home"));
+const CryptoDetails = lazy(() => import("../CryptoDetails/CryptoDetails"));
 const Articles = lazy(() => import("../../pages/Articles/Articles"));
 const MyList = lazy(() => import("../../pages/MyList/MyList"));
 const Statistics = lazy(() => import("../../pages/Statistics/Statistics"));
@@ -14,17 +13,17 @@ const Login = lazy(() => import("../Login/Login"));
 const Register = lazy(() => import("../Register/Register"));
 const Settings = lazy(() => import("../Settings/Settings"));
 
-const MainContent = () => {
+const MainContent = ({ searchQuery }) => {
   return (
-    <div className="container">
+    <div style={{ width: "100%" }}>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home searchQuery={searchQuery} />} />
           <Route
             path="/home"
             element={
               <ProtectedRoute>
-                <Home />
+                <Home searchQuery={searchQuery} />
               </ProtectedRoute>
             }
           />

@@ -2,28 +2,30 @@ import React, { useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
-import styles from "./Topbar.module.css"; // Importing the CSS Module
+import styles from "./Topbar.module.css";
 import ProfileDropdown from "../Profile/ProfileDropdown";
+import MenuIcon from "@mui/icons-material/Menu";
 
-const Topbar = ({ onSearch }) => {
+const Topbar = ({ onSearch, toggleSidebar }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchQuery(value);
-    onSearch(value); // Send the search query up to the parent component (Home)
+    onSearch(value);
   };
 
   const clearSearch = () => {
     setSearchQuery("");
-    onSearch(""); // Clear the search query in the parent component as well
+    onSearch("");
   };
 
   return (
     <div className={styles.topbar}>
-      <div className={styles.topbar__logo}>
-        <h1>CRX</h1>
+      <div className={styles.menuIcon} onClick={toggleSidebar}>
+        <MenuIcon />
       </div>
+      <div className={styles.topbar__logo}></div>
       <div className={styles.topbar__searchContainer}>
         <SearchIcon className={styles.topbar__searchIcon} />
         <input

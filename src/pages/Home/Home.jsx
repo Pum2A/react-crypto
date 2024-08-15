@@ -1,17 +1,15 @@
 import React, { useContext, lazy, Suspense, useState, useEffect } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
-import styles from "./Home.module.css"; // Importing the CSS Module
-import Topbar from "../../components/Topbar/Topbar";
+import styles from "./Home.module.css";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 
 // Lazy load the Crypto component
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
-const Home = () => {
+const Home = ({ searchQuery }) => {
   const { cryptoData, loading, error, favorites } = useContext(CryptoContext);
   const [randomCryptos, setRandomCryptos] = useState([]);
   const [remainingCryptos, setRemainingCryptos] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
   const [filteredCryptos, setFilteredCryptos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [sortCriteria, setSortCriteria] = useState("default");
@@ -64,10 +62,6 @@ const Home = () => {
     }
   }, [searchQuery, cryptoData]);
 
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-  };
-
   const handleLoadMore = () => {
     if (remainingCryptos.length > 0) {
       const newRandomCryptos = remainingCryptos.slice(0, 5);
@@ -109,8 +103,6 @@ const Home = () => {
 
   return (
     <>
-      <Topbar onSearch={handleSearch} />
-
       <div
         className={`${styles.homeGrid} ${
           searchQuery ? styles.homeGridSingleColumn : ""
@@ -243,7 +235,7 @@ const Home = () => {
                 className={`${styles.homeItems} ${styles.homeItemsFavorites}`}>
                 {favorites.map((crypto) => (
                   <Crypto
-                    key={crypto.id} // Use crypto.id as the key
+                    key={crypto.id}
                     market_cap_rank={crypto.market_cap_rank}
                     id={crypto.id}
                     name={crypto.name}

@@ -1,0 +1,45 @@
+/* Sidebar.module.css */
+.sidebar {
+    position: fixed;
+    left: -250px; /* Hide the sidebar */
+    width: 250px;
+    height: 100vh;
+    background-color: #4F4557;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 1rem;
+  }
+  
+  .sidebar.open {
+    left: 0; /* Slide in the sidebar */
+  }
+  
+  .navLink {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  
+  .navLink span {
+    margin-left: 1rem;
+  }
+  
+  .signOut {
+    background-color: #82142e;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+  }
+  
+  .signOut span {
+    margin-left: 0.5rem;
+  }
+  

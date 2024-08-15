@@ -3,13 +3,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background-color: #F4EEE0;
+  background-color: #4F4557;
   color: #000;
 }
 
 .topbar__logo h1 {
   margin: 0;
   font-size: 24px;
+  color: #fff;
 }
 
 .topbar__user {
