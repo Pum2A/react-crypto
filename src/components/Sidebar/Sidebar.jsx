@@ -1,45 +1,65 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import ArticleIcon from "@mui/icons-material/Article";
 import ListIcon from "@mui/icons-material/List";
 import LogoutIcon from "@mui/icons-material/Logout";
 import styles from "./Sidebar.module.css";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
-  const location = useLocation();
-
-  const isActive = (path) => location.pathname === path;
-
   return (
     <div className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
-      <button onClick={toggleSidebar} className={styles.closeBtn}>
-        Close
-      </button>
+      <CloseIcon className={styles.topbar__clearIcon} onClick={toggleSidebar} />
+
       <nav>
         <ul>
-          <li className={isActive("/home") ? styles.active : ""}>
-            <NavLink to="/home" className={styles.navLink}>
-              <HomeIcon />
+          <li>
+            <NavLink
+              to="/home"
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }>
+              <span className={styles.navLinkIcon}>
+                <HomeIcon />
+              </span>
               <span>Home</span>
             </NavLink>
           </li>
-          <li className={isActive("/statistics") ? styles.active : ""}>
-            <NavLink to="/statistics" className={styles.navLink}>
-              <QueryStatsIcon />
+          <li>
+            <NavLink
+              to="/statistics"
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }>
+              <span className={styles.navLinkIcon}>
+                <QueryStatsIcon />
+              </span>
               <span>Statistics</span>
             </NavLink>
           </li>
-          <li className={isActive("/articles") ? styles.active : ""}>
-            <NavLink to="/articles" className={styles.navLink}>
-              <ArticleIcon />
+          <li>
+            <NavLink
+              to="/articles"
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }>
+              <span className={styles.navLinkIcon}>
+                <ArticleIcon />
+              </span>
               <span>Articles</span>
             </NavLink>
           </li>
-          <li className={isActive("/mylist") ? styles.active : ""}>
-            <NavLink to="/mylist" className={styles.navLink}>
-              <ListIcon />
+          <li>
+            <NavLink
+              to="/mylist"
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }>
+              <span className={styles.navLinkIcon}>
+                <ListIcon />
+              </span>
               <span>My List</span>
             </NavLink>
           </li>

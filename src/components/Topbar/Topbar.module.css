@@ -20,6 +20,7 @@
 
 .topbar__searchContainer {
   position: relative;
+  margin: 0 auto;
   width: 300px;
 }
 
@@ -60,3 +61,4 @@
   outline: none;
   border-color: #888;
 }
+
