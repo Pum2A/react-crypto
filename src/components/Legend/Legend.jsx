@@ -5,6 +5,7 @@ import styles from "./Legend.module.css"; // Import CSS for styling
 const Legend = () => {
   return (
     <div className={styles.legend}>
+      <div className={styles.legendItem}>Name</div>
       <div className={styles.legendItem}>Logo</div>
       <div className={styles.legendItem}>Rank</div>
       <div className={styles.legendItem}>Price</div>

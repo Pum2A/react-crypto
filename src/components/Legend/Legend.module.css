@@ -1,12 +1,14 @@
 .legend {
     display: flex;
     justify-content: space-between;
+    
     font-weight: bold;
     background-color: #1b1b1d;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border-bottom: 1px solid #212124;
     /* background-color: #e9e9e9; */
-    padding: 1rem;
+    padding: 1rem 0rem;
     /* margin-bottom: 0.5rem; */
     margin: 0 1rem;
     /* border: 1px solid #000; */
@@ -15,14 +17,22 @@
   
   .legendItem {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
     font-weight: 500;
-    color: #e65741;
-    width:5rem;
-    font-size: 0.9rem; /* Consistent font size */
-    min-width: 0
+    line-height: 100%;
+    background-color: #212124;
+    color: #ffffff;
+    width: 7rem;
+    height: 2rem;
+    margin: 0rem 1rem;
+    /* padding: 0rem 1rem; */
+    /* border-radius: 1rem; */
+    font-size: .8rem; /* Consistent font size */
   }
   
+  .legendItem:first-child{
+    /* padding-left: 1rem; */
+  }

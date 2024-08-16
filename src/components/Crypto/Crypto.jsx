@@ -48,13 +48,12 @@ const Crypto = ({
   return (
     <>
       <Link to={`/crypto/${id}`}>
-        <div className={styles.crypto}>
+        <div className={styles.crypto}></div>
+        <div className={styles.cryptoContent}>
           <div className={styles.cryptoHeader}>
             <div className={styles.crypto__text}>
               {name} ({symbol.toUpperCase()})
             </div>
-          </div>
-          <div className={styles.cryptoContent}>
             <div className={styles.crypto__image}>
               <img src={image} alt={`${symbol} logo`} />
             </div>
