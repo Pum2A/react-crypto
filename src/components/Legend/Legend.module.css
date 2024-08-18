@@ -32,9 +32,14 @@
     /* padding: 0rem 1rem; */
     border-radius: 2rem;
 
-    font-size: .7rem; /* Consistent font size */
+    font-size: .7rem; 
   }
   
   .legendItem:first-child{
     /* padding-left: 1rem; */
+  }
+  @media (max-width: 800px){
+.legend{
+  display: none;
+}
   }

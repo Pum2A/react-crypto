@@ -109,7 +109,7 @@
 }
 
 .crypto__change__positive {
-  color: #7dac48; 
+  color: #8bdd2c; 
 }
 
 .crypto__change__negative {
@@ -146,5 +146,8 @@
 
   .favoriteButton svg {
     font-size: 20px;
+  }
+  .cryptoHeader{
+    margin: 0rem 0rem;
   }
 }
