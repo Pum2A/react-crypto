@@ -66,6 +66,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid #444444;
+
   
 }
 
@@ -98,10 +100,10 @@
 
   width: 10rem;
   height: 100%;
-  border: 1px solid #fff;
+  border: 1px solid #444444;
   /* margin: 0rem 1rem; */
   /* border-radius: 1rem; */
-  font-weight: 600;
+  font-weight: 100;
   font-size: .8rem;
   background-color: inherit;
   height: 2.5rem;
@@ -204,6 +206,7 @@
   flex-direction: column;
   /* width: 100%; */
   /* gap: 1rem; */
+  
   margin: 0rem 1rem;
   overflow: none;
   /* padding: 0 1rem; */
