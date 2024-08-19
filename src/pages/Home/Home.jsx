@@ -3,6 +3,7 @@ import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import styles from "./Home.module.css";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import Legend from "../../components/Legend/Legend";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 // Lazy load the Crypto component
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
@@ -240,15 +241,17 @@ const Home = ({ searchQuery }) => {
                         />
                       </Suspense>
                     ))}
+                    {remainingCryptos.length > 0 && (
+                      <div className={styles.loadMoreBtnContainer}>
+                        <button
+                          onClick={handleLoadMore}
+                          className={styles.loadMoreBtn}>
+                          {/* Load More */}
+                          <ArrowForwardIcon />
+                        </button>
+                      </div>
+                    )}
                   </div>
-                  {remainingCryptos.length > 0 && (
-                    <div className={styles.loadMoreBtnContainer}>
-                      <UnfoldMoreIcon
-                        onClick={handleLoadMore}
-                        className={styles.loadMoreButton}
-                      />
-                    </div>
-                  )}
                 </div>
               )}
 
