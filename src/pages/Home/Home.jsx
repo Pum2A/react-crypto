@@ -114,6 +114,8 @@ const Home = ({ searchQuery }) => {
               {/* Display search results with filters */}
               <div className={styles.homeBlock}>
                 <h2 className={styles.homeHeader}>Search Results</h2>
+                <Legend />
+
                 <div className={styles.homeItems}>
                   {filteredCryptos.length > 0 ? (
                     filteredCryptos.map((crypto) => (
@@ -190,6 +192,8 @@ const Home = ({ searchQuery }) => {
                   <div className={styles.homeHeaderContainer}>
                     <h2 className={styles.homeHeader}>Biggest Losses</h2>
                   </div>
+                  <Legend />
+
                   <div className={styles.homeItems}>
                     {top6Lowest.map((crypto) => (
                       <Suspense
@@ -216,6 +220,8 @@ const Home = ({ searchQuery }) => {
                 <div
                   className={`${styles.homeBlock} ${styles.homeBlockRandom}`}>
                   <h2 className={styles.homeHeader}>Random Cryptos</h2>
+                  <Legend />
+
                   <div className={styles.homeItems}>
                     {randomCryptos.map((crypto) => (
                       <Suspense
@@ -253,6 +259,8 @@ const Home = ({ searchQuery }) => {
                     className={`${styles.homeHeader} ${styles.homeHeaderFavorites}`}>
                     Your Favorites
                   </h2>
+                  <Legend />
+
                   <div
                     className={`${styles.homeItems} ${styles.homeItemsFavorites}`}>
                     {favorites.map((crypto) => (
@@ -272,33 +280,33 @@ const Home = ({ searchQuery }) => {
               )}
             </>
           )}
-        </div>
-        <div className={styles.homeOptions}>
-          <button
-            className={
-              activeSection === "trending" ? styles.active : "trending"
-            }
-            onClick={() => setActiveSection("trending")}
-            id="first-btn">
-            Trending Now
-          </button>
-          <button
-            className={activeSection === "losers" ? styles.active : ""}
-            onClick={() => setActiveSection("losers")}>
-            Biggest Losses
-          </button>
-          <button
-            className={activeSection === "random" ? styles.active : ""}
-            onClick={() => setActiveSection("random")}>
-            Random
-          </button>
-          <button
-            className={
-              activeSection === "favorites" ? styles.active : "favorites"
-            }
-            onClick={() => setActiveSection("favorites")}>
-            Your Favorites
-          </button>
+          <div className={styles.homeOptions}>
+            <button
+              className={
+                activeSection === "trending" ? styles.active : "trending"
+              }
+              onClick={() => setActiveSection("trending")}
+              id="first-btn">
+              Trending Now
+            </button>
+            <button
+              className={activeSection === "losers" ? styles.active : ""}
+              onClick={() => setActiveSection("losers")}>
+              Biggest Losses
+            </button>
+            <button
+              className={activeSection === "random" ? styles.active : ""}
+              onClick={() => setActiveSection("random")}>
+              Random
+            </button>
+            <button
+              className={
+                activeSection === "favorites" ? styles.active : "favorites"
+              }
+              onClick={() => setActiveSection("favorites")}>
+              Your Favorites
+            </button>
+          </div>
         </div>
       </div>
     </>

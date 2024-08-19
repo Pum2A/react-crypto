@@ -3,7 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar{
+  display: none;
+}
 .homeMain{
+  
   margin: 0rem 1rem;
 }
 
@@ -35,10 +40,9 @@
 }
 
 .homeGrid {
-  margin: 2rem 0rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: .5rem;
+  margin: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
   background-color: #131112;
 
 }
@@ -55,10 +59,10 @@
 }
 
 .homeHeader {
-  color: #fff;
-  background-color: #1b1b1d;
+  color: inherit;
+  background-color: #F7C846;
   text-transform: uppercase;
-  margin: 1rem;
+  margin: 1rem 0rem;
   font-size: 1rem;
   width: 15rem;
   height: 3rem;
@@ -66,7 +70,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #444444;
+  font-weight: 700;
 
   
 }
@@ -78,7 +82,6 @@
 
 .homeBlock {
   position: relative;
-  height: 550px;
   overflow: auto;
   
 }
@@ -88,7 +91,7 @@
   margin: 1rem 0rem;
   padding: .8rem 0rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #131112;
   z-index: 1000;
 
@@ -97,17 +100,16 @@
 .homeOptions button{
   color: #fff;
   text-transform: uppercase;
+  font-weight: 600;
 
   width: 10rem;
   height: 100%;
   border: 1px solid #444444;
   /* margin: 0rem 1rem; */
-  /* border-radius: 1rem; */
-  font-weight: 100;
+  border-radius: 1rem;
   font-size: .8rem;
   background-color: inherit;
-  height: 2.5rem;
-  /* padding: .7rem 0rem; */
+  height: 2.25rem;
   cursor: pointer;
   transition: 0.1s ease;
 
@@ -116,19 +118,19 @@
 }
 
 .homeOptions button:nth-child(1){
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
+  /* border-top-left-radius: 1rem; */
+  /* border-bottom-left-radius: 1rem; */
 }
 .homeOptions button:nth-last-child(1){
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  /* border-top-right-radius: 1rem; */
+  /* border-bottom-right-radius: 1rem; */
 }
 
 
 .homeOptions button.active {
   /* border: 1px solid #000; */
-  background-color: #ff6647;
-  color: #fff;
+  background-color: #f7c846;
+  color: inherit;
   transition: 0.1s ease;
 }
 
@@ -204,13 +206,12 @@
 .homeItems {
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
-  /* gap: 1rem; */
-  
-  margin: 0rem 1rem;
-  overflow: none;
-  /* padding: 0 1rem; */
-  background-color: #1b1b1d;
+
+  border-left: 1px solid #353535;
+  border-right: 1px solid #353535;
+  border-bottom: 1px solid #353535;
+
+  background-color: #171717;
 }
 
 @media only screen and (max-width: 600px) {
