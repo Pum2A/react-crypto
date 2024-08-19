@@ -192,6 +192,11 @@
   transition: 0.3s all;
 }
 
+.homeItemsFavorites{
+  height: 560px;
+  overflow: auto;
+}
+
 .homeBlockLosers,
 .homeBlockRandom,
 .homeBlockFavorites {
