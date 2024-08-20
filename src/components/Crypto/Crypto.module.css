@@ -76,6 +76,7 @@
   width: 30px; /* Increased size for better visibility */
   height: 30px;
   border-radius: 50%;
+  border: 1px solid;
 }
 
 .crypto__info {
@@ -124,6 +125,7 @@
 .favoriteButton {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .favoriteButton svg {

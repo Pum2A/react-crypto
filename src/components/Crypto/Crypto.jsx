@@ -75,9 +75,9 @@ const Crypto = ({
                 onClick={handleFavoriteClick}
                 className={styles.favoriteButton}>
                 {favorite ? (
-                  <Favorite style={{ fontSize: 25 }} />
+                  <Favorite style={{ fontSize: 32, color: "#f7c846" }} />
                 ) : (
-                  <FavoriteBorder style={{ fontSize: 25 }} />
+                  <FavoriteBorder style={{ fontSize: 28 }} />
                 )}
               </button>
             </div>

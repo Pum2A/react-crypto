@@ -1,10 +1,10 @@
 .topbar {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   padding: 0rem 1rem;
   background-color: #171717;
-  color: #000;
+  color: #fff;
   border-bottom:1px solid #444444;
 }
 
@@ -27,18 +27,23 @@
 
 .topbar__searchIcon {
   position: absolute;
+  height: 100%;
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  color: #888;
+  color: #fff;
+  /* border: 1px solid #353535; */
+
 }
 
 .topbar__search {
   width: 100%;
   padding: .5rem 2.2rem; /* Adding padding to the left to make space for the icon */
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #353535;
+  background-color: #0F0E0E;
   font-size: 16px;
+  color: #fff;
 }
 
 .topbar__clearIcon {
@@ -54,17 +59,22 @@
 }
 
 .topbar__search::placeholder {
-  color: #888;
+  color: #fff;
   font-size: 16px;
 }
 
 .topbar__search:focus {
   outline: none;
-  border-color: #888;
+  border-color: #fff;
 }
 
 .menuIcon{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media only screen and (max-width: 600px){
+  .topbar{
+    display: flex;
+  }
 }

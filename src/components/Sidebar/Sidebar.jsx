@@ -1,19 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import QueryStatsOutlinedIcon from "@mui/icons-material/QueryStatsOutlined";
-import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
-import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
-import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import styles from "./Sidebar.module.css";
-import CloseIcon from "@mui/icons-material/Close";
 
+import styles from "./Sidebar.module.css";
+
+import ProfileDropdown from "../Profile/ProfileDropdown";
+import {
+  CurrencyBitcoin,
+  Home,
+  Settings,
+  QueryStatsOutlined,
+  ArticleOutlined,
+  ListOutlined,
+} from "@mui/icons-material";
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
-    <div className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
-      <CloseIcon className={styles.topbar__clearIcon} onClick={toggleSidebar} />
-
+    <div className={`${styles.sidebar} ${!isOpen ? styles.open : ""}`}>
+      {/* <CloseIcon className={styles.topbar__clearIcon} onClick={toggleSidebar} /> */}
+      <span className={styles.logoContainer}>
+        <div className={styles.logo}>CRX</div>
+      </span>
       <nav>
+        {/* <p className={styles.mainTools}>Main Tools</p> */}
         <ul>
           <li>
             <NavLink
@@ -22,9 +29,21 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }>
               <span className={styles.navLinkIcon}>
-                <HomeOutlinedIcon />
+                <Home />
               </span>
               <span>Home</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/cryptos"
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }>
+              <span className={styles.navLinkIcon}>
+                <CurrencyBitcoin />
+              </span>
+              <span>Cryptos</span>
             </NavLink>
           </li>
           <li>
@@ -34,7 +53,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }>
               <span className={styles.navLinkIcon}>
-                <QueryStatsOutlinedIcon />
+                <QueryStatsOutlined />
               </span>
               <span>Statistics</span>
             </NavLink>
@@ -46,7 +65,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }>
               <span className={styles.navLinkIcon}>
-                <ArticleOutlinedIcon />
+                <ArticleOutlined />
               </span>
               <span>Articles</span>
             </NavLink>
@@ -58,17 +77,33 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }>
               <span className={styles.navLinkIcon}>
-                <ListOutlinedIcon />
+                <ListOutlined />
               </span>
               <span>My List</span>
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/settings"
+              className={({ isActive }) =>
+                `${styles.navLink} ${styles.navLinkSettings} ${
+                  isActive ? styles.active : ""
+                }`
+              }>
+              <span className={styles.navLinkIcon}>
+                <Settings />
+              </span>
+              <span>Settings</span>
+            </NavLink>
+          </li>
         </ul>
       </nav>
-      <div className={styles.signOutContainer}>
-        <button className={styles.signOut}>
-          <LogoutOutlinedIcon />
-        </button>
+
+      <div className={styles.bottomNavLinkContainer}>
+        <div className={styles.topbar__user}>
+          <ProfileDropdown />
+          <p>Test</p>
+        </div>
       </div>
     </div>
   );

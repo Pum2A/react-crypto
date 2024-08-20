@@ -40,7 +40,8 @@ const ProfileDropdown = () => {
         <Avatar
           src={profilePicture}
           alt={displayName}
-          sx={{ width: 40, height: 40 }}>
+          sx={{ width: 40, height: 40 }}
+          style={{ border: "3px solid #353535" }}>
           {<AccountCircleIcon /> && !profilePicture}
         </Avatar>
       </IconButton>
