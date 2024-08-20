@@ -1,11 +1,9 @@
 /* Sidebar.module.css */
 
 .sidebar {
-    position: fixed;
-    left: -250px; /* Hide the sidebar */
+ 
     width: 275px;
     height: 100vh;
-    /* top: 55px; */
     background-color: #171717;
     z-index: 1000;
     padding: 0rem 1rem;

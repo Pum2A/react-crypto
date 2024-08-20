@@ -1,7 +1,52 @@
-*{
-    display: flex !important;
-    
-}
-.mainContentWrapper{
-    /* height: 100vh; */
-}
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --bg-main: #023e8a;
+    --bg-blocks: #0077b6;
+    --bg-second-blocks: #0096c7;
+    --bg-block-item: #00b4d8;
+  }
+  
+  body {
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+    background-color: #131112;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    border: none;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .mainContentWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ensures the main content takes up available space */
+    background-color: #fff;
+    overflow-y: auto;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #282c34;
+    color: white;
+  }
+  

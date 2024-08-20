@@ -105,7 +105,26 @@ const Home = ({ searchQuery }) => {
 
   return (
     <>
-      <div className={styles.homeMain}></div>
+      <div className={styles.homeMain}>
+        <div className={styles.headerTextContainer}>
+          <h1>Hi, Guest!</h1>
+          <h2>Welcome back!</h2>
+        </div>
+        <div className={styles.gridContainer}>
+          <div className={styles.col1}>
+            <div className={styles.columnWrapper}>
+              <h3>Join to Biggest Cryptocurrency Community!</h3>
+              <p>We Are Creating Our Community on Discord, Come Join to Us! </p>
+            </div>
+          </div>
+          <div className={styles.col2}>
+            <div className={styles.columnWrapper}>sdsd</div>
+          </div>
+          <div className={styles.col3}>
+            <div className={styles.columnWrapper}>sdsd</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

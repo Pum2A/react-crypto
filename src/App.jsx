@@ -4,7 +4,6 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import MainContent from "./components/MainContent/MainContent";
 import { CryptoProvider } from "./components/CryptoContext/CryptoContext";
 import { AuthProvider } from "./components/AuthContext/AuthContext";
-import Topbar from "./components/Topbar/Topbar";
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -24,10 +23,11 @@ function App() {
         <CryptoProvider>
           <div className="flex">
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-            <div className="mainContentWrapper">
-              <Topbar onSearch={handleSearch} toggleSidebar={toggleSidebar} />
-              <MainContent searchQuery={searchQuery} />
-            </div>
+            <MainContent
+              searchQuery={searchQuery}
+              handleSearch={handleSearch}
+              toggleSidebar={toggleSidebar}
+            />
           </div>
         </CryptoProvider>
       </AuthProvider>
