@@ -36,6 +36,7 @@
   background-color: #f7c846;
   height: 500px;
   border-radius: 1rem;
+  border: 1px solid #545454;
 }
 
 .col2 {
@@ -45,6 +46,124 @@
   
   color: #fff;
   border-radius: 1rem;
+}
+
+.columnContentContainer{
+  padding: 5rem 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.columnContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-width: 700px;
+}
+.columnContent h3{
+  font-size: 3rem;
+  color: #131112;
+}
+.columnContent p{
+  font-size: 2rem;
+  max-width: 700px;
+  color: rgba(19, 17, 18, 0.925)
+}
+.columnContent span{
+  display: flex;
+  gap: 3rem;
+}
+.columnContent button{
+  width: 10rem;
+  height: 3rem;
+  border-radius: 1rem;
+  background-color: #131112;
+  color: #fff;
+  font-weight: 800;
+  border: 1px solid #545454;
+  cursor: pointer;
+  font-weight: 800;
+}
+.columnImage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+object-fit: cover;
+}
+
+.columnSecondContentContainer{
+  /* padding: 5rem 2rem; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.columnSecondContentContainer p{
+  font-size: 2rem;
+  font-weight: 700;
+  
+}
+.cryptoCurrenciesImages{
+  display: flex;
+  /* padding: 2rem 0rem; */
+  margin-bottom: 2rem;
+  justify-content: space-between;
+  
+}
+
+.columnSecondContent{
+  /* background-color: brown; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.columnSecondContent img{
+  border-radius: 50%;
+  border: 1px solid #545454;
+  box-shadow: 0px 7px 7px #121212;
+  width: 100px;
+  height: 100px;
+}
+
+.columnPremiumMembership{
+  
+  display: flex;
+  /* flex-direction: column; */
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+}
+
+
+
+.columnHeaderContainer{
+  text-align: center;
+  margin: 2rem 0rem;
+}
+.columnPremiumMembership span{
+  width: 15rem;
+  height: 7rem;
+  background-color: inherit;
+  color: #fff;
+  font-weight: 100;
+  border-left: 5px solid #121212;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  /* width: 15rem; */
+}
+
+.columnButtonPremiumContainer{
+  width: 100%;
+  text-align: center;
+  /* background-color: pink; */
 }
 
 .col3 {

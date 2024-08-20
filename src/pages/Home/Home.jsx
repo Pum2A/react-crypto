@@ -1,9 +1,11 @@
 import React, { useContext, lazy, Suspense, useState, useEffect } from "react";
 import { CryptoContext } from "../../components/CryptoContext/CryptoContext";
 import styles from "./Home.module.css";
-import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
-import Legend from "../../components/Legend/Legend";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ethLogo from "../../images/ethLogo.png";
+import btc from "../../images/btc.png";
+import icon from "../../images/icon.png";
+import polygon from "../../images/polygon.jpg";
+import tether from "../../images/tether.png";
 // Lazy load the Crypto component
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
@@ -113,15 +115,55 @@ const Home = ({ searchQuery }) => {
         <div className={styles.gridContainer}>
           <div className={styles.col1}>
             <div className={styles.columnWrapper}>
-              <h3>Join to Biggest Cryptocurrency Community!</h3>
-              <p>We Are Creating Our Community on Discord, Come Join to Us! </p>
+              <div className={styles.columnContentContainer}>
+                <div className={styles.columnContent}>
+                  <h3>Join to Biggest Cryptocurrency Community!</h3>
+                  <p>Join to our Community on Discord and Twitter</p>
+                  <span>
+                    <button>Discord</button>
+                    <button>Twitter</button>
+                  </span>
+                </div>
+                <div className={styles.columnImage}>
+                  <img src={ethLogo} alt={ethLogo} />
+                </div>
+              </div>
             </div>
           </div>
           <div className={styles.col2}>
-            <div className={styles.columnWrapper}>sdsd</div>
+            <div className={styles.columnWrapper}>
+              <div className={styles.columnSecondContentContainer}>
+                <div className={styles.columnSecondContent}>
+                  <div className={styles.columnHeaderContainer}>
+                    <p>Premium Membership gives you!</p>
+                  </div>
+                  <div className={styles.columnPremiumMembership}>
+                    <span>Big Wins</span>
+                    <span>Faster Refresh</span>
+                    <span>Special Community</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className={styles.col3}>
-            <div className={styles.columnWrapper}>sdsd</div>
+            <div className={styles.columnWrapper}>
+              <div className={styles.columnSecondContentContainer}>
+                <div className={`${styles.columnSecondContent} `}>
+                  <div className={styles.columnHeaderContainer}>
+                    <p className={styles.cryptoCurrencies}>
+                      More than 50+ Cryptocurrencies!
+                    </p>
+                  </div>
+                  <div className={styles.cryptoCurrenciesImages}>
+                    <img src={btc} alt={btc} />
+                    <img src={icon} alt={icon} />
+                    <img src={polygon} alt={polygon} />
+                    <img src={tether} alt={tether} />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
