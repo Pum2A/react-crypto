@@ -13,75 +13,82 @@ const Statistics = lazy(() => import("../../pages/Statistics/Statistics"));
 const Login = lazy(() => import("../Login/Login"));
 const Register = lazy(() => import("../Register/Register"));
 const Settings = lazy(() => import("../Settings/Settings"));
+const Cryptos = lazy(() => import("../../pages/Cryptos/Cryptos"));
 
 const MainContent = ({ searchQuery, handleSearch, toggleSidebar }) => {
   return (
     <div className="mainContentWrapper">
       <Topbar onSearch={handleSearch} toggleSidebar={toggleSidebar} />
-      <div className="contentArea">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<Home searchQuery={searchQuery} />} />
-            <Route
-              path="/home"
-              element={
-                <ProtectedRoute>
-                  <Home searchQuery={searchQuery} />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/articles"
-              element={
-                <ProtectedRoute>
-                  <Articles />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/mylist"
-              element={
-                <ProtectedRoute>
-                  <MyList />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/statistics"
-              element={
-                <ProtectedRoute>
-                  <Statistics />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/crypto/:id" element={<CryptoDetails />} />
-            <Route
-              path="/login"
-              element={
-                <UnprotectedRoute>
-                  <Login />
-                </UnprotectedRoute>
-              }
-            />
-            <Route
-              path="/register"
-              element={
-                <UnprotectedRoute>
-                  <Register />
-                </UnprotectedRoute>
-              }
-            />
-            <Route
-              path="/settings"
-              element={
-                <ProtectedRoute>
-                  <Settings />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-        </Suspense>
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home searchQuery={searchQuery} />} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <Home searchQuery={searchQuery} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/articles"
+            element={
+              <ProtectedRoute>
+                <Articles />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cryptos"
+            element={
+              <ProtectedRoute>
+                <Cryptos />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mylist"
+            element={
+              <ProtectedRoute>
+                <MyList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/statistics"
+            element={
+              <ProtectedRoute>
+                <Statistics />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/crypto/:id" element={<CryptoDetails />} />
+          <Route
+            path="/login"
+            element={
+              <UnprotectedRoute>
+                <Login />
+              </UnprotectedRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <UnprotectedRoute>
+                <Register />
+              </UnprotectedRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Suspense>
     </div>
   );
 };

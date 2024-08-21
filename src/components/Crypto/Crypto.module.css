@@ -16,10 +16,9 @@
 .cryptoHeader {
   transition: 0.1s ease;
   display: flex;
-  margin: 0rem 1rem;
   justify-content: space-between;
   background-color: #0F0E0E;
-  height: 4rem;
+  height: 5rem;
   padding: 0rem 1rem;
   border: 1px solid #444444;
 
@@ -30,10 +29,12 @@
 .crypto__text {
   font-weight: 500;
   color: #fff;
-  width: 5rem;
+  width: 7rem;
+  text-shadow: 1px 1px 1px #131313;
+
   display: flex;
   align-items: center;
-  font-size: .8rem;
+  font-size: 1rem;
 }
 
 .cryptoContent {
@@ -53,22 +54,25 @@
   justify-content: center;
   /* align-items: center; */
   /* gap: 0.5rem; */
-  width: 5rem;
+  width: 7rem;
+  text-shadow: 1px 1px 1px #131313;
 
   
 }
 
 .crypto__rank {
-  font-size: .9rem;
+  font-size: 1.2rem;
   color: #fff;
-  
+  text-shadow: 1px 1px 1px #131313;
+
 }
 
 .crypto__image {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5rem;
+  width: 7rem;
+  text-shadow: 1px 1px 1px #131313;
 
 }
 
@@ -77,6 +81,7 @@
   height: 30px;
   border-radius: 50%;
   border: 1px solid;
+  
 }
 
 .crypto__info {
@@ -88,37 +93,45 @@
 
 .crypto__price {
   color: #fff;
-  width: 5rem;
+  width: 7rem;
   display: flex;
   align-items: center;
   justify-content: center;
   /* min-width: 10rem; */
-  font-size: .9rem;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 1px #131313;
+
 }
 
 .crypto__change {
   white-space: nowrap;
-  width: 5rem;
+  width: 7rem;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: .9rem;
+  font-size: 1.2rem;
 }
 
 .crypto__change__positive {
   color: #8bdd2c; 
+  text-shadow: 1px 1px 1px #131313;
+
 }
 
 .crypto__change__negative {
   color: #e61a0c; 
+  text-shadow: 1px 1px 1px #131313;
+
 }
 
 .favoriteButtonContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5rem;
+  width: 7rem;
+  text-shadow: 1px 1px 1px #131313;
+
 
 }
 

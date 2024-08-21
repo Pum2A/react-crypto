@@ -1,0 +1,46 @@
+
+
+  .cryptosHeader{
+    color: #fff;
+    padding: 2rem 0rem;
+    font-size: 4rem;
+    text-shadow: 1px 1px 1px #131313;
+    /* text-align: center; */
+    text-transform: uppercase;
+  }
+
+
+.cryptosMain{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.cryptosBlock{
+    width: 100%;
+}
+.sectionControls{
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+}
+.sectionControls button{
+    width: 10rem;
+    height: 3rem;
+    border-radius: 1rem;
+    background-color: #f7c846;
+    border: 1px solid #545454;
+    color: #131313;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.sectionControls button:hover{
+    background-color: #3d3316;
+    color: #fff;
+    border: 1px solid #fff;
+}
