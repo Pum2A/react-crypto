@@ -15,7 +15,15 @@ const Register = lazy(() => import("../Register/Register"));
 const Settings = lazy(() => import("../Settings/Settings"));
 const Cryptos = lazy(() => import("../../pages/Cryptos/Cryptos"));
 
-const MainContent = ({ searchQuery, handleSearch, toggleSidebar }) => {
+const MainContent = () => {
+  const [searchQuery, setSearchQuery] = React.useState("");
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
+  const toggleSidebar = () => {};
+
   return (
     <div className="mainContentWrapper">
       <Topbar onSearch={handleSearch} toggleSidebar={toggleSidebar} />
@@ -42,7 +50,7 @@ const MainContent = ({ searchQuery, handleSearch, toggleSidebar }) => {
             path="/cryptos"
             element={
               <ProtectedRoute>
-                <Cryptos />
+                <Cryptos searchQuery={searchQuery} onSearch={handleSearch} />
               </ProtectedRoute>
             }
           />

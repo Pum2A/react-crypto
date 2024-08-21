@@ -44,3 +44,69 @@
     color: #fff;
     border: 1px solid #fff;
 }
+.searchContainer input{
+
+    height: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #545454;
+    background-color: inherit;
+    outline: none;
+    color: #fff;
+    font-weight: 800;
+    text-align: center;
+}
+.searchContainer input::placeholder{
+    color: #fff;
+    font-weight: 800;
+    text-align: center;
+}
+.cryptosItems{
+    height: 550px;
+}
+.searchContainer {
+    position: relative;
+   
+
+  }
+  
+  .searchIcon {
+    position: absolute;
+    height: 100%;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    pointer-events: none; /* Prevents the icon from interfering with input interactions */
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 0.5rem 2.2rem; /* Space for the icon */
+    border-radius: 20px;
+    border: 1px solid #353535;
+    background-color: #0F0E0E;
+    font-size: 16px;
+    color: #fff;
+    box-sizing: border-box; /* Ensures padding doesn't increase the element's width */
+  }
+
+
+ 
+  
+  .clearIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #fff;
+    background-color: #3e3e3e;
+    border-radius: 50%;
+    padding: 0.2rem;
+    font-size: 1rem; /* Adjust size if necessary */
+  }
+  
+  .searchContainer input::placeholder:focus{
+    color: inherit;
+   
+}
