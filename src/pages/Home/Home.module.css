@@ -37,7 +37,7 @@
   height: 500px;
   border-radius: 1rem;
   border: 1px solid #545454;
-}
+} 
 
 .col2 {
   grid-area: col2;
@@ -64,11 +64,13 @@
 .columnContent h3{
   font-size: 3rem;
   color: #131112;
+  text-shadow: 1px 1px 1px #131112;
 }
 .columnContent p{
   font-size: 2rem;
   max-width: 700px;
-  color: rgba(19, 17, 18, 0.925)
+  color: rgba(19, 17, 18, 0.925);
+  text-shadow: 1px 1px 1px #131112;
 }
 .columnContent span{
   display: flex;
