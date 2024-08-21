@@ -62,6 +62,8 @@
 }
 .cryptosItems{
     height: 550px;
+    width: 100%;
+    overflow: scroll;
 }
 .searchContainer {
     position: relative;
@@ -110,3 +112,4 @@
     color: inherit;
    
 }
+

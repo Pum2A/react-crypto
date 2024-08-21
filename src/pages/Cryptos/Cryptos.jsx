@@ -73,50 +73,54 @@ const Section = ({
 }) => (
   <div className={styles.cryptosBlock}>
     <h2 className={styles.cryptosHeader}>{title}</h2>
-    <Legend />
+    <div className={styles.mainContainer}>
+      <Legend />
 
-    <div className={styles.sectionControls}>
-      <button onClick={() => setActiveSection("trending")}>Trending</button>
-      <button onClick={() => setActiveSection("winners")}>Winners</button>
-      <div className={styles.searchContainer}>
-        <SearchIcon className={styles.searchIcon} />
-        <input
-          type="text"
-          placeholder="Search cryptos"
-          value={searchQuery}
-          onChange={(e) => onSearch(e.target.value)}
-          onFocus={(e) => e.target.setAttribute("placeholder", "")}
-          onBlur={(e) => e.target.setAttribute("placeholder", "Search cryptos")}
-          className={styles.searchInput}
-        />
-        {searchQuery && (
-          <CloseIcon
-            className={styles.clearIcon}
-            onClick={() => onSearch("")}
+      <div className={styles.sectionControls}>
+        <button onClick={() => setActiveSection("trending")}>Trending</button>
+        <button onClick={() => setActiveSection("winners")}>Winners</button>
+        <div className={styles.searchContainer}>
+          <SearchIcon className={styles.searchIcon} />
+          <input
+            type="text"
+            placeholder="Search cryptos"
+            value={searchQuery}
+            onChange={(e) => onSearch(e.target.value)}
+            onFocus={(e) => e.target.setAttribute("placeholder", "")}
+            onBlur={(e) =>
+              e.target.setAttribute("placeholder", "Search cryptos")
+            }
+            className={styles.searchInput}
           />
+          {searchQuery && (
+            <CloseIcon
+              className={styles.clearIcon}
+              onClick={() => onSearch("")}
+            />
+          )}
+        </div>
+        <button onClick={() => setActiveSection("losers")}>Losers</button>
+        <button onClick={() => setActiveSection("random")}>Random</button>
+      </div>
+      <div className={styles.cryptosItems}>
+        {cryptos.length > 0 ? (
+          cryptos.map((crypto) => (
+            <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
+              <Crypto
+                market_cap_rank={crypto.market_cap_rank}
+                id={crypto.id}
+                name={crypto.name}
+                symbol={crypto.symbol}
+                image={crypto.image}
+                current_price={crypto.current_price}
+                price_change_24h={formatPercentage(crypto.price_change_24h)}
+              />
+            </Suspense>
+          ))
+        ) : (
+          <div>No results found</div>
         )}
       </div>
-      <button onClick={() => setActiveSection("losers")}>Losers</button>
-      <button onClick={() => setActiveSection("random")}>Random</button>
-    </div>
-    <div className={styles.cryptosItems}>
-      {cryptos.length > 0 ? (
-        cryptos.map((crypto) => (
-          <Suspense fallback={<div>Loading...</div>} key={crypto.id}>
-            <Crypto
-              market_cap_rank={crypto.market_cap_rank}
-              id={crypto.id}
-              name={crypto.name}
-              symbol={crypto.symbol}
-              image={crypto.image}
-              current_price={crypto.current_price}
-              price_change_24h={formatPercentage(crypto.price_change_24h)}
-            />
-          </Suspense>
-        ))
-      ) : (
-        <div>No results found</div>
-      )}
     </div>
   </div>
 );

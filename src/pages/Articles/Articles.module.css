@@ -1,21 +1,23 @@
 .articlesGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* 3 columns layout */
-    gap: 1rem;
-    padding: 1rem;
+    gap: 3rem;
   }
   
   .articlesBlock {
-    background-color: #6D5D6E; /* Light background */
+    background-color: #f7c846; /* Light background */
     padding: 2rem;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid #545454;
+
+  
   }
   
   .articlesHeader {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: #fff;
+    color: #131313;
+    text-align: center;
   }
   
   .articlesItems {
@@ -30,8 +32,8 @@
     background-color: #F4EEE0;
     border-radius: 5px;
     padding: 0rem 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #545454;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,6 +45,13 @@
     background-color: rgb(201, 196, 185);
     border: 1px solid rgba(22, 22, 22, 0.1);
     box-shadow: 0 2px 5px rgba(22, 22, 22, 0.1);
+  }
+
+  .articlesContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .articleTitle {
