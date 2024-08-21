@@ -1,11 +1,12 @@
 .settings_container {
   padding: 2rem;
-  background-color: #6D5D6E; /* Dark background similar to crypto-details */
+  background-color: inherit; /* Dark background similar to crypto-details */
   color: #fff; /* White text color */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh; /* Full viewport height */
   overflow-y: auto; /* Allow scrolling if content exceeds viewport height */
 }
@@ -22,6 +23,7 @@
   margin: 0;
   color: #fff; /* White text color */
 }
+
 
 .settings_avatar_text {
   display: flex;
@@ -50,7 +52,7 @@
   padding: 0.5rem;
   border-radius: 5px;
   background-color: #fff;
-  color: #6D5D6E; /* Match background color */
+  color: #000; /* Match background color */
 }
 
 .settings_save_btn {
