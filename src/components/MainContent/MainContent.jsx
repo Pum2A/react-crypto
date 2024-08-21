@@ -26,7 +26,6 @@ const MainContent = () => {
 
   return (
     <div className="mainContentWrapper">
-      <Topbar onSearch={handleSearch} toggleSidebar={toggleSidebar} />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home searchQuery={searchQuery} />} />

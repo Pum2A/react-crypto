@@ -1,135 +1,151 @@
 /* Sidebar.module.css */
 
 .sidebar {
- 
-    width: 275px;
-    height: 100vh;
-    background-color: #171717;
-    z-index: 1000;
-    padding: 0rem 1rem;
-    border-right:1px solid #444444;
+  width: 275px;
+  height: 100vh;
+  background-color: #171717;
+  z-index: 1000;
+  padding: 0rem 1rem;
+  border-right: 1px solid #444444;
 
-  }
-  .logoContainer{
-    display: flex;
-    align-items: center;
-    padding:2rem 1rem
-    /* height: 5rem; */
-  }
-
-  .logo{
-    color: #fff;
-    font-size: 3rem;
-    font-weight: 600;
-  }
-  .mainTools{
-    color: #fff;
-    font-size: .8rem;
-    margin: 1rem .5rem;
-    font-weight: 400;
-
-  }
-
-  .topbar__user{
-    background-color: #f7c846;
-    border-radius: .5rem;
-    display: flex;
-    border: 1px solid #545454;
-    align-items: center;
-    gap: .5rem;
-   
-
-  }
-  
-  .topbar__user p{
-    color: #000;
-  }
-  nav {
-    height: 75%;
-    padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center ; */
-  }
-  
-  .sidebar.open {
-    left: 0; /* Slide in the sidebar */
-  }
-  
-  ul {
-    
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .navLink {
-    padding: .8rem 1rem;
-    border-radius: .5rem;
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    gap: 1rem;
-    font-weight: 500;
-    width: 100%;
-    border: 1px solid #545454;
-  }
-  
-  /* New CSS rule for active state of icon */
-  .navLinkIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+  transform: translateX(0); /* Default to visible */
+  transition: transform 0.3s ease;
 }
 
-.navLink.active  {
-    background-color: inherit;
-    /* border: 1px solid #fff; */
-    color: #000;
-    background-color: #f7c846;
+
+
+
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.logo {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.mainTools {
+  color: #fff;
+  font-size: .8rem;
+  margin: 1rem .5rem;
+  font-weight: 400;
+}
+
+.topbar__user {
+  background-color: #f7c846;
+  border-radius: .5rem;
+  display: flex;
+  border: 1px solid #545454;
+  align-items: center;
+  gap: .5rem;
+}
+
+.topbar__user p {
+  color: #000;
+}
+
+nav {
+  height: 75%;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.navLink {
+  padding: .8rem 1rem;
+  border-radius: .5rem;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 1rem;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #545454;
+}
+
+.navLinkIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.navLink.active {
+  background-color: #f7c846;
+  color: #000;
+}
+
+.signOut {
+  background-color: #82142e;
+  color: #fff;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: .5rem 0rem;
+  border-radius: .2rem;
+  font-size: .8rem;
+  font-weight: 500;
+  gap: .3rem;
+  font-family: "Inter", sans-serif;
+}
+
+.topbar__clearIcon {
+  font-size: 2rem; /* Adjust the size of the "X" */
+
+  width: 100%;
+  cursor: pointer;
+  color: #fff;
+  background-color: #3e3e3e;
+  border-radius: 50%;
+  padding: .2rem .2rem;
+  border: 2px solid #fff;
+  display: none;
+}
+.topbar__clearIcon svg{
+  display: none;
+}
+.closeContainer{
+  display: none;
+}
+
+/* Media query to hide sidebar on mobile */
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  
   }
-  
-  
-  
-  .signOut {
-      background-color: #82142e;
-      color: #fff;
-    border: none;
-    /* padding: 1rem; */
+  .closeContainer{
     width: 100%;
-    cursor: pointer;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    padding: .5rem 0rem;
-    border-radius: .2rem;
-    font-size: .8rem;
-    font-weight: 500;
-    gap: .3rem;
-    font-family: "Inter", sans-serif;
-    
-
+    align-items: center;
+    padding: 1rem 0rem;
   }
-  .signOutContainer{
-    
-  }
- 
 
- 
-  
-  
-  .topbar__clearIcon {
+  .sidebar.open {
     width: 100%;
-    cursor: pointer;
-    color: #fff;
-    background-color: #3e3e3e;
-    border-radius: 50%;
-    padding: .2rem .2rem;
-    border: 2px solid #fff;
+    display: block;
+    position: fixed;
+    transform: translateX(0); /* Show the sidebar */
   }
-  
+  .topbar__clearIcon{
+    display: flex;
+  }
+}

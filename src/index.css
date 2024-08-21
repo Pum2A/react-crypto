@@ -38,16 +38,35 @@ li {
   overflow: hidden;
 }
 
+/* For mobile view: hide sidebar and show topbar */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide sidebar on mobile */
+  }
+}
+
 .mainContentWrapper {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   overflow: auto;
-  /* background-color: rgba(255, 0, 0, 0.411); */
   width: 100%;
   height: 100vh;
   max-width: 1480px;
   margin-inline: auto;
 }
 
+/* Ensure the topbar is always visible on mobile */
+@media (max-width: 768px) {
+  .topbar {
+    display: flex;
+    /* Additional styles for topbar on mobile */
+  }
+}
 
+/* Additional mobile styles */
+@media (min-width: 769px) {
+  .topbar {
+    display: none; /* Hide topbar on larger screens if necessary */
+  }
+}

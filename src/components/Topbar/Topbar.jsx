@@ -22,7 +22,12 @@ const Topbar = ({ onSearch, toggleSidebar }) => {
 
   return (
     <div className={styles.topbar}>
-      <div className={styles.menuIcon} onClick={toggleSidebar}>
+      <div
+        className={styles.menuIcon}
+        onClick={() => {
+          console.log("Menu icon clicked");
+          toggleSidebar();
+        }}>
         <MenuIcon style={{ color: "#fff", cursor: "pointer" }} />
       </div>
       <div className={styles.topbar__logo}></div>
