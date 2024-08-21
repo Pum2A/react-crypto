@@ -1,0 +1,41 @@
+.favoritesMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .searchContainer {
+    position: relative;
+    margin-bottom: 1rem;
+    width: 300px;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 0.5rem 2rem; /* Space for the icon if needed */
+    border-radius: 20px;
+    border: 1px solid #353535;
+    background-color: #0F0E0E;
+    color: #fff;
+  }
+  
+  .searchInput::placeholder {
+    color: #fff;
+    font-weight: 800;
+  }
+  
+  .favoritesBlock {
+    width: 100%;
+    /* max-width: 1200px; Adjust max-width as needed */
+  }
+  
+  .favoritesHeader {
+    color: #fff;
+    font-size: 4rem;
+    text-shadow: 1px 1px 1px #131313;
+    margin-bottom: 1rem;
+  }
+  
+ 
+  

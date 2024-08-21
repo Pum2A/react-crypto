@@ -10,7 +10,7 @@ import {
   Settings,
   QueryStatsOutlined,
   ArticleOutlined,
-  ListOutlined,
+  Favorite,
 } from "@mui/icons-material";
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
@@ -72,14 +72,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           </li>
           <li>
             <NavLink
-              to="/mylist"
+              to="/favorites"
               className={({ isActive }) =>
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }>
               <span className={styles.navLinkIcon}>
-                <ListOutlined />
+                <Favorite />
               </span>
-              <span>My List</span>
+              <span>Favorites</span>
             </NavLink>
           </li>
           <li>

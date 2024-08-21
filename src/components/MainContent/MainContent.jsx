@@ -8,7 +8,7 @@ import "./MainContent.css";
 const Home = lazy(() => import("../../pages/Home/Home"));
 const CryptoDetails = lazy(() => import("../CryptoDetails/CryptoDetails"));
 const Articles = lazy(() => import("../../pages/Articles/Articles"));
-const MyList = lazy(() => import("../../pages/MyList/MyList"));
+const Favorites = lazy(() => import("../../pages/Favorites/Favorites"));
 const Statistics = lazy(() => import("../../pages/Statistics/Statistics"));
 const Login = lazy(() => import("../Login/Login"));
 const Register = lazy(() => import("../Register/Register"));
@@ -55,10 +55,10 @@ const MainContent = () => {
             }
           />
           <Route
-            path="/mylist"
+            path="/favorites"
             element={
               <ProtectedRoute>
-                <MyList />
+                <Favorites />
               </ProtectedRoute>
             }
           />
