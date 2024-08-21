@@ -135,12 +135,30 @@ const Home = ({ searchQuery }) => {
               <div className={styles.columnSecondContentContainer}>
                 <div className={styles.columnSecondContent}>
                   <div className={styles.columnHeaderContainer}>
-                    <p>Premium Membership gives you!</p>
+                    <p>Premium Membership</p>
                   </div>
                   <div className={styles.columnPremiumMembership}>
-                    <span>Big Wins</span>
-                    <span>Faster Refresh</span>
-                    <span>Special Community</span>
+                    <div className={styles.columnPremiumMembershipBlock}>
+                      <span>Premium Status</span>{" "}
+                      <div>
+                        <span>9,99$ </span>/ per month
+                      </div>
+                      <button>Buy</button>
+                    </div>
+                    <div className={styles.columnPremiumMembershipBlock}>
+                      <span>Vip Status</span>
+                      <div>
+                        <span>15,99$ </span>/ per month
+                      </div>
+                      <button>Buy</button>
+                    </div>
+                    <div className={styles.columnPremiumMembershipBlock}>
+                      <span>Sponsor Status</span>
+                      <div>
+                        <span>19,99$ </span>/ per month
+                      </div>
+                      <button>Buy</button>
+                    </div>
                   </div>
                 </div>
               </div>
