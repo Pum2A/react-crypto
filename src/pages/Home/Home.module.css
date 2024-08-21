@@ -31,6 +31,54 @@
     "col1 col1"
     "col2 col3"; 
 }
+
+@media only screen and (max-width: 600px){
+
+  .columnImage img{
+    display: none;
+  }
+.columnContent button{
+  height: 2rem !important;
+}
+  .columnContent h3, p{
+    font-size: 1.2rem !important;
+    padding: 1rem 0rem;
+  }
+  .columnContentContainer{
+    display: flex !important;
+    justify-content: center !important;
+    padding: 0rem !important;
+    flex-direction: column !important;
+  }
+  .columnWrapper{
+    padding: 1rem 1rem !important;
+  }
+  .col2, .col3, .col1{
+    height: auto !important;
+    padding: 1rem 0rem;
+  }
+.gridContainer{
+  display: flex;
+  flex-direction: column;
+}
+.columnPremiumMembership{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cryptoCurrenciesImages{
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.columnHeaderContainer p{
+  font-size: 1.6rem !important;
+}
+
+
+
+}
 .col1 {
   grid-area: col1;
   background-color: #f7c846;

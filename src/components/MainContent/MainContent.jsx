@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import UnprotectedRoute from "../UnprotectedRoute/UnprotectedRoute";
 import Topbar from "../Topbar/Topbar";
-import "./MainContent.css";
+import styles from "./MainContent.module.css"; // Import the CSS Module
 
 const Home = lazy(() => import("../../pages/Home/Home"));
 const CryptoDetails = lazy(() => import("../CryptoDetails/CryptoDetails"));
@@ -25,7 +25,9 @@ const MainContent = () => {
   const toggleSidebar = () => {};
 
   return (
-    <div className="mainContentWrapper">
+    <div className={styles.mainContentWrapper}>
+      {" "}
+      {/* Use the CSS Module here */}
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home searchQuery={searchQuery} />} />
