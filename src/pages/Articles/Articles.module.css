@@ -52,6 +52,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 2rem 2rem;
   }
   
   .articleTitle {
@@ -70,6 +71,9 @@
   @media (max-width: 768px) {
     .articlesGrid {
       grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+    .articlesContainer{
+      height: auto;
     }
   }
   

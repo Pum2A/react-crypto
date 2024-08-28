@@ -25,22 +25,22 @@ const Favorites = ({ searchQuery, onSearch }) => {
 
   return (
     <div className={styles.favoritesMain}>
-      <div className={styles.searchContainer}>
-        <input
-          type="text"
-          placeholder="Search favorites"
-          value={searchQuery}
-          onChange={(e) => onSearch(e.target.value)}
-          className={styles.searchInput}
-          onFocus={(e) => e.target.setAttribute("placeholder", "")}
-          onBlur={(e) =>
-            e.target.setAttribute("placeholder", "Search favorites")
-          }
-        />
-      </div>
       <div className={styles.favoritesBlock}>
         <h2 className={styles.favoritesHeader}>Your Favorites</h2>
         <Legend />
+        <div className={styles.searchContainer}>
+          <input
+            type="text"
+            placeholder="Search favorites"
+            value={searchQuery}
+            onChange={(e) => onSearch(e.target.value)}
+            className={styles.searchInput}
+            onFocus={(e) => e.target.setAttribute("placeholder", "")}
+            onBlur={(e) =>
+              e.target.setAttribute("placeholder", "Search favorites")
+            }
+          />
+        </div>
         <div className={styles.favoritesItems}>
           {filteredFavorites.length > 0 ? (
             filteredFavorites.map((crypto) => (
