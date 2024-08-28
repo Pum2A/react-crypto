@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ImageSlider.module.css"; // Import the CSS Module
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 export default function ImageSlider({ imageUrls }) {
   const [imageIndex, setImageIndex] = useState(0);
 
   const imagesPerSlide = 4;
+  const autoClickInterval = 5000;
 
   function showNextImages() {
     setImageIndex((index) => {
@@ -24,6 +25,14 @@ export default function ImageSlider({ imageUrls }) {
     imageIndex,
     imageIndex + imagesPerSlide
   );
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      showNextImages();
+    }, autoClickInterval);
+
+    return () => clearInterval(intervalId);
+  }, [imageIndex]);
 
   return (
     <div className={styles.sliderContainer}>
