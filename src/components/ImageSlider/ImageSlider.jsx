@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import styles from "./ImageSlider.module.css"; // Import the CSS Module
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 export default function ImageSlider({ imageUrls }) {
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -25,20 +26,18 @@ export default function ImageSlider({ imageUrls }) {
   );
 
   return (
-    <div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div className={styles.sliderContainer}>
+      <div className={styles.imageWrapper}>
         {displayedImages.map((imageUrl, idx) => (
-          <img
-            key={idx}
-            src={imageUrl}
-            alt={`Logo ${imageIndex + idx + 1}`}
-            style={{ width: "24%" }}
-          />
+          <img key={idx} src={imageUrl} alt={`Logo ${imageIndex + idx + 1}`} />
         ))}
       </div>
-      <div>
-        <button onClick={showPrevImages}>-</button>
-        <button onClick={showNextImages}>+</button>
+      <div className={styles.btnContainer}>
+        <ArrowBackIos className={styles.sliderBtn} onClick={showPrevImages} />
+        <ArrowForwardIos
+          className={styles.sliderBtn}
+          onClick={showNextImages}
+        />
       </div>
     </div>
   );

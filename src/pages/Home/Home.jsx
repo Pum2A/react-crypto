@@ -177,7 +177,7 @@ const Home = ({ searchQuery }) => {
               </div>
 
               <div className={styles.cryptoCurrenciesImages}>
-                <ImageSlider imageUrls={logoUrls}></ImageSlider>
+                <ImageSlider imageUrls={logoUrls} />
               </div>
             </div>
           </div>

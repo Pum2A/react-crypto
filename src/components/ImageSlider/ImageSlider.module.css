@@ -1,0 +1,39 @@
+.btnContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+    /* width: 100%; */
+    /* height: 100%; Ensure the container takes the full height of the parent */
+  }
+  
+  .sliderBtn {
+    position: absolute;
+    width: 2rem;
+    height:2rem;
+    border-radius: 50%;
+    background-color: inherit;
+    border: 1px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    top: 50%;
+    padding: .5rem;
+    transform: translateY(-50%);
+    transition: 0.3s ease;
+  }
+  
+  .sliderBtn:first-of-type {
+    left: 2rem; 
+  }
+  
+  .sliderBtn:last-of-type {
+    right: 2rem; 
+  }
+  
+  .imageWrapper{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
