@@ -6,7 +6,7 @@ import btc from "../../images/btc.png";
 import icon from "../../images/icon.png";
 import polygon from "../../images/polygon.jpg";
 import tether from "../../images/tether.png";
-// Lazy load the Crypto component
+
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
 const Home = ({ searchQuery }) => {
@@ -16,7 +16,6 @@ const Home = ({ searchQuery }) => {
   const [filteredCryptos, setFilteredCryptos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [sortCriteria, setSortCriteria] = useState("default");
-  const [activeSection, setActiveSection] = useState("trending"); // Added state for active section
 
   const formatPercentage = (value) => {
     let numberValue = parseFloat(value);
@@ -108,78 +107,76 @@ const Home = ({ searchQuery }) => {
   return (
     <>
       <div className={styles.homeMain}>
-        <div className={styles.headerTextContainer}>
-          <h1>Hi, Guest!</h1>
-          <h2>Welcome back!</h2>
-        </div>
-        <div className={styles.gridContainer}>
-          <div className={styles.col1}>
-            <div className={styles.columnWrapper}>
-              <div className={styles.columnContentContainer}>
-                <div className={styles.columnContent}>
-                  <h3>Join to Biggest Cryptocurrency Community!</h3>
-                  <p>Join to our Community on Discord and Twitter</p>
-                  <span>
-                    <button>Discord</button>
-                    <button>Twitter</button>
-                  </span>
+        <div className={styles.flexContainer}>
+          <div className={styles.flexItemOrange}>
+            <div className={styles.columnContent}>
+              <div className={styles.columnTextContent}>
+                <h3>Join the Biggest Cryptocurrency Community!</h3>
+                <p>Join our Community on Discord and Twitter</p>
+                <span>
+                  <button>Discord</button>
+                  <button>Twitter</button>
+                </span>
+              </div>
+              <div className={styles.columnImage}>
+                <img src={ethLogo} alt="Ethereum Logo" />
+              </div>
+            </div>
+          </div>
+          <div className={styles.flexItemGray}>
+            <div className={styles.columnSecondContent}>
+              <div className={styles.columnHeaderContainer}>
+                <p>Premium Membership</p>
+              </div>
+              <div className={styles.columnPremiumMembership}>
+                <div className={styles.columnPremiumMembershipBlock}>
+                  <div className={styles.columnPremiumMembershipName}>
+                    <span>Premium </span>
+                  </div>
+                  <div className={styles.columnPremiumMembershipPrice}>
+                    <span>$9.99</span>
+                  </div>
+                  <div className={styles.columnPremiumMembershipBtnContainer}>
+                    <button>Buy</button>
+                  </div>
                 </div>
-                <div className={styles.columnImage}>
-                  <img src={ethLogo} alt={ethLogo} />
+                <div className={styles.columnPremiumMembershipBlock}>
+                  <div className={styles.columnPremiumMembershipName}>
+                    <span>VIP </span>
+                  </div>
+                  <div className={styles.columnPremiumMembershipPrice}>
+                    <span>$15.99</span>
+                  </div>
+                  <div className={styles.columnPremiumMembershipBtnContainer}>
+                    <button>Buy</button>
+                  </div>
+                </div>
+                <div className={styles.columnPremiumMembershipBlock}>
+                  <div className={styles.columnPremiumMembershipName}>
+                    <span>Sponsor </span>
+                  </div>
+                  <div className={styles.columnPremiumMembershipPrice}>
+                    <span>$19.99</span>
+                  </div>
+                  <div className={styles.columnPremiumMembershipBtnContainer}>
+                    <button>Buy</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className={styles.col2}>
-            <div className={styles.columnWrapper}>
-              <div className={styles.columnSecondContentContainer}>
-                <div className={styles.columnSecondContent}>
-                  <div className={styles.columnHeaderContainer}>
-                    <p>Premium Membership</p>
-                  </div>
-                  <div className={styles.columnPremiumMembership}>
-                    <div className={styles.columnPremiumMembershipBlock}>
-                      <span>Premium Status</span>{" "}
-                      <div>
-                        <span>9,99$ </span>/ per month
-                      </div>
-                      <button>Buy</button>
-                    </div>
-                    <div className={styles.columnPremiumMembershipBlock}>
-                      <span>Vip Status</span>
-                      <div>
-                        <span>15,99$ </span>/ per month
-                      </div>
-                      <button>Buy</button>
-                    </div>
-                    <div className={styles.columnPremiumMembershipBlock}>
-                      <span>Sponsor Status</span>
-                      <div>
-                        <span>19,99$ </span>/ per month
-                      </div>
-                      <button>Buy</button>
-                    </div>
-                  </div>
-                </div>
+          <div className={styles.flexItemGray}>
+            <div className={styles.columnSecondContent}>
+              <div className={styles.columnHeaderContainer}>
+                <p className={styles.cryptoCurrencies}>
+                  More than 50+ Cryptocurrencies!
+                </p>
               </div>
-            </div>
-          </div>
-          <div className={styles.col3}>
-            <div className={styles.columnWrapper}>
-              <div className={styles.columnSecondContentContainer}>
-                <div className={`${styles.columnSecondContent} `}>
-                  <div className={styles.columnHeaderContainer}>
-                    <p className={styles.cryptoCurrencies}>
-                      More than 50+ Cryptocurrencies!
-                    </p>
-                  </div>
-                  <div className={styles.cryptoCurrenciesImages}>
-                    <img src={btc} alt={btc} />
-                    <img src={icon} alt={icon} />
-                    <img src={polygon} alt={polygon} />
-                    <img src={tether} alt={tether} />
-                  </div>
-                </div>
+              <div className={styles.cryptoCurrenciesImages}>
+                <img src={btc} alt="Bitcoin Logo" />
+                <img src={icon} alt="Crypto Icon" />
+                <img src={polygon} alt="Polygon Logo" />
+                <img src={tether} alt="Tether Logo" />
               </div>
             </div>
           </div>

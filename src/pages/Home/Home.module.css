@@ -4,257 +4,226 @@
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
 
-.headerTextContainer{
- 
+.homeMain {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.headerTextContainer {
   padding: 3rem 0rem;
   color: #fff;
-
 }
-.headerTextContainer h1{
+
+.headerTextContainer h1 {
   font-size: 2rem;
 }
 
-.headerTextContainer h2{
+.headerTextContainer h2 {
   font-size: 3rem;
 }
 
-.gridContainer{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
-  grid-template-rows: auto; /* Automatically adjust the row height */
-  gap: 2rem;
-  grid-template-areas: 
-    "col1 col1"
-    "col2 col3"; 
-}
-
-@media only screen and (max-width: 600px){
-
-  .columnImage img{
-    display: none;
-  }
-.columnContent button{
-  height: 2rem !important;
-}
-  .columnContent h3, p{
-    font-size: 1.2rem !important;
-    padding: 1rem 0rem;
-  }
-  .columnContentContainer{
-    display: flex !important;
-    justify-content: center !important;
-    padding: 0rem !important;
-    flex-direction: column !important;
-  }
-  .columnWrapper{
-    padding: 1rem 1rem !important;
-  }
-  .col2, .col3, .col1{
-    height: auto !important;
-    padding: 1rem 0rem;
-  }
-.gridContainer{
+.flexContainer {
   display: flex;
   flex-direction: column;
-}
-.columnPremiumMembership{
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.cryptoCurrenciesImages{
-  flex-direction: column;
-  align-items: center;
   gap: 2rem;
 }
-.columnHeaderContainer p{
-  font-size: 1.6rem !important;
-}
 
-
-
-}
-.col1 {
-  grid-area: col1;
+.flexItemOrange {
   background-color: #f7c846;
-  height: 500px;
-  border-radius: 1rem;
-  border: 1px solid #545454;
-} 
-
-.col2 {
-  grid-area: col2;
-  background-color: #202020;
-  height: 250px;
+  color: #131112;
   border: 1px solid #444444;
-  color: #fff;
   border-radius: 1rem;
-}
-
-.columnContentContainer{
-  padding: 5rem 2rem;
-  height: 100%;
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
 }
 
-.columnContent{
+.flexItemGray {
+  background-color: #202020;
+  color: #fff;
+  border: 1px solid #444444;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.columnContent {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  /* flex-direction: column; */
+  justify-content: space-between;
+}
+.columnTextContent{
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  max-width: 700px;
 }
-.columnContent h3{
-  font-size: 3rem;
+
+
+.columnContent h3 {
+  font-size: 2.4rem;
+  max-width: 550px;
   color: #131112;
-  text-shadow: 1px 1px 1px #131112;
 }
-.columnContent p{
-  font-size: 2rem;
-  max-width: 700px;
+
+.columnContent p {
+  font-size: 1.6rem;
   color: rgba(19, 17, 18, 0.925);
-  text-shadow: 1px 1px 1px #131112;
 }
-.columnContent span{
+
+.columnContent span {
   display: flex;
-  gap: 3rem;
+  gap: 1rem;
 }
-.columnContent button{
-  width: 10rem;
-  height: 3rem;
-  border-radius: 1rem;
+
+.columnContent button {
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
   background-color: #131112;
   color: #fff;
   font-weight: 800;
   border: 1px solid #545454;
   cursor: pointer;
-  font-weight: 800;
 }
-.columnImage{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-object-fit: cover;
+.columnContent button:hover{
+  background-color: #404040;
+  border: 1px solid #fff;
 }
 
-.columnSecondContentContainer{
-  /* padding: 5rem 2rem; */
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.columnImage img {
+  width: 100%;
+  max-width: 250px;
+  margin-top: 1rem;
+  align-self: center;
 }
 
-.columnSecondContentContainer p{
-  font-size: 2rem;
-  font-weight: 700;
-  
-}
-.cryptoCurrenciesImages{
-  display: flex;
-  /* padding: 2rem 0rem; */
-  margin-bottom: 2rem;
-  justify-content: space-between;
-  
-}
-
-.columnSecondContent{
-  /* background-color: brown; */
-  height: 100%;
+.columnSecondContent {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
+.cryptoCurrenciesImages {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+}
 
-.columnSecondContent img{
-  border-radius: 50%;
-  border: 1px solid #545454;
-  box-shadow: 0px 7px 7px #121212;
+.cryptoCurrenciesImages img {
   width: 100px;
   height: 100px;
-}
-
-.columnPremiumMembership{
-  
-  display: flex;
-  /* flex-direction: column; */
-  gap: 1rem;
-  margin-bottom: 2rem;
-
-}
-
-
-
-.columnHeaderContainer{
-  text-align: center;
-  margin: 2rem 0rem;
-}
-.columnPremiumMembershipBlock span{
-  text-align: center;
-  /* padding: 1rem 0rem; */
-}
-.columnPremiumMembershipBlock div{
-  text-align: center;
-}
-.columnPremiumMembershipBlock div span{
-  color: #d8a310;
-  text-shadow: 0px 1px 1px #131313;
-}
-
-.columnPremiumMembershipBlock{
-  width: 15rem;
-  height: 8rem;
-  background-color: #131313;
-  border-radius: 1rem;
-  color: #fff;
-  font-weight: 600;
+  border-radius: 50%;
   cursor: pointer;
+  box-shadow: 0px 4px 6px #545454;
+}
+.cryptoCurrenciesImages img:hover{
+  border: 3px solid #fff;
+}
+
+.columnPremiumMembership {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
-  border: 1px solid #444444;
-  /* align-items: center; */
-  font-size: 1.3rem;
-  /* width: 15rem; */
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.columnButtonPremiumContainer{
-  width: 100%;
-  text-align: center;
-  /* background-color: pink; */
-}
-
-.columnPremiumMembershipBlock button{
-  width: 5rem;
-  height: 2rem;
-  border-radius: 1rem;
-  background-color: inherit;
-  color: #fff;
+.columnPremiumMembershipBlock {
+  padding: 1rem;
   border: 1px solid #545454;
-  cursor: pointer;
-  font-weight: 800;
-  margin: .3rem 0rem;
-
-}
-
-.col3 {
-  grid-area: col3;
-  background-color: #202020;
-  height: 250px;
-  border: 1px solid #444444;
-  color: #fff;
-  border-radius: 1rem;
-}
-
-.columnWrapper{
-  padding: 0rem 2rem;
-  height: 100%;
+  border-radius: 0.5rem;
+  background-color: #131112;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   
+  color: #fff;
+}
+
+.columnPremiumMembershipBlock button {
+  background-color: #f7c846;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #131112;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+
+.columnPremiumMembershipName{
+min-width: 100px;
+}
+
+.cryptoCurrencies {
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .headerTextContainer h1 {
+    font-size: 1.5rem;
+  }
+  
+  .headerTextContainer h2 {
+    font-size: 2.5rem;
+  }
+  
+  .columnContent h3 {
+    font-size: 1.5rem;
+    margin: 0.2rem 0rem;
+  }
+  
+  .columnContent p {
+    font-size: .8rem;
+    margin: 0.2rem 0rem;
+    text-align: justify;
+  }
+  .columnContent span{
+    margin: 0.2rem 0rem;
+    justify-content: space-between;
+  }
+
+  .columnPremiumMembershipName{
+    font-size: 1rem;
+  }
+
+  .columnPremiumMembershipPrice{
+    font-size: 1rem;
+  }
+  .columnPremiumMembershipBtnContainer button{
+    padding: 0.5rem 0.5rem;
+  }
+  .columnImage{
+    display: none;
+  }
+  .cryptoCurrenciesImages img {
+    width: 50px;
+    height: 50px;
+  }
+  .cryptoCurrencies{
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .flexContainer {
+    flex-direction: column;
+  }
+
+  .flexItem {
+    min-width: 100%;
+  }
 }
