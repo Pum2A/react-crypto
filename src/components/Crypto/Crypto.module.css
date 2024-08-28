@@ -162,4 +162,20 @@
   .cryptoHeader{
     margin: 0rem 0rem;
   }
+
+  .crypto__text{
+    font-size: .7rem;
+  }
+  .crypto__image{
+    font-size: .7rem;
+  }
+  .crypto__rank{
+    font-size: .7rem;
+  }
+  .crypto__price{
+    font-size: .7rem;
+  }
+  .crypto__change{
+    font-size: .7rem;
+  }
 }

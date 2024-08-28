@@ -114,13 +114,7 @@
   justify-content: space-between;
 }
 
-.cryptoCurrenciesImages {
-  /* display: flex; */
-  /* justify-content: space-around; */
-  /* align-items: center; */
-  /* flex-direction: column; */
-  /* margin-top: 2rem; */
-}
+
 
 .cryptoCurrenciesImages img {
   width: 100px;

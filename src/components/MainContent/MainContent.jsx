@@ -59,7 +59,7 @@ const MainContent = () => {
             path="/favorites"
             element={
               <ProtectedRoute>
-                <Favorites />
+                <Favorites searchQuery={searchQuery} onSearch={handleSearch} />
               </ProtectedRoute>
             }
           />

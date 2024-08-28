@@ -4,6 +4,12 @@ import styles from "./Cryptos.module.css";
 import Legend from "../../components/Legend/Legend";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
+import {
+  AirlineStops,
+  EmojiEvents,
+  Shuffle,
+  SouthWest,
+} from "@mui/icons-material";
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
 const Cryptos = ({ searchQuery, onSearch }) => {
@@ -75,23 +81,25 @@ const Section = ({
     <h2 className={styles.cryptosHeader}>{title}</h2>
     <div className={styles.mainContainer}>
       <Legend />
-
+      <input
+        type="text"
+        placeholder="Search cryptos"
+        value={searchQuery}
+        onChange={(e) => onSearch(e.target.value)}
+        onFocus={(e) => e.target.setAttribute("placeholder", "")}
+        onBlur={(e) => e.target.setAttribute("placeholder", "Search cryptos")}
+        className={styles.searchInput}
+      />
       <div className={styles.sectionControls}>
-        <button onClick={() => setActiveSection("trending")}>Trending</button>
-        <button onClick={() => setActiveSection("winners")}>Winners</button>
+        <button onClick={() => setActiveSection("trending")}>
+          <AirlineStops />
+        </button>
+        <button onClick={() => setActiveSection("winners")}>
+          <EmojiEvents />
+        </button>
         <div className={styles.searchContainer}>
           <SearchIcon className={styles.searchIcon} />
-          <input
-            type="text"
-            placeholder="Search cryptos"
-            value={searchQuery}
-            onChange={(e) => onSearch(e.target.value)}
-            onFocus={(e) => e.target.setAttribute("placeholder", "")}
-            onBlur={(e) =>
-              e.target.setAttribute("placeholder", "Search cryptos")
-            }
-            className={styles.searchInput}
-          />
+
           {searchQuery && (
             <CloseIcon
               className={styles.clearIcon}
@@ -99,8 +107,12 @@ const Section = ({
             />
           )}
         </div>
-        <button onClick={() => setActiveSection("losers")}>Losers</button>
-        <button onClick={() => setActiveSection("random")}>Random</button>
+        <button onClick={() => setActiveSection("losers")}>
+          <SouthWest />
+        </button>
+        <button onClick={() => setActiveSection("random")}>
+          <Shuffle />
+        </button>
       </div>
       <div className={styles.cryptosItems}>
         {cryptos.length > 0 ? (
