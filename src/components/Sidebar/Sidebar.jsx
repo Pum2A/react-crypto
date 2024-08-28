@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-
 import styles from "./Sidebar.module.css";
-
 import ProfileDropdown from "../Profile/ProfileDropdown";
 import {
   CurrencyBitcoin,
@@ -13,7 +11,16 @@ import {
   Favorite,
   Close,
 } from "@mui/icons-material";
+import { AuthContext } from "../AuthContext/AuthContext";
+
 const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const { user } = useContext(AuthContext);
+  const [displayName, setDisplayName] = useState(user?.name || "User");
+
+  const handleDisplayNameChange = (name) => {
+    setDisplayName(name);
+  };
+
   return (
     <div
       className={`${styles.sidebar} ${isOpen ? styles.open : styles.hidden}`}>
@@ -28,7 +35,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <div className={styles.logo}>CRX</div>
       </span>
       <nav>
-        {/* <p className={styles.mainTools}>Main Tools</p> */}
         <ul>
           <li>
             <NavLink
@@ -105,14 +111,13 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             </NavLink>
           </li>
         </ul>
-      </nav>
-
-      <div className={styles.bottomNavLinkContainer}>
-        <div className={styles.topbar__user}>
-          <ProfileDropdown />
-          <p>Test</p>
+        <div className={styles.bottomNavLinkContainer}>
+          <div className={styles.topbar__user}>
+            <ProfileDropdown onDisplayNameChange={handleDisplayNameChange} />
+            <p>{displayName}</p>
+          </div>
         </div>
-      </div>
+      </nav>
     </div>
   );
 };

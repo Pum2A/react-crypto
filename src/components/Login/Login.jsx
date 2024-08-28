@@ -19,7 +19,7 @@ const Login = () => {
     );
 
     if (user) {
-      login(user.username);
+      login(user); // Pass the entire user object
       navigate("/");
     } else {
       setError("Invalid username or password");

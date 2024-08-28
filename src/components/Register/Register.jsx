@@ -5,6 +5,7 @@ import "./Register.css";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState(""); // Add state for user name
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -17,7 +18,7 @@ const Register = () => {
     if (userExists) {
       setError("User already exists");
     } else {
-      const newUser = { username, password };
+      const newUser = { username, password, name }; // Include name
       existingUsers.push(newUser);
       localStorage.setItem("users", JSON.stringify(existingUsers));
       navigate("/login");
@@ -34,6 +35,13 @@ const Register = () => {
         <h2 className="register">Register</h2>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleRegister}>
+          <input
+            type="text"
+            placeholder="Name" // Input for name
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
           <input
             type="text"
             placeholder="Username"

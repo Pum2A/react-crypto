@@ -1,19 +1,22 @@
 /* Sidebar.module.css */
 
 .sidebar {
+  position: relative;
   width: 275px;
-  height: 100vh;
+  height: 100%;
   background-color: #171717;
   z-index: 1000;
   padding: 0rem 1rem;
   border-right: 1px solid #444444;
 
-  transform: translateX(0); /* Default to visible */
+transform: translateX(0); /* Default to visible */
   transition: transform 0.3s ease;
 }
 
 
-
+.bottomNavLinkContainer{
+  padding: 2rem 0rem;
+}
 
 
 .logoContainer {
@@ -49,10 +52,12 @@
 }
 
 nav {
-  height: 75%;
+ 
   padding-top: 1rem;
   display: flex;
+  height: 70%;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 ul {

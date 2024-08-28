@@ -4,19 +4,24 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { AuthContext } from "../AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const ProfileDropdown = () => {
+const ProfileDropdown = ({ onDisplayNameChange }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [profilePicture, setProfilePicture] = useState("");
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Load the profile picture from local storage when the component mounts
     const savedProfilePicture = localStorage.getItem("profilePicture");
     if (savedProfilePicture) {
       setProfilePicture(savedProfilePicture);
     }
   }, []);
+
+  useEffect(() => {
+    if (onDisplayNameChange) {
+      onDisplayNameChange(user?.name || "User");
+    }
+  }, [user, onDisplayNameChange]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -32,7 +37,7 @@ const ProfileDropdown = () => {
     navigate("/login");
   };
 
-  const displayName = user?.name || "User"; // Use user.name if available, otherwise fallback to "User"
+  const displayName = user?.name || "User"; // Ensure displayName is updated
 
   return (
     <>
@@ -42,7 +47,7 @@ const ProfileDropdown = () => {
           alt={displayName}
           sx={{ width: 40, height: 40 }}
           style={{ border: "3px solid #353535" }}>
-          {<AccountCircleIcon /> && !profilePicture}
+          {!profilePicture && <AccountCircleIcon />}
         </Avatar>
       </IconButton>
       <Menu
