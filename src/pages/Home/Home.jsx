@@ -6,6 +6,7 @@ import btc from "../../images/btc.png";
 import icon from "../../images/icon.png";
 import polygon from "../../images/polygon.jpg";
 import tether from "../../images/tether.png";
+import ImageSlider from "../../components/ImageSlider/ImageSlider";
 
 const Crypto = lazy(() => import("../../components/Crypto/Crypto"));
 
@@ -16,6 +17,8 @@ const Home = ({ searchQuery }) => {
   const [filteredCryptos, setFilteredCryptos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [sortCriteria, setSortCriteria] = useState("default");
+
+  const logoUrls = cryptoData.map((crypto) => crypto.image);
 
   const formatPercentage = (value) => {
     let numberValue = parseFloat(value);
@@ -172,11 +175,9 @@ const Home = ({ searchQuery }) => {
                   More than 50+ Cryptocurrencies!
                 </p>
               </div>
+
               <div className={styles.cryptoCurrenciesImages}>
-                <img src={btc} alt="Bitcoin Logo" />
-                <img src={icon} alt="Crypto Icon" />
-                <img src={polygon} alt="Polygon Logo" />
-                <img src={tether} alt="Tether Logo" />
+                <ImageSlider imageUrls={logoUrls}></ImageSlider>
               </div>
             </div>
           </div>
