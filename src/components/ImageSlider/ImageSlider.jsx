@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ImageSlider.module.css"; // Import the CSS Module
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-export default function ImageSlider({ imageUrls }) {
+
+export default function ImageSlider({ imageUrls, imageNames }) {
   const [imageIndex, setImageIndex] = useState(0);
 
   const imagesPerSlide = 4;
@@ -25,6 +26,10 @@ export default function ImageSlider({ imageUrls }) {
     imageIndex,
     imageIndex + imagesPerSlide
   );
+  const displayedNames = imageNames.slice(
+    imageIndex,
+    imageIndex + imagesPerSlide
+  );
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -38,7 +43,14 @@ export default function ImageSlider({ imageUrls }) {
     <div className={styles.sliderContainer}>
       <div className={styles.imageWrapper}>
         {displayedImages.map((imageUrl, idx) => (
-          <img key={idx} src={imageUrl} alt={`Logo ${imageIndex + idx + 1}`} />
+          <div key={idx} className={styles.imageItem}>
+            <img
+              src={imageUrl}
+              alt={`Logo ${imageIndex + idx + 1}`}
+              className={styles.image}
+            />
+            <div className={styles.imageName}>{displayedNames[idx]}</div>
+          </div>
         ))}
       </div>
       <div className={styles.btnContainer}>

@@ -19,6 +19,7 @@ const Home = ({ searchQuery }) => {
   const [sortCriteria, setSortCriteria] = useState("default");
 
   const logoUrls = cryptoData.map((crypto) => crypto.image);
+  const imageNames = cryptoData.map((crypto) => crypto.symbol);
 
   const formatPercentage = (value) => {
     let numberValue = parseFloat(value);
@@ -129,7 +130,7 @@ const Home = ({ searchQuery }) => {
           <div className={styles.flexItemGray}>
             <div className={styles.columnSecondContent}>
               <div className={styles.columnHeaderContainer}>
-                <p>Premium Membership</p>
+                <p>Membership</p>
               </div>
               <div className={styles.columnPremiumMembership}>
                 <div className={styles.columnPremiumMembershipBlock}>
@@ -171,13 +172,11 @@ const Home = ({ searchQuery }) => {
           <div className={styles.flexItemGray}>
             <div className={styles.columnSecondContent}>
               <div className={styles.columnHeaderContainer}>
-                <p className={styles.cryptoCurrencies}>
-                  More than 50+ Cryptocurrencies!
-                </p>
+                <p className={styles.cryptoCurrencies}>Cryptocurrencies</p>
               </div>
 
               <div className={styles.cryptoCurrenciesImages}>
-                <ImageSlider imageUrls={logoUrls} />
+                <ImageSlider imageUrls={logoUrls} imageNames={imageNames} />
               </div>
             </div>
           </div>

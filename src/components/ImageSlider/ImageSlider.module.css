@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     /* background-color: red; */
     /* width: 100%; */
     /* height: 100%; Ensure the container takes the full height of the parent */
@@ -14,7 +15,7 @@
     height:2rem;
     border-radius: 50%;
     background-color: inherit;
-    border: 1px solid #fff;
+    border: 2px solid #f7c846;
     color: #fff;
     cursor: pointer;
     top: 50%;
@@ -36,4 +37,20 @@
     justify-content: space-evenly;
     margin-bottom: 2rem;
     margin-top: 1rem;
+    background-color: #131313;
+    border: 1px solid #545454;
+    padding: 1rem .5rem;
+    border-radius: 1rem;
+  }
+  .imageItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    text-transform: uppercase;
+    
+  }
+  .imageItem div{
+    text-shadow: 0px 2px 2px #f7c846;
   }

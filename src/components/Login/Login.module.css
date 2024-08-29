@@ -2,9 +2,10 @@
   margin: 0 auto;
   width: 300px; 
   padding: 20px;
-  background-color: #fff;
+  background-color: #131313;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #fff;
+  box-shadow: 0px 0px 10px #222222;
 }
 
 .authContainer {
@@ -12,9 +13,10 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh; 
-  background-color: #F4EEE0; 
 }
-
+.loginTitle{
+  color: #fff;
+}
 .authForm input,
 .authForm button {
   width: 100%;
@@ -25,14 +27,15 @@
 }
 
 .authForm button {
-  background-color: #6D5D6E;
+  background-color: #131313;
+  font-weight: 600;
   color: white;
-  border: none;
+  border: 1px solid #fff;
   cursor: pointer;
 }
 
 .authForm button:hover {
-  background-color: #4e424f;
+  background-color: #343434;
 }
 
 .loginTitle {
@@ -42,6 +45,7 @@
 .registerQuestion {
   margin: .5rem 0;
   font-size: .7rem;
+  color: #fff;
 }
 
 .error {
