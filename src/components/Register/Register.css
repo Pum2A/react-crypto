@@ -2,9 +2,13 @@
     margin: 0 auto;
     width: 300px; 
     padding: 20px;
-    background-color: #fff;
+    background-color: #131313;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px #333333;
+  }
+
+  .register{
+    color: #fff;
   }
   
 
@@ -13,7 +17,6 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh; 
-    background-color: #F4EEE0; 
   }
   
   .auth-form input,
@@ -21,19 +24,21 @@
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #6D5D6E;
+    border: 2px solid #f7c846;
+    outline: none;
     border-radius: 4px;
   }
   
   .auth-form button {
-    background-color: #6D5D6E;
+    background-color: #131313;
     color: white;
-    border: none;
+    border: 1px solid #fff;
     cursor: pointer;
+    font-weight: 600;
   }
   
   .auth-form button:hover {
-    background-color: #4e424f;
+    background-color: #333333;
   }
 
   .register{
@@ -42,6 +47,7 @@
   .login-question{
     margin: .5rem 0rem;
     font-size: .7rem;
+    color: #fff;
   }
   
   .error {

@@ -30,6 +30,7 @@ const Settings = () => {
       localStorage.setItem("profilePicture", file);
       setProfilePicture(file);
       alert("Settings saved successfully!");
+      window.location.reload();
     } else {
       alert("Please select a profile picture.");
     }
