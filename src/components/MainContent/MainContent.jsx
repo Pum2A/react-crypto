@@ -6,7 +6,6 @@ import Topbar from "../Topbar/Topbar";
 import styles from "./MainContent.module.css";
 import Loading from "../Loading/Loading";
 
-// Lazy load components without artificial delay
 const Home = lazy(() => import("../../pages/Home/Home"));
 const CryptoDetails = lazy(() => import("../CryptoDetails/CryptoDetails"));
 const Articles = lazy(() => import("../../pages/Articles/Articles"));
@@ -28,7 +27,14 @@ const MainContent = () => {
     <div className={styles.mainContentWrapper}>
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route path="/" element={<Home searchQuery={searchQuery} />} />
+          <Route
+            path="/"
+            element={
+              <UnprotectedRoute>
+                <Home searchQuery={searchQuery} />
+              </UnprotectedRoute>
+            }
+          />
           <Route
             path="/home"
             element={

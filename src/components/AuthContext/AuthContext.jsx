@@ -17,6 +17,7 @@ const AuthProvider = ({ children }) => {
   const login = (userData) => {
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
+    navigate("/home"); // Redirect to home after login
   };
 
   const logout = () => {
@@ -25,8 +26,10 @@ const AuthProvider = ({ children }) => {
     navigate("/login");
   };
 
+  const isAuthenticated = () => !!user; // Check if user is authenticated
+
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, isAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );

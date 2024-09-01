@@ -6,6 +6,7 @@
   border-radius: 8px;
   border: 1px solid #545454;
   box-shadow: 0px 0px 10px #222222;
+  width: 400px;
 }
 
 .authContainer {
@@ -29,7 +30,6 @@
   border-radius: 4px;
 }
 .authForm input{
-  width: 20rem !important;
   display: flex;
   flex-direction: column;
 }
