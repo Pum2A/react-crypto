@@ -31,7 +31,7 @@ const Topbar = ({ onSearch, toggleSidebar }) => {
         <MenuIcon style={{ color: "#fff", cursor: "pointer" }} />
       </div>
       <div className={styles.topbar__logo}></div>
-      <div className={styles.topbar__searchContainer}>
+      {/* <div className={styles.topbar__searchContainer}>
         <SearchIcon className={styles.topbar__searchIcon} />
         <input
           type="text"
@@ -46,7 +46,7 @@ const Topbar = ({ onSearch, toggleSidebar }) => {
             onClick={clearSearch}
           />
         )}
-      </div>
+      </div> */}
       <div className={styles.topbar__user}>
         <ProfileDropdown username="Test" />
       </div>

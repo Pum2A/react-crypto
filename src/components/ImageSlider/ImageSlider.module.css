@@ -1,56 +1,134 @@
-.btnContainer {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
 
-    /* background-color: red; */
-    /* width: 100%; */
-    /* height: 100%; Ensure the container takes the full height of the parent */
+.imageWrapperContainer {
+  width: 80%; /* Container width is set to 80% */
+  display: flex;
+  justify-content: center; /* Center the image wrapper within its container */
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center;
+
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  width: 90%; /* Full width within its container */
+  box-sizing: border-box; /* Ensure padding doesn't affect the width */
+  flex-wrap: nowrap; /* Prevent images from wrapping */
+}
+
+.imageItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem; 
+  text-transform: uppercase;
+}
+
+.imageItem div {
+  text-shadow: 0px 2px 2px #f7c846;
+  font-size: 1rem;
+}
+
+.image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #f7c846;
+  box-shadow: 0px 4px 6px #545454;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  border: 3px solid #fff;
+  transform: scale(1.1);
+}
+
+/* Arrow Button Container */
+.btnContainer {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none; /* Make the button container non-interactive */
+}
+
+.sliderBtn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: transparent; /* Transparent background behind arrows */
+  border: 2px solid #f7c846;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: 0.3s ease;
+  pointer-events: auto; /* Make the buttons interactive */
+}
+
+.sliderBtn:hover {
+  background-color: #f7c846;
+  color: #131112;
+}
+
+/* Tablet View */
+@media screen and (max-width: 1024px) {
+  .imageWrapperContainer {
+    width: 90%; /* Adjust the width for smaller screens */
   }
-  
+
+  .imageWrapper {
+    justify-content: space-around;
+  }
+
+  .imageItem {
+    padding: 0 0.5rem;
+  }
+
+  .image {
+    width: 60px;
+    height: 60px;
+  }
+
   .sliderBtn {
-    position: absolute;
     width: 2rem;
-    height:2rem;
-    border-radius: 50%;
-    background-color: inherit;
-    border: 2px solid #f7c846;
-    color: #fff;
-    cursor: pointer;
-    top: 50%;
-    padding: .5rem;
-    transform: translateY(-50%);
-    transition: 0.3s ease;
+    height: 2rem;
   }
-  
-  .sliderBtn:first-of-type {
-    left: 2rem; 
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+  .imageWrapperContainer {
+    width: 95%; /* Further adjust the width for mobile screens */
   }
-  
-  .sliderBtn:last-of-type {
-    right: 2rem; 
-  }
-  
-  .imageWrapper{
-    display: flex;
+
+  .imageWrapper {
     justify-content: space-evenly;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    background-color: #131313;
-    border: 1px solid #545454;
-    padding: 1rem .5rem;
-    border-radius: 1rem;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
   }
-  .imageItem{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem;
-    text-transform: uppercase;
-    
+
+  .imageItem {
+    padding: 0 0.5rem;
   }
-  .imageItem div{
-    text-shadow: 0px 2px 2px #f7c846;
+
+  .image {
+    width: 50px;
+    height: 50px;
   }
+
+  .sliderBtn {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

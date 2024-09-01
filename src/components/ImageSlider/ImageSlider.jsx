@@ -5,7 +5,8 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 export default function ImageSlider({ imageUrls, imageNames }) {
   const [imageIndex, setImageIndex] = useState(0);
 
-  const imagesPerSlide = 4;
+  const imagesPerSlide =
+    window.innerWidth >= 1024 ? 6 : window.innerWidth >= 768 ? 4 : 2;
   const autoClickInterval = 5000;
 
   function showNextImages() {

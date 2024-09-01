@@ -26,8 +26,6 @@ const MainContent = () => {
 
   return (
     <div className={styles.mainContentWrapper}>
-      {" "}
-      {/* Use the CSS Module here */}
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home searchQuery={searchQuery} />} />

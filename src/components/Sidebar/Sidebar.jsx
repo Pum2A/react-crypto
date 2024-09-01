@@ -24,15 +24,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <div
       className={`${styles.sidebar} ${isOpen ? styles.open : styles.hidden}`}>
-      <div className={styles.closeContainer}>
-        <Close
-          fontSize="large"
-          className={styles.topbar__clearIcon}
-          onClick={toggleSidebar}
-        />
-      </div>
       <span className={styles.logoContainer}>
         <div className={styles.logo}>CRX</div>
+        <div className={styles.closeContainer}>
+          <Close
+            fontSize="large"
+            className={styles.topbar__clearIcon}
+            onClick={toggleSidebar}
+          />
+        </div>
       </span>
       <nav>
         <ul>

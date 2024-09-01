@@ -114,16 +114,27 @@ const Home = ({ searchQuery }) => {
         <div className={styles.flexContainer}>
           <div className={styles.flexItemOrange}>
             <div className={styles.columnContent}>
-              <div className={styles.columnTextContent}>
-                <h3>Join the Biggest Cryptocurrency Community!</h3>
-                <p>Join our Community on Discord and Twitter</p>
-                <span>
-                  <button>Discord</button>
-                  <button>Twitter</button>
-                </span>
+              <div className={styles.headerContainerMessage}>
+                <h1>CRX</h1>
+                <div className={styles.headerMessage}>
+                  <p>Welcome to our site!</p>
+                  <p>World of Cryptocurrency.</p>
+                  <p>
+                    Explore our resources, join our community, and take your
+                    crypto knowledge to the next level.
+                  </p>
+                </div>
               </div>
-              <div className={styles.columnImage}>
-                <img src={ethLogo} alt="Ethereum Logo" />
+
+              <div className={styles.columnTextContent}>
+                <h3>WORLDWIDE CRYPTOCURRENCY CONTENT</h3>
+                <div className={styles.communityContainer}>
+                  <p>Our Community on Discord and Twitter</p>
+                  <span>
+                    <button>Discord</button>
+                    <button>Twitter</button>
+                  </span>
+                </div>
               </div>
             </div>
           </div>

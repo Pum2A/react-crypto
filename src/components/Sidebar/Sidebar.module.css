@@ -21,6 +21,7 @@ transform: translateX(0); /* Default to visible */
 
 .logoContainer {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 2rem 1rem;
 }
@@ -137,11 +138,8 @@ ul {
   
   }
   .closeContainer{
-    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0rem;
+  
   }
 
   .sidebar.open {
