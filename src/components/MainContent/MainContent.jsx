@@ -3,8 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import UnprotectedRoute from "../UnprotectedRoute/UnprotectedRoute";
 import Topbar from "../Topbar/Topbar";
-import styles from "./MainContent.module.css"; // Import the CSS Module
+import styles from "./MainContent.module.css";
+import Loading from "../Loading/Loading";
 
+// Lazy load components without artificial delay
 const Home = lazy(() => import("../../pages/Home/Home"));
 const CryptoDetails = lazy(() => import("../CryptoDetails/CryptoDetails"));
 const Articles = lazy(() => import("../../pages/Articles/Articles"));
@@ -22,11 +24,9 @@ const MainContent = () => {
     setSearchQuery(query);
   };
 
-  const toggleSidebar = () => {};
-
   return (
     <div className={styles.mainContentWrapper}>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Home searchQuery={searchQuery} />} />
           <Route

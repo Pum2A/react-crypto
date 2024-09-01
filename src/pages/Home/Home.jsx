@@ -129,7 +129,7 @@ const Home = ({ searchQuery }) => {
               <div className={styles.columnTextContent}>
                 <h3>WORLDWIDE CRYPTOCURRENCY CONTENT</h3>
                 <div className={styles.communityContainer}>
-                  <p>Our Community on Discord and Github</p>
+                  <p>OUR COMMUNITY ON DISCORD AND GITHUB</p>
                   <span>
                     <a
                       href="https://discord.gg/PnVqPvWG"

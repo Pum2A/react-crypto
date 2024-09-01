@@ -1,24 +1,25 @@
-.authForm {
-  margin: 0 auto;
-   
-  padding: 40px;
-  background-color: #131313;
-  border-radius: 8px;
-  border: 1px solid #545454;
-  box-shadow: 0px 0px 10px #222222;
-}
 
 .authContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
-.loginTitle{
+
+.authForm {
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #131313;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px #333333;
+  border: 1px solid #545454;
+}
+
+.register {
   color: #fff;
-  font-weight: 600;
-  margin: 1rem 0rem;
+  margin: 0.5rem 0;
 }
+
 .authForm input,
 .authForm button {
   width: 100%;
@@ -28,42 +29,42 @@
   outline: none;
   border-radius: 4px;
 }
-.authForm input{
+
+.authForm input {
   width: 20rem !important;
   display: flex;
   flex-direction: column;
 }
+
 .authForm input::placeholder{
   color: #131313;
   font-weight: 100;
+  
 }
-
 
 .authForm button {
   background-color: #131313;
-  font-weight: 600;
   color: white;
   border: 1px solid #545454;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .authForm button:hover {
   background-color: #343434;
 }
 
-.loginTitle {
-  margin: .5rem 0;
-}
-
-.registerQuestion {
-  margin: .5rem 0;
-  font-size: .7rem;
+.loginQuestion {
+  margin: 0.5rem 0;
+  font-size: 0.7rem;
   color: #fff;
 }
-.newUserBtn{
+
+.actuallyUserBtn {
   background-color: #f7c846 !important;
   color: #131313 !important;
 }
+
 .error {
   color: red;
   margin-bottom: 10px;

@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import "./Register.css";
-
+import styles from "./Register.module.css";
 const Register = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState(""); // Add state for user name
-  const [error, setError] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [error, setError] = React.useState("");
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
+    const { username, password, name } = data;
 
+    // Retrieve existing users from localStorage
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
     const userExists = existingUsers.find((user) => user.username === username);
 
     if (userExists) {
       setError("User already exists");
     } else {
-      const newUser = { username, password, name }; // Include name
+      const newUser = { username, password, name }; // Include name in the new user object
       existingUsers.push(newUser);
       localStorage.setItem("users", JSON.stringify(existingUsers));
       navigate("/login");
@@ -30,36 +33,77 @@ const Register = () => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-form">
-        <h2 className="register">Register</h2>
-        {error && <p className="error">{error}</p>}
-        <form onSubmit={handleRegister}>
+    <div className={styles.authContainer}>
+      <div className={styles.authForm}>
+        <h2 className={styles.register}>Register</h2>
+        {error && <p className={styles.error}>{error}</p>}
+        <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
-            placeholder="Name" // Input for name
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
+            placeholder="Name"
+            {...register("name", {
+              required: "Name is required",
+              maxLength: {
+                value: 20,
+                message: "Name cannot exceed 20 characters",
+              },
+            })}
           />
+          {errors.name && <p className={styles.error}>{errors.name.message}</p>}
+
           <input
             type="text"
             placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
+            {...register("username", {
+              required: "Username is required",
+              maxLength: {
+                value: 20,
+                message: "Username cannot exceed 20 characters",
+              },
+              minLength: {
+                value: 2,
+                message: "Username must be at least 2 characters",
+              },
+              pattern: {
+                value: /^[A-Za-z]+$/,
+                message: "Username can only contain letters",
+              },
+            })}
           />
+          {errors.username && (
+            <p className={styles.error}>{errors.username.message}</p>
+          )}
+
           <input
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+            {...register("password", {
+              required: "Password is required",
+              maxLength: {
+                value: 20,
+                message: "Password cannot exceed 20 characters",
+              },
+              minLength: {
+                value: 8,
+                message: "Password must be at least 8 characters",
+              },
+              pattern: {
+                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/,
+                message:
+                  "Password must contain at least one letter and one number",
+              },
+            })}
           />
+          {errors.password && (
+            <p className={styles.error}>{errors.password.message}</p>
+          )}
+
           <button type="submit">Register</button>
         </form>
-        <p className="login-question">Do you have an account?</p>
-        <button onClick={handleLoginClick}>Login</button>
+        <p className={styles.loginQuestion}>Do you have an account?</p>
+        <button className={styles.actuallyUserBtn} onClick={handleLoginClick}>
+          Login
+        </button>
       </div>
     </div>
   );
