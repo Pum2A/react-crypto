@@ -113,8 +113,9 @@
   background-color: #fff;
   color: #131112;
   font-weight: 600;
-  border: none;
+  border: 1px solid #131112;
   cursor: pointer;
+  
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -165,6 +166,7 @@
   border-radius: 0.5rem;
   transition: transform 0.3s;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .columnPremiumMembershipBlock:hover {
@@ -219,12 +221,12 @@
   }
 
   .headerMessage p {
-    text-align: center;
+    /* text-align: center; */
   }
 
   .columnContent h3 {
     font-size: 1.5rem;
-    text-align: center;
+    /* text-align: center; */
 
   }
 
@@ -234,7 +236,6 @@
   }
   
   .communityContainer{
-    align-items: center;
 
   }
 
@@ -248,10 +249,7 @@
     flex-direction: column;
   }
 
-  .flexItemOrange,
-  .flexItemGray {
-    padding: 1rem;
-  }
+ 
 
   .columnContent h3 {
     font-size: 1.2rem;

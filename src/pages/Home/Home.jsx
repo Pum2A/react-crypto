@@ -129,10 +129,20 @@ const Home = ({ searchQuery }) => {
               <div className={styles.columnTextContent}>
                 <h3>WORLDWIDE CRYPTOCURRENCY CONTENT</h3>
                 <div className={styles.communityContainer}>
-                  <p>Our Community on Discord and Twitter</p>
+                  <p>Our Community on Discord and Github</p>
                   <span>
-                    <button>Discord</button>
-                    <button>Twitter</button>
+                    <a
+                      href="https://discord.gg/PnVqPvWG"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <button>Discord</button>
+                    </a>
+                    <a
+                      href="https://github.com/Pum2A/react-crypto"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <button>Github</button>
+                    </a>
                   </span>
                 </div>
               </div>
