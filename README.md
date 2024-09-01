@@ -1,8 +1,83 @@
-# React + Vite
+# React Crypto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Link do strony: https://pum2a.github.io/react-crypto/
 
-Currently, two official plugins are available:
+**React Crypto** to aplikacja internetowa dotycząca kryptowalut, która umożliwia użytkownikom przeglądanie informacji o różnych kryptowalutach, takich jak ceny, najniższe i najwyższe wartości w ciągu ostatnich 24 godzin oraz inne szczegóły. Użytkownicy mogą również:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funkcje
+
+- **Zmieniać swoje zdjęcie profilowe**: Personalizuj swój profil poprzez aktualizację zdjęcia.
+- **Wyszukiwać kryptowaluty**: Znajdź interesujące Cię kryptowaluty przy użyciu wbudowanej funkcji wyszukiwania.
+- **Dodawać kryptowaluty do ulubionych**: Śledź swoje ulubione kryptowaluty, aby mieć do nich szybki dostęp.
+- **Przeglądać artykuły**: Zdobądź informacje na temat kryptowalut dzięki różnym artykułom dostępnym w aplikacji.
+- **Sprawdzać statystyki**: Analizuj różne statystyki dotyczące rynku kryptowalut.
+
+## Funkcjonalności
+
+- **Przegląd kryptowalut**: Zobacz listę kryptowalut, ich aktualne ceny, wartości 24h low i high, oraz inne szczegóły.
+- **Wyszukiwanie**: Znajdź konkretne kryptowaluty według nazwy lub symbolu.
+- **Ulubione**: Dodawaj kryptowaluty do ulubionych i zarządzaj swoją listą ulubionych.
+- **Artykuły**: Czytaj artykuły związane z kryptowalutami.
+- **Statystyki**: Przeglądaj szczegółowe statystyki dotyczące różnych kryptowalut.
+
+## Instalacja
+
+1. **Klonowanie repozytorium**:
+    ```bash
+    git clone https://github.com/&lt;Twoje-Username&gt;/react-crypto.git
+    ```
+
+2. **Przejdź do katalogu projektu**:
+    ```bash
+    cd react-crypto
+    ```
+
+3. **Zainstaluj zależności**:
+    ```bash
+    npm install
+    ```
+
+
+# React Crypto (English Version)
+
+Website link: [https://pum2a.github.io/react-crypto/](https://pum2a.github.io/react-crypto/)
+
+**React Crypto** is a web application focused on cryptocurrencies, allowing users to view information about various cryptocurrencies, such as prices, 24-hour low and high values, and other details. Users can also:
+
+## Features
+
+- **Change your profile picture**: Personalize your profile by updating your picture.
+- **Search for cryptocurrencies**: Find cryptocurrencies of interest using the built-in search functionality.
+- **Add cryptocurrencies to favorites**: Keep track of your favorite cryptocurrencies for quick access.
+- **Browse articles**: Get information about cryptocurrencies through various articles available in the app.
+- **Check statistics**: Analyze various statistics related to the cryptocurrency market.
+
+## Functionalities
+
+- **Cryptocurrency Overview**: View a list of cryptocurrencies, their current prices, 24-hour low and high values, and other details.
+- **Search**: Find specific cryptocurrencies by name or symbol.
+- **Favorites**: Add cryptocurrencies to favorites and manage your favorites list.
+- **Articles**: Read articles related to cryptocurrencies.
+- **Statistics**: Browse detailed statistics about different cryptocurrencies.
+
+## Installation
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/<Your-Username>/react-crypto.git
+    ```
+
+2. **Navigate to the project directory**:
+    ```bash
+    cd react-crypto
+    ```
+
+3. **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+4. **Run the development server**:
+    ```bash
+    npm run dev
+    ```
