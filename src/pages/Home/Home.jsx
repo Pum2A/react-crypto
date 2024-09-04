@@ -115,33 +115,28 @@ const Home = ({ searchQuery }) => {
           <div className={styles.flexItemOrange}>
             <div className={styles.columnContent}>
               <div className={styles.headerContainerMessage}>
-                <h1>CRX</h1>
+                <h1>Explore CRX</h1>
                 <div className={styles.headerMessage}>
-                  <p>Welcome to our site!</p>
-                  <p>World of Cryptocurrency.</p>
-                  <p>
-                    Explore our resources, join our community, and take your
-                    crypto knowledge to the next level.
-                  </p>
+                  <p>Your Gateway to Cryptocurrency</p>
                 </div>
               </div>
 
               <div className={styles.columnTextContent}>
-                <h3>WORLDWIDE CRYPTOCURRENCY CONTENT</h3>
+                <h3>Join Our Community</h3>
                 <div className={styles.communityContainer}>
-                  <p>OUR COMMUNITY ON DISCORD AND GITHUB</p>
+                  <p>Connect with us on Discord and GitHub</p>
                   <span>
                     <a
                       href="https://discord.gg/PnVqPvWG"
                       target="_blank"
                       rel="noopener noreferrer">
-                      <button>Discord</button>
+                      <button>Join Discord</button>
                     </a>
                     <a
                       href="https://github.com/Pum2A/react-crypto"
                       target="_blank"
                       rel="noopener noreferrer">
-                      <button>Github</button>
+                      <button>View on GitHub</button>
                     </a>
                   </span>
                 </div>
@@ -156,7 +151,7 @@ const Home = ({ searchQuery }) => {
               <div className={styles.columnPremiumMembership}>
                 <div className={styles.columnPremiumMembershipBlock}>
                   <div className={styles.columnPremiumMembershipName}>
-                    <span>Premium </span>
+                    <span>Premium</span>
                   </div>
                   <div className={styles.columnPremiumMembershipPrice}>
                     <span>$9.99</span>
@@ -167,7 +162,7 @@ const Home = ({ searchQuery }) => {
                 </div>
                 <div className={styles.columnPremiumMembershipBlock}>
                   <div className={styles.columnPremiumMembershipName}>
-                    <span>VIP </span>
+                    <span>VIP</span>
                   </div>
                   <div className={styles.columnPremiumMembershipPrice}>
                     <span>$15.99</span>
@@ -178,7 +173,7 @@ const Home = ({ searchQuery }) => {
                 </div>
                 <div className={styles.columnPremiumMembershipBlock}>
                   <div className={styles.columnPremiumMembershipName}>
-                    <span>Sponsor </span>
+                    <span>Sponsor</span>
                   </div>
                   <div className={styles.columnPremiumMembershipPrice}>
                     <span>$19.99</span>
